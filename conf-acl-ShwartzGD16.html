@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>(論文メモ) Improving Hypernymy Detection with an Integrated Path-based and Distributional Method (ACL2016) - 霧でも食ってろ</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./conf-acl-ShwartzGD16.html">
+
+        <meta name="author" content="knuu" />
+        <meta name="keywords" content="論文メモ" />
+        <meta name="description" content="書誌情報 title Improving Hypernymy Detection with an Integrated Path-based and Distributional Method author VeredShwartz, Yoav Goldberg, Ido Dagan Bar-Ilan University, Israel venue ACL 2016 url 論文(ACL Anthology) 著者スライドなど 実装 その他 ACL 2016 Outstanding Paper Award 解くべき問題は何か？ 単語の組(x,y)に対して、yがxの上位語であるかどうかを推定 例: x = トム・クルーズ, y = 俳優 -&gt; yはxの上位語である 質問応答などで有用な応用がある …" />
+
+        <meta property="og:site_name" content="霧でも食ってろ" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="(論文メモ) Improving Hypernymy Detection with an Integrated Path-based and Distributional Method (ACL2016)"/>
+        <meta property="og:url" content="./conf-acl-ShwartzGD16.html"/>
+        <meta property="og:description" content="書誌情報 title Improving Hypernymy Detection with an Integrated Path-based and Distributional Method author VeredShwartz, Yoav Goldberg, Ido Dagan Bar-Ilan University, Israel venue ACL 2016 url 論文(ACL Anthology) 著者スライドなど 実装 その他 ACL 2016 Outstanding Paper Award 解くべき問題は何か？ 単語の組(x,y)に対して、yがxの上位語であるかどうかを推定 例: x = トム・クルーズ, y = 俳優 -&gt; yはxの上位語である 質問応答などで有用な応用がある …"/>
+        <meta property="article:published_time" content="2017-10-10" />
+            <meta property="article:section" content="blog" />
+            <meta property="article:tag" content="論文メモ" />
+            <meta property="article:author" content="knuu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/emacs.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+霧でも食ってろ            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="./pages/about-me.html">
+                             About Me
+                          </a></li>
+                         <li><a href="./pages/ml-dm-ai_lab_map.html">
+                             ML-DM-AI Lab Map
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./conf-acl-ShwartzGD16.html"
+                       rel="bookmark"
+                       title="Permalink to (論文メモ) Improving Hypernymy Detection with an Integrated Path-based and Distributional Method (ACL2016)">
+                        (論文メモ) Improving Hypernymy Detection with an Integrated Path-based and Distributional Method (ACL2016)
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-10-10T00:00:00+09:00"> 2017-10-10(火)</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/paper-memo.html">論文メモ</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h3>書誌情報</h3>
+<ul>
+<li>title<ul>
+<li>Improving Hypernymy Detection with an Integrated Path-based and Distributional Method</li>
+</ul>
+</li>
+<li>author<ul>
+<li>VeredShwartz, Yoav Goldberg, Ido Dagan<ul>
+<li>Bar-Ilan University, Israel</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>venue<ul>
+<li>ACL 2016</li>
+</ul>
+</li>
+<li>url<ul>
+<li><a href="https://aclanthology.coli.uni-saarland.de/papers/P16-1226/p16-1226">論文(ACL Anthology)</a></li>
+<li><a href="http://u.cs.biu.ac.il/~havivv/">著者スライドなど</a></li>
+<li><a href="https://github.com/vered1986/HypeNET">実装</a></li>
+</ul>
+</li>
+<li>その他<ul>
+<li>ACL 2016 Outstanding Paper Award</li>
+</ul>
+</li>
+</ul>
+<h3>解くべき問題は何か？</h3>
+<ul>
+<li>単語の組(x,y)に対して、yがxの上位語であるかどうかを推定<ul>
+<li>例: x = トム・クルーズ, y = 俳優 -&gt; yはxの上位語である</li>
+<li>質問応答などで有用な応用がある</li>
+</ul>
+</li>
+</ul>
+<h3>既存法との違いは何か？</h3>
+<ol>
+<li>構文解析木ベースの手法を、構文木をRNN-LSTMでencodeする手法を提案し、state of the artに近い評価値を達成</li>
+<li>1の手法と分散表現ベースの手法を組み合わせる手法を提案して、state of the art を達成</li>
+</ol>
+<p>この手法は以下の図で大体説明できる。</p>
+<p><img alt="提案手法(図は論文より引用)" class="img-responsive" src="./images/conf-acl-ShwartzGD16-method.png"/></p>
+<ul>
+<li>上図のキャプションの説明文を読めば分かるが、右側の四角の点線で囲まれた部分を取り除いたのが構文木ベースの手法</li>
+<li>構文木ベースの手法の手順<ol>
+<li>用いるコーパスで単語ペア(x,y)が出現する文を収集し、構文解析を行って構文木を得る</li>
+<li>構文解析木を無向グラフと見たときの、頂点xからyへの最短路の列p=(v_x, ..., v_y)をRNN-LSTMに入力としていれて、その出力o_pを得る<ul>
+<li>単語xに関するv_xは、上の図の色分けされて示されている情報(lemma, POS, dependency label, direction)をいれる</li>
+<li>lemma: 単語xの単語ベクトル(ここではGloVeでコーパスとして学習させている)</li>
+<li>POS: 品詞情報</li>
+<li>dependency label: 依存関係のラベル、</li>
+<li>direction: 最短路の枝の向き(&lt;,-,&gt;の3種類)</li>
+</ul>
+</li>
+<li>単語(x,y)に関してRNN-LSTMから得られたベクトルを平均する</li>
+<li>平均したベクトルを出力層に繋ぐ</li>
+</ol>
+</li>
+<li>分散表現と組み合わせた手法<ul>
+<li>構文木ベースの手法において出力層に繋ぐときに、単語x,yの単語ベクトル(上と同様にGloVe)も繋げる</li>
+</ul>
+</li>
+</ul>
+<h3>どうやって評価したか？</h3>
+<ul>
+<li>
+<p>既存のデータセットを拡張し、これを用いて精度、再現率、F1値で評価し、ベースライン手法と比較した</p>
+</li>
+<li>
+<p>データセット</p>
+<ul>
+<li>既存の上位語下位語関係データセットは規模が小さく提案手法では上手く学習できないため、distant supervision (Riedel et al, NAACL 2013) を用いて拡張</li>
+<li>具体的には、WordNet、DBPedia、Wikidata、Yagoに含まれる特定の関係のみを用いた(Table1参照)<ul>
+<li>約7万ペアの正解データを収集した</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ベースライン手法<ul>
+<li>構文解析木ベースの手法<ul>
+<li>Snow (Snow et al., NIPS 2004): 構文解析木ベースの古典的な手法</li>
+<li>Snow + Gen: Snowと構文木のパターンを一般化する手法(Nakashole et al., EMNLP &amp; CoNLL 2012)の組み合わせ</li>
+</ul>
+</li>
+<li>分散表現ベース<ul>
+<li>SLQS (Santus et al., EACL 2014)</li>
+<li>Best supervised: 事前学習した単語ベクトルモデルと、いくつかの分散表現ベース手法を競わせた</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>結果</li>
+</ul>
+<p><img alt="結果(図は論文より引用)" class="img-responsive" src="./images/conf-acl-ShwartzGD16-result.png"/></p>
+<ul>
+<li>random split は作成した正解データをそのままランダムに分割</li>
+<li>lexical split は (Levy et al., NAACL 2015)で指摘された lexical memorization という問題を避けるために提案された分け方<ul>
+<li>lexical memorization はざっくり言うと、animal みたいな多くの単語の上位語になる単語は、単語間の関係とは無関係に上位語と判定されてしまいやすいという問題</li>
+<li>つまり、任意の単語xに対して、(x,animal)というペアではanimalはxの上位語と判定されてしまう</li>
+</ul>
+</li>
+<li>提案手法(HypeNET)がstate-of-the-artになった</li>
+</ul>
+<h3>その他</h3>
+<ul>
+<li>エラー分析<ul>
+<li>False Positive (上位語でないのに上位語と判断した場合): Table 6<ul>
+<li>約20%が同義語関係、約30%が下位語関係など</li>
+</ul>
+</li>
+<li>False Negative (上位語であるのに上位語でないと判断した場合)<ul>
+<li>8割が(x,y)の共起が25回以下(True positiveの平均共起回数は99.7回)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3>参考資料</h3>
+<ul>
+<li><a href="https://speakerdeck.com/himkt/improving-hypernymy-detection-with-an-integrated-path-based-and-distributional-method">筑波大の人による紹介(英語)</a></li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <!-- AddThis Button END -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+        <p>
+            <img width="100%" class="img-thumbnail" src="./images/coffee.png"/>
+        </p>
+    <p>
+      <strong>About knuu</strong><br/>
+        京都->東京にいる競技プログラマ
+    </p>
+</div><!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/n_knuu6"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="https://github.com/knuu"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="./"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group " id="tags">
+    <li class="list-group-item tag-1">
+      <a href="./tag/statistics.html">統計</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/paper-memo.html">論文メモ</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/python.html">python</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/pelican.html">pelican</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/scraping.html">スクレイピング</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/algorithm.html">アルゴリズム</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2018 knuu
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=True"></script>
+</body>
+</html>

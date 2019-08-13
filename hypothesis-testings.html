@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>仮説検定早見表 - 霧でも食ってろ</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./hypothesis-testings.html">
+
+        <meta name="author" content="knuu" />
+        <meta name="keywords" content="統計" />
+        <meta name="description" content="正規母集団に対する仮説検定 『統計学入門』第12章より 早見表 何の検定 検定統計量 自由度 分布 母平均(母分散既知) \(\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}\) 標準正規分布 \(N(0,1)\) 母平均(母分散未知) \(\frac{\overline{X}-\mu}{\sqrt{s^2/n}}\) \(n-1\) t分布 母分散 \(\frac{(n-1)s^2}{\sigma_{0}^2}\) \(n-1\) \(\chi^2\) 分布 2分布の平均(分散が等しい) \(\frac{\overline …" />
+
+        <meta property="og:site_name" content="霧でも食ってろ" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="仮説検定早見表"/>
+        <meta property="og:url" content="./hypothesis-testings.html"/>
+        <meta property="og:description" content="正規母集団に対する仮説検定 『統計学入門』第12章より 早見表 何の検定 検定統計量 自由度 分布 母平均(母分散既知) \(\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}\) 標準正規分布 \(N(0,1)\) 母平均(母分散未知) \(\frac{\overline{X}-\mu}{\sqrt{s^2/n}}\) \(n-1\) t分布 母分散 \(\frac{(n-1)s^2}{\sigma_{0}^2}\) \(n-1\) \(\chi^2\) 分布 2分布の平均(分散が等しい) \(\frac{\overline …"/>
+        <meta property="article:published_time" content="2017-06-18" />
+            <meta property="article:section" content="blog" />
+            <meta property="article:tag" content="統計" />
+            <meta property="article:author" content="knuu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/emacs.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+霧でも食ってろ            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="./pages/about-me.html">
+                             About Me
+                          </a></li>
+                         <li><a href="./pages/ml-dm-ai_lab_map.html">
+                             ML-DM-AI Lab Map
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./hypothesis-testings.html"
+                       rel="bookmark"
+                       title="Permalink to 仮説検定早見表">
+                        仮説検定早見表
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-06-18T00:00:00+09:00"> 2017-06-18(日)</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/statistics.html">統計</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2>正規母集団に対する仮説検定</h2>
+<ul>
+<li>『統計学入門』第12章より</li>
+</ul>
+<h2>早見表</h2>
+<table class="table-striped table-hover table">
+<thead>
+<tr>
+<th align="center">何の検定</th>
+<th align="center">検定統計量</th>
+<th align="center">自由度</th>
+<th align="center">分布</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">母平均(母分散既知)</td>
+<td align="center"><span class="math">\(\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}\)</span></td>
+<td align="center"></td>
+<td align="center">標準正規分布 <span class="math">\(N(0,1)\)</span></td>
+</tr>
+<tr>
+<td align="center">母平均(母分散未知)</td>
+<td align="center"><span class="math">\(\frac{\overline{X}-\mu}{\sqrt{s^2/n}}\)</span></td>
+<td align="center"><span class="math">\(n-1\)</span></td>
+<td align="center">t分布</td>
+</tr>
+<tr>
+<td align="center">母分散</td>
+<td align="center"><span class="math">\(\frac{(n-1)s^2}{\sigma_{0}^2}\)</span></td>
+<td align="center"><span class="math">\(n-1\)</span></td>
+<td align="center"><span class="math">\(\chi^2\)</span> 分布</td>
+</tr>
+<tr>
+<td align="center">2分布の平均(分散が等しい)</td>
+<td align="center"><span class="math">\(\frac{\overline{X}-\overline{Y}}{\frac{(m-1)s_1^2+(n-1)s_2^2}{m+n-2}\sqrt{\frac{1}{m}+\frac{1}{n}}}\)</span></td>
+<td align="center"><span class="math">\(m+n-2\)</span></td>
+<td align="center">t分布</td>
+</tr>
+<tr>
+<td align="center">2分布の平均(分散が等しくない)</td>
+<td align="center"><span class="math">\(\frac{\overline{X}-\overline{Y}}{\sqrt{s_1^2/m+s_2^2/n}}\)</span></td>
+<td align="center"><span class="math">\(\frac{(s_1^2/m+s_2^2/n)^2}{\frac{(s_1^2/m)^2}{m-1}+\frac{(s_2^2/n)^2}{n-1}}\)</span>に最も近い整数</td>
+<td align="center">t分布</td>
+</tr>
+<tr>
+<td align="center">2分布の分散</td>
+<td align="center"><span class="math">\(\frac{s_1^2}{s_2^2}\)</span></td>
+<td align="center"><span class="math">\((m-1, n-1)\)</span></td>
+<td align="center">F分布</td>
+</tr>
+<tr>
+<td align="center">表の度数分布</td>
+<td align="center"><span class="math">\(\sum_{i=1}^k\frac{(f_i-np_i)^2}{np_i}\)</span></td>
+<td align="center"><span class="math">\(k-1\)</span></td>
+<td align="center"><span class="math">\(\chi^2\)</span> 分布</td>
+</tr>
+<tr>
+<td align="center">分割表の属性の独立</td>
+<td align="center"><span class="math">\(\sum_{i=1}^r\sum_{j=1}^c\frac{(nf_{ij}-f_{i\cdot}f_{\cdot j})^2}{nf_{i\cdot}f_{\cdot j}}\)</span></td>
+<td align="center"><span class="math">\((r-1)(c-1)\)</span></td>
+<td align="center"><span class="math">\(\chi^2\)</span> 分布</td>
+</tr>
+</tbody>
+</table>
+<h3>母平均に関する検定</h3>
+<ul>
+<li>母分散が既知のとき<ul>
+<li>検定統計量 <strong><span class="math">\(Z\)</span> は <span class="math">\(\overline{X}\)</span> の標準化変数</strong> である</li>
+<li>つまり <strong><span class="math">\(Z=\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}\)</span></strong> である</li>
+<li>帰無仮説が正しければ、これは <strong>標準正規分布N(0, 1)</strong> に従う</li>
+</ul>
+</li>
+<li>母分散が未知のとき<ul>
+<li>検定統計量 <strong><span class="math">\(Z\)</span> は <span class="math">\(\overline{X}\)</span> の標準化変数の母分散 <span class="math">\(\sigma^2\)</span> を不偏分散 <span class="math">\(s^2\)</span> に置き換えたもの</strong> である</li>
+<li>つまり <strong><span class="math">\(Z=\frac{\overline{X}-\mu}{\sqrt{s^2/n}}\)</span></strong> である</li>
+<li>帰無仮説が正しければ、これは <strong>自由度 <span class="math">\(n-1\)</span> のt分布 <span class="math">\(t(n-1)\)</span></strong> に従う</li>
+<li>これをスチューデントのt検定と呼ぶ</li>
+</ul>
+</li>
+</ul>
+<h3>母分散に関する検定</h3>
+<ul>
+<li>検定統計量は <strong><span class="math">\(\chi^2=\frac{(n-1)s^2}{\sigma_{0}^2}\)</span></strong></li>
+<li>これは帰無仮説のもとで <strong>自由度 <span class="math">\(n-1\)</span> の <span class="math">\(\chi^2\)</span> 分布</strong> に従う</li>
+<li>これを <span class="math">\(\chi^2\)</span> 検定という</li>
+</ul>
+<h3>母平均の差の検定</h3>
+<ul>
+<li>2つの分布の結果に差があるかどうかを検定する</li>
+<li>それぞれ大きさ <span class="math">\(m, n\)</span> の標本 <span class="math">\(X_1, \cdots, X_m, Y_1, \cdots, Y_n\)</span> とする</li>
+<li>
+<p><span class="math">\(X, Y\)</span>の不偏分散をそれぞれ<span class="math">\(s_1^2, s_2^2\)</span>とする</p>
+</li>
+<li>
+<p>分散が等しいとき</p>
+<ul>
+<li>合併した分散<span class="math">\(s^2\)</span>は<span class="math">\(s^2=\frac{(m-1)s_1^2+(n-1)s_2^2}{m+n-2}\)</span> と表せる</li>
+<li>このとき検定統計量は <strong><span class="math">\(t=\frac{\overline{X}-\overline{Y}}{s\sqrt{1/m+1/n}}\)</span></strong></li>
+<li>これは <strong>自由度 <span class="math">\(m+n-2\)</span> の t分布 <span class="math">\(t(m+n-2)\)</span></strong> に従う</li>
+</ul>
+</li>
+<li>分散が等しくないとき<ul>
+<li>検定統計量は <strong><span class="math">\(t=\frac{\overline{X}-\overline{Y}}{\sqrt{s_1^2/m+s_2^2/n}}\)</span></strong></li>
+<li><strong><span class="math">\(\nu=\frac{(s_1^2/m+s_2^2/n)^2}{\frac{(s_1^2/m)^2}{m-1}+\frac{(s_2^2/n)^2}{n-1}}\)</span></strong> とおき、<span class="math">\(\nu^\ast\)</span> を <span class="math">\(\nu\)</span> に最も近い整数とすると、 <span class="math">\(t\)</span>は近似的に <strong>自由度 <span class="math">\(\nu^\ast\)</span> のt分布    <span class="math">\(t(\nu^\ast)\)</span></strong> に従う</li>
+<li>この検定はウェルチの検定と呼ばれる</li>
+</ul>
+</li>
+</ul>
+<h3>母分散の比の検定</h3>
+<ul>
+<li>母分散が等しいかどうかを調べたいときの検定</li>
+<li>それぞれ大きさ <span class="math">\(m, n\)</span> の標本 <span class="math">\(X_1, \cdots, X_m, Y_1, \cdots, Y_n\)</span> とする</li>
+<li>
+<p><span class="math">\(X, Y\)</span>の不偏分散をそれぞれ<span class="math">\(s_1^2, s_2^2\)</span>とする</p>
+</li>
+<li>
+<p>ここで検定統計量であるフィッシャーの分散比は <strong><span class="math">\(F=\frac{s_1^2}{s_2^2}\)</span></strong></p>
+</li>
+<li>これは帰無仮説のもとで <strong>自由度 <span class="math">\((m-1, n-1)\)</span> のF分布 <span class="math">\(F(m-1, n-1)\)</span></strong> に従う</li>
+<li>これをF検定という</li>
+</ul>
+<h2>様々な <span class="math">\(\chi^2\)</span> 検定</h2>
+<h3>適合度の検定</h3>
+<ul>
+<li>適合度の <span class="math">\(\chi^2\)</span> 検定<ul>
+<li>仮定された確率分布に対して、標本から求められた度数が適合するかどうかを検証する検定</li>
+</ul>
+</li>
+<li>以下のような表を考える<ul>
+<li>理論確率は仮定した確率</li>
+<li>理論度数は(サンプル数)×(理論確率)</li>
+</ul>
+</li>
+</ul>
+<table class="table-striped table-hover table">
+<thead>
+<tr>
+<th align="left">カテゴリ</th>
+<th align="center"><span class="math">\(A_1\)</span></th>
+<th align="center"><span class="math">\(A_2\)</span></th>
+<th align="center"><span class="math">\(\cdots\)</span></th>
+<th align="center"><span class="math">\(A_k\)</span></th>
+<th align="center">計</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">観測度数</td>
+<td align="center"><span class="math">\(f_1\)</span></td>
+<td align="center"><span class="math">\(f_2\)</span></td>
+<td align="center"><span class="math">\(\cdots\)</span></td>
+<td align="center"><span class="math">\(f_k\)</span></td>
+<td align="center"><span class="math">\(n\)</span></td>
+</tr>
+<tr>
+<td align="left">理論確率</td>
+<td align="center"><span class="math">\(p_1\)</span></td>
+<td align="center"><span class="math">\(p_2\)</span></td>
+<td align="center"><span class="math">\(\cdots\)</span></td>
+<td align="center"><span class="math">\(p_k\)</span></td>
+<td align="center"><span class="math">\(1\)</span></td>
+</tr>
+<tr>
+<td align="left">理論度数</td>
+<td align="center"><span class="math">\(np_1\)</span></td>
+<td align="center"><span class="math">\(np_2\)</span></td>
+<td align="center"><span class="math">\(\cdots\)</span></td>
+<td align="center"><span class="math">\(np_k\)</span></td>
+<td align="center"><span class="math">\(n\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>検定統計量はピアソンの適合度基準 <strong><span class="math">\(\chi^2=\sum_{i=1}^k\frac{(f_i-np_i)^2}{np_i}\)</span></strong></li>
+<li>これは <span class="math">\(n\)</span> が大きいとき <strong>自由度 <span class="math">\(k-1\)</span> の <span class="math">\(\chi^2\)</span> 分布 <span class="math">\(\chi^2(k-1)\)</span></strong> に従う</li>
+</ul>
+<h3>分割表と独立性の検定</h3>
+<ul>
+<li>属性 <span class="math">\(A\)</span> がカテゴリ <span class="math">\(A_1, A_2, \cdots, A_r\)</span> 、属性 <span class="math">\(B\)</span> がカテゴリ <span class="math">\(B_1, B_2, \cdots, B_c\)</span> をもつような分割表を考える<ul>
+<li>つまりは以下のような分割表である</li>
+</ul>
+</li>
+</ul>
+<table class="table-striped table-hover table">
+<thead>
+<tr>
+<th align="left">カテゴリ</th>
+<th align="center"><span class="math">\(B_1\)</span></th>
+<th align="center"><span class="math">\(B_2\)</span></th>
+<th align="center"><span class="math">\(\cdots\)</span></th>
+<th align="center"><span class="math">\(B_c\)</span></th>
+<th align="center">計</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><span class="math">\(A_1\)</span></td>
+<td align="center"><span class="math">\(f_{11}\)</span></td>
+<td align="center"><span class="math">\(f_{12}\)</span></td>
+<td align="center"><span class="math">\(\cdots\)</span></td>
+<td align="center"><span class="math">\(f_{1c}\)</span></td>
+<td align="center"><span class="math">\(f_{1\cdot}\)</span></td>
+</tr>
+<tr>
+<td align="left"><span class="math">\(A_2\)</span></td>
+<td align="center"><span class="math">\(f_{21}\)</span></td>
+<td align="center"><span class="math">\(f_{22}\)</span></td>
+<td align="center"><span class="math">\(\cdots\)</span></td>
+<td align="center"><span class="math">\(f_{2c}\)</span></td>
+<td align="center"><span class="math">\(f_{2\cdot}\)</span></td>
+</tr>
+<tr>
+<td align="left"><span class="math">\(\cdots\)</span></td>
+<td align="center"><span class="math">\(\cdots\)</span></td>
+<td align="center"><span class="math">\(\cdots\)</span></td>
+<td align="center"><span class="math">\(\cdots\)</span></td>
+<td align="center"><span class="math">\(\cdots\)</span></td>
+<td align="center"><span class="math">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td align="left"><span class="math">\(A_r\)</span></td>
+<td align="center"><span class="math">\(f_{r1}\)</span></td>
+<td align="center"><span class="math">\(f_{r2}\)</span></td>
+<td align="center"><span class="math">\(\cdots\)</span></td>
+<td align="center"><span class="math">\(f_{rc}\)</span></td>
+<td align="center"><span class="math">\(f_{r\cdot}\)</span></td>
+</tr>
+<tr>
+<td align="left">計</td>
+<td align="center"><span class="math">\(f_{\cdot 1}\)</span></td>
+<td align="center"><span class="math">\(f_{\cdot 2}\)</span></td>
+<td align="center"><span class="math">\(\cdots\)</span></td>
+<td align="center"><span class="math">\(f_{\cdot c}\)</span></td>
+<td align="center"><span class="math">\(n\)</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>属性 <span class="math">\(A\)</span> と属性 <span class="math">\(B\)</span> が　<strong>独立</strong> であるかどうかを検定したい<ul>
+<li>独立性の <span class="math">\(\chi^2\)</span> 検定と呼ばれる</li>
+<li><strong>独立</strong> とは <span class="math">\(A_i \cap B_j\)</span> に対して、<strong><span class="math">\(P(A_i \cap B_j)=P(A_i)P(B_j)\)</span></strong> が成立すること</li>
+</ul>
+</li>
+<li>帰無仮説 <span class="math">\(H_0\)</span> : 任意の <span class="math">\(i, j\)</span> に対して <span class="math">\(P(A_i \cap B_j)=P(A_i)P(B_j)\)</span> が成立</li>
+<li>検定統計量 <strong><span class="math">\(\chi^2=\sum_{i=1}^r\sum_{j=1}^c\frac{(f_{ij}-f_{i\cdot}f_{\cdot j}/n)^2}{f_{i\cdot}f_{\cdot j}/n}=\sum_{i=1}^r\sum_{j=1}^c\frac{(nf_{ij}-f_{i\cdot}f_{\cdot j})^2}{nf_{i\cdot}f_{\cdot j}}\)</span></strong></li>
+<li>これは <strong>自由度 <span class="math">\((r-1)(c-1)\)</span> の <span class="math">\(\chi^2\)</span> 検定</strong> に従う</li>
+</ul>
+<h2>中心極限定理を用いる検定</h2>
+<ul>
+<li>母集団分布が正規分布でなくても、中心極限定理が成立するなど検定統計量が近似的に正規分布に従う場合、正規分布に対する検定の手続きをそのまま用いることができる<ul>
+<li>ex. 二項分布の標本数が多い場合、検定統計量は中心極限定理により、標本数が多くなると標準正規分布に従う</li>
+</ul>
+</li>
+</ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <!-- AddThis Button END -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+        <p>
+            <img width="100%" class="img-thumbnail" src="./images/coffee.png"/>
+        </p>
+    <p>
+      <strong>About knuu</strong><br/>
+        京都->東京にいる競技プログラマ
+    </p>
+</div><!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/n_knuu6"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="https://github.com/knuu"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="./"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group " id="tags">
+    <li class="list-group-item tag-1">
+      <a href="./tag/statistics.html">統計</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/paper-memo.html">論文メモ</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/python.html">python</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/pelican.html">pelican</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/scraping.html">スクレイピング</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/algorithm.html">アルゴリズム</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2018 knuu
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=True"></script>
+</body>
+</html>

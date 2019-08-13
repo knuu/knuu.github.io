@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>連続する部分列の和の総和 - 霧でも食ってろ</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./sum-of-all-continuous-subarrays.html">
+
+        <meta name="author" content="knuu" />
+        <meta name="keywords" content="アルゴリズム" />
+        <meta name="description" content="問題 長さ\(N\)の数列 \(A = [a_1, a_2, ..., a_N]\)が与えられる この数列の任意の連続する部分列の和の総和を\(10^9+7\)で割った余りを求めよ 例 \(A = [1, 2, 3]\)のとき、和は\(1+2+3+(1+2)+(2+3)+(1+2+3)=20\) 制約 \(1 \le N \le 10^6\) \(-10^9 \le a_i \le 10^9 (i = 1, ..., N)\) 解法 …" />
+
+        <meta property="og:site_name" content="霧でも食ってろ" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="連続する部分列の和の総和"/>
+        <meta property="og:url" content="./sum-of-all-continuous-subarrays.html"/>
+        <meta property="og:description" content="問題 長さ\(N\)の数列 \(A = [a_1, a_2, ..., a_N]\)が与えられる この数列の任意の連続する部分列の和の総和を\(10^9+7\)で割った余りを求めよ 例 \(A = [1, 2, 3]\)のとき、和は\(1+2+3+(1+2)+(2+3)+(1+2+3)=20\) 制約 \(1 \le N \le 10^6\) \(-10^9 \le a_i \le 10^9 (i = 1, ..., N)\) 解法 …"/>
+        <meta property="article:published_time" content="2018-06-20" />
+            <meta property="article:section" content="blog" />
+            <meta property="article:tag" content="アルゴリズム" />
+            <meta property="article:author" content="knuu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/emacs.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+霧でも食ってろ            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="./pages/about-me.html">
+                             About Me
+                          </a></li>
+                         <li><a href="./pages/ml-dm-ai_lab_map.html">
+                             ML-DM-AI Lab Map
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./sum-of-all-continuous-subarrays.html"
+                       rel="bookmark"
+                       title="Permalink to 連続する部分列の和の総和">
+                        連続する部分列の和の総和
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2018-06-20T00:00:00+09:00"> 2018-06-20(水)</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/algorithm.html">アルゴリズム</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2>問題</h2>
+<ul>
+<li>長さ<span class="math">\(N\)</span>の数列 <span class="math">\(A = [a_1, a_2, ..., a_N]\)</span>が与えられる</li>
+<li>この数列の任意の連続する部分列の和の総和を<span class="math">\(10^9+7\)</span>で割った余りを求めよ</li>
+</ul>
+<h2>例</h2>
+<p><span class="math">\(A = [1, 2, 3]\)</span>のとき、和は<span class="math">\(1+2+3+(1+2)+(2+3)+(1+2+3)=20\)</span></p>
+<h2>制約</h2>
+<ul>
+<li><span class="math">\(1 \le N \le 10^6\)</span></li>
+<li><span class="math">\(-10^9 \le a_i \le 10^9 (i = 1, ..., N)\)</span></li>
+</ul>
+<h2>解法</h2>
+<ul>
+<li><span class="math">\(A\)</span>の累積和を取った数列を<span class="math">\(S\)</span>とする<ul>
+<li>つまり、<span class="math">\(S_i := \sum_{j=1}^{i}a_j\)</span></li>
+<li>ただし、<span class="math">\(S_0 = 0\)</span>とする</li>
+</ul>
+</li>
+<li>このとき、求める総和は、<span class="math">\(\sum_{(i,j):0 \le i &lt; j \le N}(S_j - S_i)\)</span>と書ける<ul>
+<li><span class="math">\((i,j):0 \le i &lt; j \le N\)</span>は<span class="math">\(0 \le i &lt; j \le N\)</span>を満たす組<span class="math">\((i,j)\)</span>を意味する</li>
+</ul>
+</li>
+<li>これは和と差しか出てこないため、正の項<span class="math">\(S_j\)</span>と負の項<span class="math">\(-S_i\)</span>がそれぞれ何回この式の中で現れるかを考えればよい<ul>
+<li>正の項<span class="math">\(S_j(j=0,1,...,N)\)</span>が何回現れるかを考えると、<span class="math">\(S_0\)</span>は0回、<span class="math">\(S_1\)</span>は1回(<span class="math">\(i=0\)</span>のとき)、<span class="math">\(S_2\)</span>は2回(<span class="math">\(i=0,1\)</span>のとき)、と考えていくと、正の項<span class="math">\(S_j\)</span>は<span class="math">\(j\)</span>回現れる</li>
+<li>負の項<span class="math">\(S_i(i=0,...,N-1)\)</span>が何回現れるかを考えると、<span class="math">\(S_0\)</span>は<span class="math">\(N\)</span>回(<span class="math">\(j=1,2,...,N\)</span>のとき)、<span class="math">\(S_1\)</span>は<span class="math">\(N-1\)</span>回(<span class="math">\(j=2,i...,N\)</span>のとき)と考えていくと、<span class="math">\(S_i\)</span>は<span class="math">\((N-i)\)</span>回現れる</li>
+</ul>
+</li>
+<li>よって、<span class="math">\(\sum_{(i,j):0 \le i &lt; j \le N}(S_j - S_i)=\sum_{i=0}^{N}(i \times S_i - (N-i)\times S_i)=\sum_{i=0}^{N}(2i-N-1)S_i\)</span>となる</li>
+<li>以上より、<span class="math">\(O(N)\)</span>で問題を解くことができた</li>
+</ul>
+<h2>コード</h2>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_subarrays</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">mod</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">9</span><span class="o">+</span><span class="mi">7</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">A</span><span class="p">:</span>
+        <span class="n">S</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">S</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span>
+        <span class="n">S</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">%=</span> <span class="n">mod</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">-</span> <span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">s</span> <span class="o">%</span> <span class="n">mod</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">S</span><span class="p">))</span> <span class="o">%</span> <span class="n">mod</span>
+</pre></div>
+<ul>
+<li>負の剰余が出てくるが、python(2/3系ともに)では負の数<span class="math">\(x(x&gt;0)\)</span>の正の数<span class="math">\(m(m&gt;0)\)</span>についての剰余<span class="math">\(x\%m\)</span>は<span class="math">\((x+m)\%m\)</span>と一致するため、問題ない<ul>
+<li>C++ではこのコードは問題が出る</li>
+<li>負の数の剰余の計算で負の数が出る場合の計算は、<a href="https://shunirr.hatenablog.jp/entry/20120409/1333993409">言語仕様によって異なる</a>ため、注意したほうがよい</li>
+</ul>
+</li>
+</ul>
+<h2>類題</h2>
+<ul>
+<li>連続でなくてよい場合は、総和において各数は<span class="math">\(2^{N-1}\)</span>回出現する<ul>
+<li>よって答えは<span class="math">\(2^{N-1}\times\sum_{i=1}^{N}a_i\)</span></li>
+</ul>
+</li>
+</ul>
+<h2>参考</h2>
+<p><a href="https://arc071.contest.atcoder.jp/tasks/arc071_b">AtCoder Regular Contest 071 - D 井井井 / ###</a></p>
+<iframe frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="https://rcm-fe.amazon-adsystem.com/e/cm?ref=qf_sp_asin_til&amp;t=nknuu-22&amp;m=amazon&amp;o=9&amp;p=8&amp;l=as1&amp;IS1=1&amp;detail=1&amp;asins=4839941068&amp;linkId=9119505a6abff7792f516548de62ecc1&amp;bc1=ffffff&lt;1=_top&amp;fc1=333333&amp;lc1=0066c0&amp;bg1=ffffff&amp;f=ifr" style="width:120px;height:240px;">
+</iframe>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <!-- AddThis Button END -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+        <p>
+            <img width="100%" class="img-thumbnail" src="./images/coffee.png"/>
+        </p>
+    <p>
+      <strong>About knuu</strong><br/>
+        京都->東京にいる競技プログラマ
+    </p>
+</div><!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/n_knuu6"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="https://github.com/knuu"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="./"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group " id="tags">
+    <li class="list-group-item tag-1">
+      <a href="./tag/statistics.html">統計</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/paper-memo.html">論文メモ</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/python.html">python</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/pelican.html">pelican</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/scraping.html">スクレイピング</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/algorithm.html">アルゴリズム</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2018 knuu
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=True"></script>
+</body>
+</html>
