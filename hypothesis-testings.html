@@ -102,12 +102,12 @@
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h2>正規母集団に対する仮説検定</h2>
+                <h2 id="_1">正規母集団に対する仮説検定</h2>
 <ul>
 <li>『統計学入門』第12章より</li>
 </ul>
-<h2>早見表</h2>
-<table class="table-striped table-hover table">
+<h2 id="_2">早見表</h2>
+<table class="table table-hover table-striped">
 <thead>
 <tr>
 <th align="center">何の検定</th>
@@ -167,7 +167,7 @@
 </tr>
 </tbody>
 </table>
-<h3>母平均に関する検定</h3>
+<h3 id="_3">母平均に関する検定</h3>
 <ul>
 <li>母分散が既知のとき<ul>
 <li>検定統計量 <strong><span class="math">\(Z\)</span> は <span class="math">\(\overline{X}\)</span> の標準化変数</strong> である</li>
@@ -183,13 +183,13 @@
 </ul>
 </li>
 </ul>
-<h3>母分散に関する検定</h3>
+<h3 id="_4">母分散に関する検定</h3>
 <ul>
 <li>検定統計量は <strong><span class="math">\(\chi^2=\frac{(n-1)s^2}{\sigma_{0}^2}\)</span></strong></li>
 <li>これは帰無仮説のもとで <strong>自由度 <span class="math">\(n-1\)</span> の <span class="math">\(\chi^2\)</span> 分布</strong> に従う</li>
 <li>これを <span class="math">\(\chi^2\)</span> 検定という</li>
 </ul>
-<h3>母平均の差の検定</h3>
+<h3 id="_5">母平均の差の検定</h3>
 <ul>
 <li>2つの分布の結果に差があるかどうかを検定する</li>
 <li>それぞれ大きさ <span class="math">\(m, n\)</span> の標本 <span class="math">\(X_1, \cdots, X_m, Y_1, \cdots, Y_n\)</span> とする</li>
@@ -211,7 +211,7 @@
 </ul>
 </li>
 </ul>
-<h3>母分散の比の検定</h3>
+<h3 id="_6">母分散の比の検定</h3>
 <ul>
 <li>母分散が等しいかどうかを調べたいときの検定</li>
 <li>それぞれ大きさ <span class="math">\(m, n\)</span> の標本 <span class="math">\(X_1, \cdots, X_m, Y_1, \cdots, Y_n\)</span> とする</li>
@@ -224,8 +224,8 @@
 <li>これは帰無仮説のもとで <strong>自由度 <span class="math">\((m-1, n-1)\)</span> のF分布 <span class="math">\(F(m-1, n-1)\)</span></strong> に従う</li>
 <li>これをF検定という</li>
 </ul>
-<h2>様々な <span class="math">\(\chi^2\)</span> 検定</h2>
-<h3>適合度の検定</h3>
+<h2 id="chi2">様々な <span class="math">\(\chi^2\)</span> 検定</h2>
+<h3 id="_7">適合度の検定</h3>
 <ul>
 <li>適合度の <span class="math">\(\chi^2\)</span> 検定<ul>
 <li>仮定された確率分布に対して、標本から求められた度数が適合するかどうかを検証する検定</li>
@@ -237,7 +237,7 @@
 </ul>
 </li>
 </ul>
-<table class="table-striped table-hover table">
+<table class="table table-hover table-striped">
 <thead>
 <tr>
 <th align="left">カテゴリ</th>
@@ -279,14 +279,14 @@
 <li>検定統計量はピアソンの適合度基準 <strong><span class="math">\(\chi^2=\sum_{i=1}^k\frac{(f_i-np_i)^2}{np_i}\)</span></strong></li>
 <li>これは <span class="math">\(n\)</span> が大きいとき <strong>自由度 <span class="math">\(k-1\)</span> の <span class="math">\(\chi^2\)</span> 分布 <span class="math">\(\chi^2(k-1)\)</span></strong> に従う</li>
 </ul>
-<h3>分割表と独立性の検定</h3>
+<h3 id="_8">分割表と独立性の検定</h3>
 <ul>
 <li>属性 <span class="math">\(A\)</span> がカテゴリ <span class="math">\(A_1, A_2, \cdots, A_r\)</span> 、属性 <span class="math">\(B\)</span> がカテゴリ <span class="math">\(B_1, B_2, \cdots, B_c\)</span> をもつような分割表を考える<ul>
 <li>つまりは以下のような分割表である</li>
 </ul>
 </li>
 </ul>
-<table class="table-striped table-hover table">
+<table class="table table-hover table-striped">
 <thead>
 <tr>
 <th align="left">カテゴリ</th>
@@ -350,7 +350,7 @@
 <li>検定統計量 <strong><span class="math">\(\chi^2=\sum_{i=1}^r\sum_{j=1}^c\frac{(f_{ij}-f_{i\cdot}f_{\cdot j}/n)^2}{f_{i\cdot}f_{\cdot j}/n}=\sum_{i=1}^r\sum_{j=1}^c\frac{(nf_{ij}-f_{i\cdot}f_{\cdot j})^2}{nf_{i\cdot}f_{\cdot j}}\)</span></strong></li>
 <li>これは <strong>自由度 <span class="math">\((r-1)(c-1)\)</span> の <span class="math">\(\chi^2\)</span> 検定</strong> に従う</li>
 </ul>
-<h2>中心極限定理を用いる検定</h2>
+<h2 id="_9">中心極限定理を用いる検定</h2>
 <ul>
 <li>母集団分布が正規分布でなくても、中心極限定理が成立するなど検定統計量が近似的に正規分布に従う場合、正規分布に対する検定の手続きをそのまま用いることができる<ul>
 <li>ex. 二項分布の標本数が多い場合、検定統計量は中心極限定理により、標本数が多くなると標準正規分布に従う</li>
@@ -465,25 +465,25 @@
       <a href="./tag/statistics.html">統計</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/scraping.html">スクレイピング</a>
-    </li>
-    <li class="list-group-item tag-4">
-      <a href="./tag/algorithm.html">アルゴリズム</a>
+      <a href="./tag/python.html">python</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="./tag/conf_notes.html">聴講録</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/python.html">python</a>
+      <a href="./tag/algorithm.html">アルゴリズム</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/misc.html">Misc</a>
+      <a href="./tag/paper-memo.html">論文メモ</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/scraping.html">スクレイピング</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="./tag/pelican.html">pelican</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/paper-memo.html">論文メモ</a>
+      <a href="./tag/misc.html">Misc</a>
     </li>
   </ul>
 </li>

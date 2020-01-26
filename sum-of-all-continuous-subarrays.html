@@ -102,19 +102,19 @@
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h2>問題</h2>
+                <h2 id="_1">問題</h2>
 <ul>
 <li>長さ<span class="math">\(N\)</span>の数列 <span class="math">\(A = [a_1, a_2, ..., a_N]\)</span>が与えられる</li>
 <li>この数列の任意の連続する部分列の和の総和を<span class="math">\(10^9+7\)</span>で割った余りを求めよ</li>
 </ul>
-<h2>例</h2>
+<h2 id="_2">例</h2>
 <p><span class="math">\(A = [1, 2, 3]\)</span>のとき、和は<span class="math">\(1+2+3+(1+2)+(2+3)+(1+2+3)=20\)</span></p>
-<h2>制約</h2>
+<h2 id="_3">制約</h2>
 <ul>
 <li><span class="math">\(1 \le N \le 10^6\)</span></li>
 <li><span class="math">\(-10^9 \le a_i \le 10^9 (i = 1, ..., N)\)</span></li>
 </ul>
-<h2>解法</h2>
+<h2 id="_4">解法</h2>
 <ul>
 <li><span class="math">\(A\)</span>の累積和を取った数列を<span class="math">\(S\)</span>とする<ul>
 <li>つまり、<span class="math">\(S_i := \sum_{j=1}^{i}a_j\)</span></li>
@@ -133,7 +133,7 @@
 <li>よって、<span class="math">\(\sum_{(i,j):0 \le i &lt; j \le N}(S_j - S_i)=\sum_{i=0}^{N}(i \times S_i - (N-i)\times S_i)=\sum_{i=0}^{N}(2i-N-1)S_i\)</span>となる</li>
 <li>以上より、<span class="math">\(O(N)\)</span>で問題を解くことができた</li>
 </ul>
-<h2>コード</h2>
+<h2 id="_5">コード</h2>
 <div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_subarrays</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">mod</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">9</span><span class="o">+</span><span class="mi">7</span><span class="p">):</span>
     <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="n">S</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -149,14 +149,14 @@
 </ul>
 </li>
 </ul>
-<h2>類題</h2>
+<h2 id="_6">類題</h2>
 <ul>
 <li>連続でなくてよい場合は、総和において各数は<span class="math">\(2^{N-1}\)</span>回出現する<ul>
 <li>よって答えは<span class="math">\(2^{N-1}\times\sum_{i=1}^{N}a_i\)</span></li>
 </ul>
 </li>
 </ul>
-<h2>参考</h2>
+<h2 id="_7">参考</h2>
 <p><a href="https://arc071.contest.atcoder.jp/tasks/arc071_b">AtCoder Regular Contest 071 - D 井井井 / ###</a></p>
 <iframe frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="https://rcm-fe.amazon-adsystem.com/e/cm?ref=qf_sp_asin_til&amp;t=nknuu-22&amp;m=amazon&amp;o=9&amp;p=8&amp;l=as1&amp;IS1=1&amp;detail=1&amp;asins=4839941068&amp;linkId=9119505a6abff7792f516548de62ecc1&amp;bc1=ffffff&lt;1=_top&amp;fc1=333333&amp;lc1=0066c0&amp;bg1=ffffff&amp;f=ifr" style="width:120px;height:240px;">
 </iframe>
@@ -268,25 +268,25 @@
       <a href="./tag/statistics.html">統計</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/scraping.html">スクレイピング</a>
-    </li>
-    <li class="list-group-item tag-4">
-      <a href="./tag/algorithm.html">アルゴリズム</a>
+      <a href="./tag/python.html">python</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="./tag/conf_notes.html">聴講録</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/python.html">python</a>
+      <a href="./tag/algorithm.html">アルゴリズム</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/misc.html">Misc</a>
+      <a href="./tag/paper-memo.html">論文メモ</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/scraping.html">スクレイピング</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="./tag/pelican.html">pelican</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/paper-memo.html">論文メモ</a>
+      <a href="./tag/misc.html">Misc</a>
     </li>
   </ul>
 </li>

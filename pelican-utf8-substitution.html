@@ -112,11 +112,11 @@
 </ul>
 </li>
 </ul>
-<h3>状況</h3>
+<h3 id="_1">状況</h3>
 <p>pelicanでタグ毎にページを表示するurlは<code>tag/(タグ名).html</code>であるが、日本語のタグを付けたときにはurlの(タグ名)の部分がよく分からない文字列に自動変換される。
 正確にはアルファベットと数字以外の文字列を使った場合であり、これはカテゴリでも同様である。</p>
 <p>例えば、日記というタグが付けられている記事一覧のurlは<code>tag/ri-ji.html</code>と変換される。</p>
-<h3>対処</h3>
+<h3 id="_2">対処</h3>
 <p>これを直すためには、<a href="http://docs.getpelican.com/en/stable/settings.html">公式ドキュメント</a>によると、<code>SLUG_SUBSTITUTIONS</code>、<code>AUTHOR_SUBSTITUTIONS</code>、<code>CATEGORY_SUBSTITUTIONS</code>、<code>TAG_SUBSTITUTIONS</code>などの設定を<code>pelicanconf.py</code>に追加すればよく、以下の例のように置き換え元と置き換え先の文字列の組を記述すれば良い。</p>
 <div class="highlight"><pre><span></span><span class="n">TAG_SUBSTITUTIONS</span> <span class="o">=</span> <span class="p">((</span><span class="s1">'C++'</span><span class="p">,</span> <span class="s1">'cpp'</span><span class="p">))</span>
 </pre></div>
@@ -133,13 +133,13 @@
 <span class="n">TAG_SUBSTITUTIONS</span> <span class="o">=</span> <span class="p">((</span><span class="n">unidecode</span><span class="p">(</span><span class="s1">'日記'</span><span class="p">),</span> <span class="s1">'diary'</span><span class="p">))</span>
 </pre></div>
 <p>とすれば直すことができる。</p>
-<h3>原因</h3>
+<h3 id="_3">原因</h3>
 <p>ここからは上記のようになる理由である。</p>
 <p>アルファベットと数字以外の文字列を使った場合の置き換え操作は<a href="https://github.com/getpelican/pelican/blob/master/pelican/utils.py#L266">slugify関数</a>が用いられている。
 これは<code>value</code>(置き換え対象のタグやカテゴリ)と<code>substitutions</code>(<code>pelicanconf.py</code>で設定した<code>TAG_SUBSTITUTIONS</code>など)を引数と取る関数であるが、この関数は<code>value</code>を<code>unidecode.unidecode</code>で変換した後に、<code>substitutions</code>の置き換え元の文字列と<code>value</code>を比較して、一致するものがあれば置き換え先の文字列に変換するという動作をしている。</p>
 <p>つまり上手くいかなかったの日記のタグの例では、<code>日記</code>という文字列を<code>unidecode.unidecode</code>で<code>Ri Ji</code>に変換してから、substitutions内の<code>日記</code>という置き換え下の文字列と比較しているため、日本語タグはどう頑張っても変換されないということが起きていたと考えられる。</p>
 <p>なので、<code>TAG_SUBSTITUTIONS</code>などで設定を行う時点で、日本語を<code>unidecode.unidecode</code>で変換しておけばよい。</p>
-<h3>おわりに</h3>
+<h3 id="_4">おわりに</h3>
 <p>python2では検証していないので、もしかしたら違う動作になるかもしれません。
 検証をお願いします。</p>
             </div>
@@ -188,25 +188,25 @@
       <a href="./tag/statistics.html">統計</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/scraping.html">スクレイピング</a>
-    </li>
-    <li class="list-group-item tag-4">
-      <a href="./tag/algorithm.html">アルゴリズム</a>
+      <a href="./tag/python.html">python</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="./tag/conf_notes.html">聴講録</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/python.html">python</a>
+      <a href="./tag/algorithm.html">アルゴリズム</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/misc.html">Misc</a>
+      <a href="./tag/paper-memo.html">論文メモ</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/scraping.html">スクレイピング</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="./tag/pelican.html">pelican</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/paper-memo.html">論文メモ</a>
+      <a href="./tag/misc.html">Misc</a>
     </li>
   </ul>
 </li>

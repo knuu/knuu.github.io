@@ -94,11 +94,11 @@
 </ul>
 </li>
 </ul>
-<h3>状況</h3>
+<h3 id="_1">状況</h3>
 <p>pelicanでタグ毎にページを表示するurlは<code>tag/(タグ名).html</code>であるが、日本語のタグを付けたときにはurlの(タグ名)の部分がよく分からない文字列に自動変換される。
 正確にはアルファベットと数字以外の文字列を使った場合であり、これはカテゴリでも同様である。</p>
 <p>例えば、日記というタグが付けられている記事一覧のurlは<code>tag/ri-ji.html</code>と変換される。</p>
-<h3>対処</h3>
+<h3 id="_2">対処</h3>
 <p>これを直すためには、<a href="http://docs.getpelican.com/en/stable/settings.html">公式ドキュメント</a>によると、<code>SLUG_SUBSTITUTIONS</code>、<code>AUTHOR_SUBSTITUTIONS</code>、<code>CATEGORY_SUBSTITUTIONS</code>、<code>TAG_SUBSTITUTIONS</code>などの設定を<code>pelicanconf.py</code>に追加すればよく、以下の例のように置き換え元と置き換え先の文字列の組を記述すれば良い。</p>
 <div class="highlight"><pre><span></span><span class="n">TAG_SUBSTITUTIONS</span> <span class="o">=</span> <span class="p">((</span><span class="s1">'C++'</span><span class="p">,</span> <span class="s1">'cpp'</span><span class="p">))</span>
 </pre></div>
@@ -142,25 +142,25 @@
       <a href="../tag/statistics.html">統計</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/scraping.html">スクレイピング</a>
-    </li>
-    <li class="list-group-item tag-4">
-      <a href="../tag/algorithm.html">アルゴリズム</a>
+      <a href="../tag/python.html">python</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="../tag/conf_notes.html">聴講録</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/python.html">python</a>
+      <a href="../tag/algorithm.html">アルゴリズム</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/misc.html">Misc</a>
+      <a href="../tag/paper-memo.html">論文メモ</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/scraping.html">スクレイピング</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="../tag/pelican.html">pelican</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/paper-memo.html">論文メモ</a>
+      <a href="../tag/misc.html">Misc</a>
     </li>
   </ul>
 </li>
