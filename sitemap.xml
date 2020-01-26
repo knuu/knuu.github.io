@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://knuu.github.io/</loc>
-<lastmod>2020-01-25T15:47:43-00:00</lastmod>
+<lastmod>2020-01-26T23:08:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/archives.html</loc>
-<lastmod>2020-01-25T15:47:43-00:00</lastmod>
+<lastmod>2020-01-26T23:08:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/tags.html</loc>
-<lastmod>2020-01-25T15:47:43-00:00</lastmod>
+<lastmod>2020-01-26T23:08:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/categories.html</loc>
-<lastmod>2020-01-25T15:47:43-00:00</lastmod>
+<lastmod>2020-01-26T23:08:55-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -40,21 +40,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://knuu.github.io/pages/ml-dm-ai_jp_papers.html</loc>
-<lastmod>2019-08-12T00:00:00+09:00</lastmod>
+<lastmod>2020-01-26T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/statsml2019-topconf.html</loc>
-<lastmod>2018-12-01T00:00:00+09:00</lastmod>
+<lastmod>2019-12-01T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/collecting_jp_ml-dm-ai_papers.html</loc>
-<lastmod>2018-08-12T00:00:00+09:00</lastmod>
+<lastmod>2019-08-12T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -103,21 +103,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://knuu.github.io/category/blog.html</loc>
-<lastmod>2018-12-01T00:00:00+09:19</lastmod>
+<lastmod>2019-12-01T00:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/tag/conf_notes.html</loc>
-<lastmod>2018-12-01T00:00:00+09:19</lastmod>
+<lastmod>2019-12-01T00:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/tag/scraping.html</loc>
-<lastmod>2018-08-12T00:00:00+09:19</lastmod>
+<lastmod>2019-08-12T00:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -166,7 +166,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://knuu.github.io/author/knuu.html</loc>
-<lastmod>2018-12-01T00:00:00+09:19</lastmod>
+<lastmod>2019-12-01T00:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
