@@ -1,0 +1,1249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>霧でも食ってろ</title><link href="https://knuu.github.io/" rel="alternate"></link><link href="https://knuu.github.io/feeds/all.atom.xml" rel="self"></link><id>https://knuu.github.io/</id><updated>2019-12-01T00:00:00+09:00</updated><entry><title>第4回 統計・機械学習若手シンポジウム「Academic Writing for Top Conferences」聴講録</title><link href="https://knuu.github.io/statsml2019-topconf.html" rel="alternate"></link><published>2019-12-01T00:00:00+09:00</published><updated>2019-12-01T00:00:00+09:00</updated><author><name>knuu</name></author><id>tag:knuu.github.io,2019-12-01:/statsml2019-topconf.html</id><summary type="html">&lt;h2 id="_1"&gt;概要&lt;/h2&gt;
+&lt;p&gt;2019/11/15(金)・16(土) に名古屋(名工大)で開催された、第 4 回統計・機械学習若手シンポジウムに参加してきました。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;URL: https://sites.google.com/view/statsml-symposium19/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;その中でも「Academic Writing for Top Conferences」というセッションは個人的に有用そうだと思ったので共有します。
+後半の「第2部：パネルディスカッション・質疑応答」については、Q&amp;amp;A 集が公開されています (&lt;a href="https://drive.google.com/open?id=1xeVisrWKZpGHmVFTe6BHO87eGdBvIGsm"&gt;URL&lt;/a&gt;)。&lt;/p&gt;
+&lt;h2 id="1"&gt;第1部：講演&lt;/h2&gt;
+&lt;h3 id="_2"&gt;鈴木潤先生（東北大学）：国際会議への論文の通し方（一般論）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;おおよそ以下の発表の縮小版&lt;ul&gt;
+&lt;li&gt;https://www.slideshare.net/JunSuzuki21/2019-0826-yansinvitedtalk …&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h2 id="_1"&gt;概要&lt;/h2&gt;
+&lt;p&gt;2019/11/15(金)・16(土) に名古屋(名工大)で開催された、第 4 回統計・機械学習若手シンポジウムに参加してきました。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;URL: https://sites.google.com/view/statsml-symposium19/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;その中でも「Academic Writing for Top Conferences」というセッションは個人的に有用そうだと思ったので共有します。
+後半の「第2部：パネルディスカッション・質疑応答」については、Q&amp;amp;A 集が公開されています (&lt;a href="https://drive.google.com/open?id=1xeVisrWKZpGHmVFTe6BHO87eGdBvIGsm"&gt;URL&lt;/a&gt;)。&lt;/p&gt;
+&lt;h2 id="1"&gt;第1部：講演&lt;/h2&gt;
+&lt;h3 id="_2"&gt;鈴木潤先生（東北大学）：国際会議への論文の通し方（一般論）&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;おおよそ以下の発表の縮小版&lt;ul&gt;
+&lt;li&gt;https://www.slideshare.net/JunSuzuki21/2019-0826-yansinvitedtalk/1&lt;/li&gt;
+&lt;li&gt;以下は強調してそうだったところ（主観）を列挙。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(採択論文数自体は増えているという話に対して) 採択率 2 割は、25 人中 5 位には有名人しか入りづらいが、250 人中 50 位なら有名人じゃなくてもいけるかも、と考えている。&lt;/p&gt;
+&lt;p&gt;若者が得意な領域は NLP だとサーベイ力+プログラミングだが、ML 系だとサーベイ力+数学力？
+アイデアや執筆は経験が必要だし、強い人と一緒にやろう。&lt;/p&gt;
+&lt;p&gt;サーベイは読むだけじゃダメ。
+この研究を先に進めるにはどうするか、自分の研究で使うにはどうするかを常に考える。
+疑問と解決策を常に妄想する。自分は常に妄想している。
+分野の研究者が困ってそうなこと、自分が困っていることからでもよい。&lt;/p&gt;
+&lt;p&gt;Intro 重要。林先生もうなずいていた。&lt;/p&gt;
+&lt;p&gt;英語が不安なら最初（初稿の前という意味）は他の論文からの切り貼りでいい、というくらいの気持ちで OK。
+適当に日本語注釈をつけておいて、あとでちゃんと修正する。
+そのまま投稿すると剽窃でもちろんダメなので、ちゃんと修正はするが、最初はそれでよい。&lt;/p&gt;
+&lt;h3 id="pfn"&gt;林浩平先生（PFN）：国際会議への論文の通し方（機械学習の会議向け）&lt;/h3&gt;
+&lt;p&gt;鈴木先生の資料がいいので、今回は研究を論文として伝える方法についての話をする。&lt;/p&gt;
+&lt;p&gt;Q. なぜ論文が通らなかったか？ =&amp;gt; A. 内容の問題 or 伝え方の問題。
+内容の問題は複合的で体系化しづらいので今回は後者にフォーカス&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;論文のレベル&lt;ul&gt;
+&lt;li&gt;0: アルファベットで書かれている&lt;/li&gt;
+&lt;li&gt;1: 文法的に正しい&lt;/li&gt;
+&lt;li&gt;2: 早く・正確に理解できる &amp;lt;- このレベルになることがトップ会議では重要&lt;/li&gt;
+&lt;li&gt;3: 読んでいてワクワクする&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;なぜ論文が通っていないか。
+英語が不得意なことと、徒弟的な訓練が行われていないこと。&lt;/p&gt;
+&lt;p&gt;どうすればいいか？基礎と実践が必要。&lt;/p&gt;
+&lt;p&gt;基礎=アカデミックライティングの本をちゃんと読む。
+おすすめ: Adrian Wallwork: English for Writing Research Papers 2nd ed.(English for Academic Research), Springer, 2016。
+理研 AIP の前原先生もおすすめしていた。
+日本語訳が出る予定 (https://www.amazon.co.jp/dp/4065120446/)。&lt;/p&gt;
+&lt;p&gt;実践=論文を書いて、密なフィードバックを得る。よいメンターを見つけることが重要。
+ここでのよいメンターの定義は、トップ会議に 3 本以上通した経験があって、原稿を直接直してくれる。
+林先生の場合は、大学ではやったことがなくて、NEC のインターン（藤巻さんがメンター）で初めて知った。
+ある論文では、Ver 1 では Intro のほぼすべての文が修正された。Ver 2 でも Intro もほぼ同様。Ver 8 までこのときは修正した。&lt;/p&gt;
+&lt;h3 id="aip"&gt;山田誠先生（京都大学/理研AIP）：運営側からみた機械学習会議のしくみ&lt;/h3&gt;
+&lt;p&gt;（最初の方はメモをとってなかった）&lt;/p&gt;
+&lt;p&gt;トップ会議に論文を通すことは重要。
+その例として、トップ会議のベストペーパー以外評価されない=昇進で考慮されない、というすごい世界もある(at 米 Yahoo Research)。&lt;/p&gt;
+&lt;p&gt;信号処理業界から ML に移動してきたけど、査読のレベルがヤバい。&lt;/p&gt;
+&lt;p&gt;学会運営におけるいろいろな仕事: Program Chairs, Workflow chair (PC のお手伝い), Local Chair, publicity chair (広報), proceeding chairs。
+Workflow chair はやったことがある。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;スコア別の対応&lt;ul&gt;
+&lt;li&gt;すべて negative -&amp;gt; NG&lt;/li&gt;
+&lt;li&gt;すべて accept -&amp;gt; OK&lt;/li&gt;
+&lt;li&gt;すべてが weak accept -&amp;gt; 1 つの strong accept よりも微妙？&lt;/li&gt;
+&lt;li&gt;スコアが割れたとき -&amp;gt; エリアチェアしだい。そこへの働きかけが重要？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;rebuttle をちゃんとやることとは重要。エリアチェアが救ってくれることもある。&lt;/p&gt;
+&lt;p&gt;諦めないこと、ガチャを回し続けることが大事。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;例 1: IJCAI, CIKM, ECML でダメ -&amp;gt; 応用よりに変更 -&amp;gt; KDD 2017 採択&lt;/li&gt;
+&lt;li&gt;例 2: ICML, NIPS, Neural Computation (ジャーナル) に投げていたがダメ -&amp;gt; NIPS にまた投げたら採択&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;チャンスレート以上（採択率が 25 % なら 4 本以上！）を投げることも大事。まあこれは中堅向けかも？&lt;/p&gt;
+&lt;p&gt;査読者の質問はすべて回答。査読者の質問はコピペしてから答える(&lt;a href="https://marcocuturi.net/"&gt;トップ会議に通しまくっている元同僚&lt;/a&gt;のコメント)。
+高いスコアを付けてくれる査読者に低いスコアをつけている人と戦ってもらう。
+議論を起こしそうな査読コメントを書くとか。&lt;/p&gt;
+&lt;p&gt;身近に通している人がいる場合はその人と一緒に研究する。
+チャンスを掴むための勢いとかが重要で待っていても来ない。山田先生の場合、酔った勢いで杉山先生にメールを投げていなければ今ここにはいなかった。
+企業の研究インターンに行こう（ただし卵が先か鶏が先かという問題はある）。&lt;/p&gt;
+&lt;p&gt;身近にいないときはどうするか。
+とりあえず一度投稿してみる（ただし通るだろうというレベルのもの）。
+「落ちたら査読者がダメと言ってきたことを修正 -&amp;gt; 直して再投稿」を通るまでやる。面白くないとか言われたらジャーナルに投げる。&lt;/p&gt;
+&lt;h2 id="230"&gt;第2部：パネルディスカッション・質疑応答（30分）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;S: 鈴木先生、Y: 山田先生、H: 林先生&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Q. レビューが割れたときどうすればいい？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;S: 感情論じゃなくて、理詰めでいくべき&lt;/li&gt;
+&lt;li&gt;Y: meta-review で discussion が起こりそうなことを書く&lt;/li&gt;
+&lt;li&gt;H: meta-review へのコメントはどれくらい書くべき？&lt;ul&gt;
+&lt;li&gt;Y,S: 書いておいて損はない&lt;/li&gt;
+&lt;li&gt;(7,7,5) だと「全体的に結構いいよね、レビューありがとう」みたいなことを書いて、追加でコメントを書く&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Q. サーベイってどれくらいやる？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;S: トップ会議のタイトルでサーチして列挙。とりあえず「ある」ことを確認。概要を確認して、潰していくことが大事。&lt;/li&gt;
+&lt;li&gt;H: 分野を変えるときは一回目の投稿は落ちる覚悟をしておくくらいの勢い。レビューで指摘されたら修正する。&lt;/li&gt;
+&lt;li&gt;Y: あんまり最初はやらない。Google Scholar でググって最初の方に出てこなければとりあえずやってみる（やってみると結構差分はでるもの）。最後にちゃんとやって、差分を確認する。これは Deep Learning が主戦場じゃないからかも。&lt;/li&gt;
+&lt;li&gt;H: やりすぎないほうがよい。既存のアイデアや枠組みに引っ張られるかも。&lt;/li&gt;
+&lt;li&gt;Y: 最初はあんまりやらないかも&lt;/li&gt;
+&lt;li&gt;S: ちょっとは調べる必要がある。学生とかだと終わりまでの時間が有限。後戻りが少ないほうが嬉しいので。&lt;/li&gt;
+&lt;li&gt;Y: 既存の問題を解く系だと必要だけど、問題を作る系だとあんまりないかも。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Q. サーベイの方法ってどうするの？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;S: ななめ読みの方法を確立する。(鈴木先生の場合だと)どういうデータでどういう実験をやっているか、どういう問題設定か、みたいな要点の把握が重要。&lt;/li&gt;
+&lt;li&gt;H: 量が増えているのでスケールする方法を考える。組織に入る、コミュニティーを作る。&lt;/li&gt;
+&lt;li&gt;Y: Google Scholar で有名論文を引用している論文を探す。そこからたどっていく。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Q. 企業とアカデミアのちがいってある？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Y: 企業だとテーマがあって、そこに基づいてやる。ある程度テーマがあってやりやすい面もある。大学は自分の好き勝手に割とやっている。&lt;/li&gt;
+&lt;li&gt;H: 大学の際と変わらず、テーマは割と自由にやっている。ただアカデミアだと先生がいるが、企業だと対等なチーム。&lt;/li&gt;
+&lt;li&gt;S: 正直あまり変わらない。自由にやっている。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;完成度の低い論文を（本会議に）投稿することについて&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;H, S, Y: ダメ(満場一致)&lt;ul&gt;
+&lt;li&gt;投稿する側からだとコメントが欲しいのかもしれないが、3 人のレビュアーがいると 3 人ともから「ヤバいのでダメ」みたいなコメントが返ってきて終わる可能性もある&lt;/li&gt;
+&lt;li&gt;あとはその微妙な論文を査読した査読者が、査読した当時は誰が書いたかわからなくても、あとから通って著者が判明した際に、その論文の著者に悪印象を持つ可能性だってある&lt;/li&gt;
+&lt;li&gt;会議運営の面から見てもキャパ的に厳しくなってきているしダメ&lt;/li&gt;
+&lt;li&gt;Workshop にして色々コメントをもらうほうがずっと建設的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;特別に数学の勉強って学生のときにやった？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;H: やってた。修士のときは線形代数とか集合論とか。輪読が好きで、統計の漸近論の本とかも。&lt;/li&gt;
+&lt;li&gt;Y: 元は信号処理でフーリエ変換とか線形代数とか、統計はやっていた。ML の勉強はポスドクで初めてで、今でも苦労している面はある。&lt;/li&gt;
+&lt;li&gt;S: 応用よりの話なので少し違うかも。アイデアとか執筆は経験がものが聞くので、若いときに基礎を勉強しておいたほうがよい。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;違う分野に投稿したいときってどうすればよい？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Y: 文化があるので、人を頼るべき。セクションごとに人に書いてもらうとか。バイオ系に投稿した際は、分析の部分とかは全然わからないので、専門の共著者にやってもらった。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;details&gt;&lt;summary&gt;感想&lt;/summary&gt;
+「いい研究をする」という気持ちは当然で、その上でどうやってトップ会議採択されるか、そのためにどうするか、どう書くか、という話でした。
+テーマを選ぶ際はちゃんとサーベイをして、出てきた論文から常に何ができそうかを考える。論文を書く際はできる人と一緒にやってフィードバックを得ることで向上させていく。それを継続することが大事だと理解しました。
+&lt;/details&gt;</content><category term="blog"></category><category term="聴講録"></category></entry><entry><title>機械学習・データマイニング・人工知能分野周りの日本所属の国際会議論文を集めてみる</title><link href="https://knuu.github.io/collecting_jp_ml-dm-ai_papers.html" rel="alternate"></link><published>2019-08-12T00:00:00+09:00</published><updated>2019-08-12T00:00:00+09:00</updated><author><name>knuu</name></author><id>tag:knuu.github.io,2019-08-12:/collecting_jp_ml-dm-ai_papers.html</id><summary type="html">&lt;h2 id="_1"&gt;概要&lt;/h2&gt;
+&lt;p&gt;学生が研究室を選んだり、企業が共同研究先を選ぶ際に、その研究室がきちんと論文を通している研究室かどうかというのは一つに基準になるかと思います。計算機科学分野、特に機械学習・データマイニング・人工知能分野周りの分野では、企業の研究所が強く速報性が求められる影響などにより国際会議論文の影響力が強い傾向があります。そこで本記事では、これらの分野の国際会議に日本所属で論文を通している人を収集することを考えます。&lt;/p&gt;
+&lt;p&gt;本記事では機械学習・データマイニング・人工知能分野の国際会議を &lt;a href="http://www.kamishima.net/archive/MLDMAImap.pdf"&gt;ML, DM, and AI Conference Map&lt;/a&gt; に記載されている国際会議とします。&lt;/p&gt;
+&lt;h2 id="_2"&gt;手法&lt;/h2&gt;
+&lt;p&gt;日本所属の国際会議論文を収集する方法として、現在は目視で収集する方法が主流です。既存のプロジェクトとしては以下のものがあります。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://siggraph.xyz/japanese/"&gt;SIGGRAPH Papers by Japanese Researchers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ishikawa.cc/ieee/index.html"&gt;IEEE Journals &amp;amp; Magazines - papers published by researchers in Japan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://murawaki.org/misc/japan-nlp-2018.html"&gt;日本所属の言語処理トップカンファレンス論文&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://medium.com/@mpkato/%E6%83%85%E5%A0%B1%E6%A4%9C%E7%B4%A2%E3%82%92%E7%A0%94%E7%A9%B6%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E6%97%A5%E6%9C%AC%E3%81%AE%E7%A0%94%E7%A9%B6%E5%AE%A4%E4%B8%80%E8%A6%A7-7e4961054c7e"&gt;情報検索を研究している日本の研究室一覧&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;目視で収集する手法の問題点として、スケールしないことがあげられます。さらに近年は機械学習・データマイニング・人工知能分野の国際会議論文は増加している傾向もあり、目視で収集するには限界があります。&lt;/p&gt;
+&lt;p&gt;そこで今回は &lt;a href="https://dl.acm.org"&gt;ACM Digital …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;h2 id="_1"&gt;概要&lt;/h2&gt;
+&lt;p&gt;学生が研究室を選んだり、企業が共同研究先を選ぶ際に、その研究室がきちんと論文を通している研究室かどうかというのは一つに基準になるかと思います。計算機科学分野、特に機械学習・データマイニング・人工知能分野周りの分野では、企業の研究所が強く速報性が求められる影響などにより国際会議論文の影響力が強い傾向があります。そこで本記事では、これらの分野の国際会議に日本所属で論文を通している人を収集することを考えます。&lt;/p&gt;
+&lt;p&gt;本記事では機械学習・データマイニング・人工知能分野の国際会議を &lt;a href="http://www.kamishima.net/archive/MLDMAImap.pdf"&gt;ML, DM, and AI Conference Map&lt;/a&gt; に記載されている国際会議とします。&lt;/p&gt;
+&lt;h2 id="_2"&gt;手法&lt;/h2&gt;
+&lt;p&gt;日本所属の国際会議論文を収集する方法として、現在は目視で収集する方法が主流です。既存のプロジェクトとしては以下のものがあります。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://siggraph.xyz/japanese/"&gt;SIGGRAPH Papers by Japanese Researchers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://ishikawa.cc/ieee/index.html"&gt;IEEE Journals &amp;amp; Magazines - papers published by researchers in Japan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://murawaki.org/misc/japan-nlp-2018.html"&gt;日本所属の言語処理トップカンファレンス論文&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://medium.com/@mpkato/%E6%83%85%E5%A0%B1%E6%A4%9C%E7%B4%A2%E3%82%92%E7%A0%94%E7%A9%B6%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E6%97%A5%E6%9C%AC%E3%81%AE%E7%A0%94%E7%A9%B6%E5%AE%A4%E4%B8%80%E8%A6%A7-7e4961054c7e"&gt;情報検索を研究している日本の研究室一覧&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;目視で収集する手法の問題点として、スケールしないことがあげられます。さらに近年は機械学習・データマイニング・人工知能分野の国際会議論文は増加している傾向もあり、目視で収集するには限界があります。&lt;/p&gt;
+&lt;p&gt;そこで今回は &lt;a href="https://dl.acm.org"&gt;ACM Digital Library&lt;/a&gt; (ACM DL) のような、各学会や企業が公開している Digital Library の情報を利用して自動で収集することを考えます。Digital Library にはその学会が主催する国際会議やジャーナル論文が登録されており、著者の所属組織とその所在地が記載されています。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://dl.acm.org/citation.cfm?doid=3331184.3331220"&gt;ACM DL における論文の例&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="論文の例" class="img-responsive" src="https://knuu.github.io/images/acmdl_example.png"/&gt;&lt;/p&gt;
+&lt;p&gt;Digital Library を利用することで、どの国のどの組織に所属しているかを容易に収集することができるようになるという利点もありますが、別々の国の組織に複数所属している場合でも 1 つの国に所属している扱いになるなど、目視に比べて正確さに欠けるという欠点もあります（今回はこの部分には目を瞑ります）。&lt;/p&gt;
+&lt;p&gt;収集は以下の手順で行います。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;dblp の該当会議の該当年のページにアクセスし、論文名・著者名・Digital Library へのリンクを収集する&lt;/li&gt;
+&lt;li&gt;論文ごとに収集した Digital Library のリンクをたどり、遷移先のページの著者情報を収集する&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;上記の手順により、まず、ACM DL を対象として、KDD, CIKM, SIGMOD, PODS, SIGIR, WWW, WSDM, RecSys, STOC について、2016 年から 2019 年の論文を収集しました（ただし CIKM, RecSys は 2019 年は未開催のためありません）。&lt;/p&gt;
+&lt;h3 id="sigmod"&gt;SIGMOD のデータ例&lt;/h3&gt;
+&lt;p&gt;注: SIGMOD はデータベース分野のトップカンファレンスです。&lt;/p&gt;
+&lt;table class="table-hover table table-striped"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;年&lt;/th&gt;
+&lt;th&gt;タイトル&lt;/th&gt;
+&lt;th&gt;著者&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;2016&lt;/td&gt;
+&lt;td&gt;Local Similarity Search for Unstructured Text&lt;/td&gt;
+&lt;td&gt;Pei Wang(名大)&lt;br/&gt;Chuan Xiao(名大)&lt;br/&gt;Jianbin Qin(The University of New South Wales)&lt;br/&gt;Wei Wang(The University of New South Wales)&lt;br/&gt;Xiaoyang Zhang(The University of New South Wales)&lt;br/&gt;Yoshiharu Ishikawa(名大)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2017&lt;/td&gt;
+&lt;td&gt;Landmark Indexing for Evaluation of Label-Constrained Reachability Queries&lt;/td&gt;
+&lt;td&gt;Lucien D.J. Valstar(Eindhoven University of Technology)&lt;br/&gt;George H.L. Fletcher(Eindhoven University of Technology)&lt;br/&gt;Yuichi Yoshida(NII; PFI)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2017&lt;/td&gt;
+&lt;td&gt;Coarsening Massive Influence Networks for Scalable Diffusion Analysis&lt;/td&gt;
+&lt;td&gt;Naoto Ohsaka(東大; JST)&lt;br/&gt;Tomohiro Sonobe(NII; JST)&lt;br/&gt;Sumio Fujita(Yahoo Japan)&lt;br/&gt;Ken-ichi Kawarabayashi(NII; JST)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2017&lt;/td&gt;
+&lt;td&gt;Cryptanalysis of Comparable Encryption in SIGMOD'16&lt;/td&gt;
+&lt;td&gt;Caleb Horst(University of Washington Tacoma)&lt;br/&gt;Ryo Kikuchi(NTT)&lt;br/&gt;Keita Xagawa(NTT)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2017&lt;/td&gt;
+&lt;td&gt;Scaling Locally Linear Embedding&lt;/td&gt;
+&lt;td&gt;Yasuhiro Fujiwara(NTT)&lt;br/&gt;Naoki Marumo(NTT)&lt;br/&gt;Mathieu Blondel(NTT)&lt;br/&gt;Koh Takeuchi(NTT)&lt;br/&gt;Hideaki Kim(NTT)&lt;br/&gt;Tomoharu Iwata(NTT)&lt;br/&gt;Naonori Ueda(NTT)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2017&lt;/td&gt;
+&lt;td&gt;QUILTS: Multidimensional Data Partitioning Framework Based on Query-Aware and Skew-Tolerant Space-Filling Curves&lt;/td&gt;
+&lt;td&gt;Shoji Nishimura(NEC)&lt;br/&gt;Haruo Yokota(東工大)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2018&lt;/td&gt;
+&lt;td&gt;Managing Non-Volatile Memory in Database Systems&lt;/td&gt;
+&lt;td&gt;Alexander van Renen(Technische Universität München)&lt;br/&gt;Viktor Leis(Technische Universität München)&lt;br/&gt;Alfons Kemper(Technische Universität München)&lt;br/&gt;Thomas Neumann(Technische Universität München)&lt;br/&gt;Takushi Hashida(富士通研究所)&lt;br/&gt;Kazuichi Oe(富士通研究所)&lt;br/&gt;Yoshiyasu Doi(富士通研究所)&lt;br/&gt;Lilian Harada(富士通研究所)&lt;br/&gt;Mitsuru Sato(富士通研究所)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2019&lt;/td&gt;
+&lt;td&gt;Autocompletion for Prefix-Abbreviated Input&lt;/td&gt;
+&lt;td&gt;Sheng Hu(名大; 京大)&lt;br/&gt;Chuan Xiao(名大; 阪大)&lt;br/&gt;Jianbin Qin(Shenzhen University)&lt;br/&gt;Yoshiharu Ishikawa(名大)&lt;br/&gt;Qiang Ma(京大)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;収集したデータは順次以下のページに掲載予定です。&lt;/p&gt;
+&lt;p&gt;&lt;a href="/pages/ml-dm-ai_jp_papers.html"&gt;ML-DM-AI Papers by Researchers in Japan&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="_3"&gt;今後の方針について&lt;/h2&gt;
+&lt;p&gt;最終的な目標としては、&lt;a href="http://www.kamishima.net/archive/MLDMAImap.pdf"&gt;ML, DM, and AI Conference Map&lt;/a&gt; にある国際会議について全て収集することを考えています。&lt;/p&gt;
+&lt;p&gt;この中でも、IEEE Xplore や SpringerLink に登録されている論文については同様に集めることが可能です。ただ、IEEE Xplore については所属組織が登録されていない場合も多くあります。また、Neurips/ICML/COLT のような機械学習系や、ACL/EMNLP/NAACL などの自然言語処理系の国際会議については、Digital Library に登録されていないため、この手法で集めることができません。そこで、以下の方法を考えています。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PDF を収集し、parse する&lt;ul&gt;
+&lt;li&gt;使えそうなツール&lt;ul&gt;
+&lt;li&gt;https://github.com/allenai/spv2&lt;/li&gt;
+&lt;li&gt;https://github.com/WING-NUS/Neural-ParsCit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;著者の他の論文の情報を使う&lt;ul&gt;
+&lt;li&gt;著者の dblp のリンクをたどり、Digital Library へのリンクがある論文を探す&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;他にやり方がありましたら、ぜひ twitter で &lt;a href="https://twitter.com/n_knuu6"&gt;@n_knuu6&lt;/a&gt; までお教えいただけますと幸いです。&lt;/p&gt;</content><category term="blog"></category><category term="スクレイピング"></category></entry><entry><title>連続する部分列の和の総和</title><link href="https://knuu.github.io/sum-of-all-continuous-subarrays.html" rel="alternate"></link><published>2018-06-20T00:00:00+09:00</published><updated>2018-06-20T00:00:00+09:00</updated><author><name>knuu</name></author><id>tag:knuu.github.io,2018-06-20:/sum-of-all-continuous-subarrays.html</id><summary type="html">&lt;h2 id="_1"&gt;問題&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;長さ&lt;span class="math"&gt;\(N\)&lt;/span&gt;の数列 &lt;span class="math"&gt;\(A = [a_1, a_2, ..., a_N]\)&lt;/span&gt;が与えられる&lt;/li&gt;
+&lt;li&gt;この数列の任意の連続する部分列の和の総和を&lt;span class="math"&gt;\(10^9+7\)&lt;/span&gt;で割った余りを求めよ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_2"&gt;例&lt;/h2&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(A = [1, 2, 3]\)&lt;/span&gt;のとき、和は&lt;span class="math"&gt;\(1+2+3+(1+2)+(2+3)+(1+2+3)=20\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id="_3"&gt;制約&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(1 \le N \le 10^6\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(-10^9 \le a_i \le 10^9 (i = 1, ..., N)\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_4"&gt;解法 …&lt;/h2&gt;</summary><content type="html">&lt;h2 id="_1"&gt;問題&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;長さ&lt;span class="math"&gt;\(N\)&lt;/span&gt;の数列 &lt;span class="math"&gt;\(A = [a_1, a_2, ..., a_N]\)&lt;/span&gt;が与えられる&lt;/li&gt;
+&lt;li&gt;この数列の任意の連続する部分列の和の総和を&lt;span class="math"&gt;\(10^9+7\)&lt;/span&gt;で割った余りを求めよ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_2"&gt;例&lt;/h2&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(A = [1, 2, 3]\)&lt;/span&gt;のとき、和は&lt;span class="math"&gt;\(1+2+3+(1+2)+(2+3)+(1+2+3)=20\)&lt;/span&gt;&lt;/p&gt;
+&lt;h2 id="_3"&gt;制約&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(1 \le N \le 10^6\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(-10^9 \le a_i \le 10^9 (i = 1, ..., N)\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_4"&gt;解法&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\(A\)&lt;/span&gt;の累積和を取った数列を&lt;span class="math"&gt;\(S\)&lt;/span&gt;とする&lt;ul&gt;
+&lt;li&gt;つまり、&lt;span class="math"&gt;\(S_i := \sum_{j=1}^{i}a_j\)&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;ただし、&lt;span class="math"&gt;\(S_0 = 0\)&lt;/span&gt;とする&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;このとき、求める総和は、&lt;span class="math"&gt;\(\sum_{(i,j):0 \le i &amp;lt; j \le N}(S_j - S_i)\)&lt;/span&gt;と書ける&lt;ul&gt;
+&lt;li&gt;&lt;span class="math"&gt;\((i,j):0 \le i &amp;lt; j \le N\)&lt;/span&gt;は&lt;span class="math"&gt;\(0 \le i &amp;lt; j \le N\)&lt;/span&gt;を満たす組&lt;span class="math"&gt;\((i,j)\)&lt;/span&gt;を意味する&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;これは和と差しか出てこないため、正の項&lt;span class="math"&gt;\(S_j\)&lt;/span&gt;と負の項&lt;span class="math"&gt;\(-S_i\)&lt;/span&gt;がそれぞれ何回この式の中で現れるかを考えればよい&lt;ul&gt;
+&lt;li&gt;正の項&lt;span class="math"&gt;\(S_j(j=0,1,...,N)\)&lt;/span&gt;が何回現れるかを考えると、&lt;span class="math"&gt;\(S_0\)&lt;/span&gt;は0回、&lt;span class="math"&gt;\(S_1\)&lt;/span&gt;は1回(&lt;span class="math"&gt;\(i=0\)&lt;/span&gt;のとき)、&lt;span class="math"&gt;\(S_2\)&lt;/span&gt;は2回(&lt;span class="math"&gt;\(i=0,1\)&lt;/span&gt;のとき)、と考えていくと、正の項&lt;span class="math"&gt;\(S_j\)&lt;/span&gt;は&lt;span class="math"&gt;\(j\)&lt;/span&gt;回現れる&lt;/li&gt;
+&lt;li&gt;負の項&lt;span class="math"&gt;\(S_i(i=0,...,N-1)\)&lt;/span&gt;が何回現れるかを考えると、&lt;span class="math"&gt;\(S_0\)&lt;/span&gt;は&lt;span class="math"&gt;\(N\)&lt;/span&gt;回(&lt;span class="math"&gt;\(j=1,2,...,N\)&lt;/span&gt;のとき)、&lt;span class="math"&gt;\(S_1\)&lt;/span&gt;は&lt;span class="math"&gt;\(N-1\)&lt;/span&gt;回(&lt;span class="math"&gt;\(j=2,i...,N\)&lt;/span&gt;のとき)と考えていくと、&lt;span class="math"&gt;\(S_i\)&lt;/span&gt;は&lt;span class="math"&gt;\((N-i)\)&lt;/span&gt;回現れる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;よって、&lt;span class="math"&gt;\(\sum_{(i,j):0 \le i &amp;lt; j \le N}(S_j - S_i)=\sum_{i=0}^{N}(i \times S_i - (N-i)\times S_i)=\sum_{i=0}^{N}(2i-N-1)S_i\)&lt;/span&gt;となる&lt;/li&gt;
+&lt;li&gt;以上より、&lt;span class="math"&gt;\(O(N)\)&lt;/span&gt;で問題を解くことができた&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_5"&gt;コード&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;sum_subarrays&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mod&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;len&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;S&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;S&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;%=&lt;/span&gt; &lt;span class="n"&gt;mod&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;N&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;mod&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;mod&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;負の剰余が出てくるが、python(2/3系ともに)では負の数&lt;span class="math"&gt;\(x(x&amp;gt;0)\)&lt;/span&gt;の正の数&lt;span class="math"&gt;\(m(m&amp;gt;0)\)&lt;/span&gt;についての剰余&lt;span class="math"&gt;\(x\%m\)&lt;/span&gt;は&lt;span class="math"&gt;\((x+m)\%m\)&lt;/span&gt;と一致するため、問題ない&lt;ul&gt;
+&lt;li&gt;C++ではこのコードは問題が出る&lt;/li&gt;
+&lt;li&gt;負の数の剰余の計算で負の数が出る場合の計算は、&lt;a href="https://shunirr.hatenablog.jp/entry/20120409/1333993409"&gt;言語仕様によって異なる&lt;/a&gt;ため、注意したほうがよい&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_6"&gt;類題&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;連続でなくてよい場合は、総和において各数は&lt;span class="math"&gt;\(2^{N-1}\)&lt;/span&gt;回出現する&lt;ul&gt;
+&lt;li&gt;よって答えは&lt;span class="math"&gt;\(2^{N-1}\times\sum_{i=1}^{N}a_i\)&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_7"&gt;参考&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://arc071.contest.atcoder.jp/tasks/arc071_b"&gt;AtCoder Regular Contest 071 - D 井井井 / ###&lt;/a&gt;&lt;/p&gt;
+&lt;iframe frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="https://rcm-fe.amazon-adsystem.com/e/cm?ref=qf_sp_asin_til&amp;amp;t=nknuu-22&amp;amp;m=amazon&amp;amp;o=9&amp;amp;p=8&amp;amp;l=as1&amp;amp;IS1=1&amp;amp;detail=1&amp;amp;asins=4839941068&amp;amp;linkId=9119505a6abff7792f516548de62ecc1&amp;amp;bc1=ffffff&amp;lt;1=_top&amp;amp;fc1=333333&amp;amp;lc1=0066c0&amp;amp;bg1=ffffff&amp;amp;f=ifr" style="width:120px;height:240px;"&gt;
+&lt;/iframe&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="blog"></category><category term="アルゴリズム"></category></entry><entry><title>pelican(python3)で日本語のカテゴリやタグごとのページのurlを変更する方法</title><link href="https://knuu.github.io/pelican-utf8-substitution.html" rel="alternate"></link><published>2017-10-11T00:00:00+09:00</published><updated>2017-10-11T00:00:00+09:00</updated><author><name>knuu</name></author><id>tag:knuu.github.io,2017-10-11:/pelican-utf8-substitution.html</id><summary type="html">&lt;ul&gt;
+&lt;li&gt;動作環境&lt;ul&gt;
+&lt;li&gt;Python 3.6.1&lt;/li&gt;
+&lt;li&gt;pelican 3.7.1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_1"&gt;状況&lt;/h3&gt;
+&lt;p&gt;pelicanでタグ毎にページを表示するurlは&lt;code&gt;tag/(タグ名).html&lt;/code&gt;であるが、日本語のタグを付けたときにはurlの(タグ名)の部分がよく分からない文字列に自動変換される。
+正確にはアルファベットと数字以外の文字列を使った場合であり、これはカテゴリでも同様である。&lt;/p&gt;
+&lt;p&gt;例えば、日記というタグが付けられている記事一覧のurlは&lt;code&gt;tag/ri-ji.html&lt;/code&gt;と変換される。&lt;/p&gt;
+&lt;h3 id="_2"&gt;対処&lt;/h3&gt;
+&lt;p&gt;これを直すためには、&lt;a href="http://docs.getpelican.com/en/stable/settings.html"&gt;公式ドキュメント&lt;/a&gt;によると、&lt;code&gt;SLUG_SUBSTITUTIONS&lt;/code&gt;、&lt;code&gt;AUTHOR_SUBSTITUTIONS&lt;/code&gt;、&lt;code&gt;CATEGORY_SUBSTITUTIONS&lt;/code&gt;、&lt;code&gt;TAG_SUBSTITUTIONS&lt;/code&gt;などの設定を&lt;code&gt;pelicanconf.py&lt;/code&gt;に追加すればよく、以下の例のように置き換え元と置き換え先の文字列の組を記述すれば良い。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;TAG_SUBSTITUTIONS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s1"&gt;'C++'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'cpp'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;この場合、&lt;code&gt;C++&lt;/code&gt;というタグが付けられている記事一覧は、&lt;code&gt;tag/cpp.html&lt;/code&gt;となる。&lt;/p&gt;
+&lt;p&gt;しかし日本語タグの場合 …&lt;/p&gt;</summary><content type="html">&lt;ul&gt;
+&lt;li&gt;動作環境&lt;ul&gt;
+&lt;li&gt;Python 3.6.1&lt;/li&gt;
+&lt;li&gt;pelican 3.7.1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_1"&gt;状況&lt;/h3&gt;
+&lt;p&gt;pelicanでタグ毎にページを表示するurlは&lt;code&gt;tag/(タグ名).html&lt;/code&gt;であるが、日本語のタグを付けたときにはurlの(タグ名)の部分がよく分からない文字列に自動変換される。
+正確にはアルファベットと数字以外の文字列を使った場合であり、これはカテゴリでも同様である。&lt;/p&gt;
+&lt;p&gt;例えば、日記というタグが付けられている記事一覧のurlは&lt;code&gt;tag/ri-ji.html&lt;/code&gt;と変換される。&lt;/p&gt;
+&lt;h3 id="_2"&gt;対処&lt;/h3&gt;
+&lt;p&gt;これを直すためには、&lt;a href="http://docs.getpelican.com/en/stable/settings.html"&gt;公式ドキュメント&lt;/a&gt;によると、&lt;code&gt;SLUG_SUBSTITUTIONS&lt;/code&gt;、&lt;code&gt;AUTHOR_SUBSTITUTIONS&lt;/code&gt;、&lt;code&gt;CATEGORY_SUBSTITUTIONS&lt;/code&gt;、&lt;code&gt;TAG_SUBSTITUTIONS&lt;/code&gt;などの設定を&lt;code&gt;pelicanconf.py&lt;/code&gt;に追加すればよく、以下の例のように置き換え元と置き換え先の文字列の組を記述すれば良い。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;TAG_SUBSTITUTIONS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s1"&gt;'C++'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'cpp'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;この場合、&lt;code&gt;C++&lt;/code&gt;というタグが付けられている記事一覧は、&lt;code&gt;tag/cpp.html&lt;/code&gt;となる。&lt;/p&gt;
+&lt;p&gt;しかし日本語タグの場合、同じように書いても上手く行かない。
+例えば、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# 上手くいかない&lt;/span&gt;
+&lt;span class="n"&gt;TAG_SUBSTITUTIONS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="s1"&gt;'日記'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'diary'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;と設定した場合、日記というタグが付けられている記事一覧のurlは、&lt;code&gt;tag/diary.html&lt;/code&gt;とはならず、&lt;code&gt;tag/ri-ji.html&lt;/code&gt;のままとなってしまう。&lt;/p&gt;
+&lt;p&gt;これを&lt;code&gt;tag/diary.html&lt;/code&gt;にするには、&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# 上手くいく&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;unidecode&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;unidecode&lt;/span&gt;
+&lt;span class="n"&gt;TAG_SUBSTITUTIONS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;unidecode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;'日記'&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="s1"&gt;'diary'&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;とすれば直すことができる。&lt;/p&gt;
+&lt;h3 id="_3"&gt;原因&lt;/h3&gt;
+&lt;p&gt;ここからは上記のようになる理由である。&lt;/p&gt;
+&lt;p&gt;アルファベットと数字以外の文字列を使った場合の置き換え操作は&lt;a href="https://github.com/getpelican/pelican/blob/master/pelican/utils.py#L266"&gt;slugify関数&lt;/a&gt;が用いられている。
+これは&lt;code&gt;value&lt;/code&gt;(置き換え対象のタグやカテゴリ)と&lt;code&gt;substitutions&lt;/code&gt;(&lt;code&gt;pelicanconf.py&lt;/code&gt;で設定した&lt;code&gt;TAG_SUBSTITUTIONS&lt;/code&gt;など)を引数と取る関数であるが、この関数は&lt;code&gt;value&lt;/code&gt;を&lt;code&gt;unidecode.unidecode&lt;/code&gt;で変換した後に、&lt;code&gt;substitutions&lt;/code&gt;の置き換え元の文字列と&lt;code&gt;value&lt;/code&gt;を比較して、一致するものがあれば置き換え先の文字列に変換するという動作をしている。&lt;/p&gt;
+&lt;p&gt;つまり上手くいかなかったの日記のタグの例では、&lt;code&gt;日記&lt;/code&gt;という文字列を&lt;code&gt;unidecode.unidecode&lt;/code&gt;で&lt;code&gt;Ri Ji&lt;/code&gt;に変換してから、substitutions内の&lt;code&gt;日記&lt;/code&gt;という置き換え下の文字列と比較しているため、日本語タグはどう頑張っても変換されないということが起きていたと考えられる。&lt;/p&gt;
+&lt;p&gt;なので、&lt;code&gt;TAG_SUBSTITUTIONS&lt;/code&gt;などで設定を行う時点で、日本語を&lt;code&gt;unidecode.unidecode&lt;/code&gt;で変換しておけばよい。&lt;/p&gt;
+&lt;h3 id="_4"&gt;おわりに&lt;/h3&gt;
+&lt;p&gt;python2では検証していないので、もしかしたら違う動作になるかもしれません。
+検証をお願いします。&lt;/p&gt;</content><category term="blog"></category><category term="pelican"></category><category term="python"></category></entry><entry><title>(論文メモ) Improving Hypernymy Detection with an Integrated Path-based and Distributional Method (ACL2016)</title><link href="https://knuu.github.io/conf-acl-ShwartzGD16.html" rel="alternate"></link><published>2017-10-10T00:00:00+09:00</published><updated>2017-10-10T00:00:00+09:00</updated><author><name>knuu</name></author><id>tag:knuu.github.io,2017-10-10:/conf-acl-ShwartzGD16.html</id><summary type="html">&lt;h3 id="_1"&gt;書誌情報&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;title&lt;ul&gt;
+&lt;li&gt;Improving Hypernymy Detection with an Integrated Path-based and Distributional Method&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;author&lt;ul&gt;
+&lt;li&gt;VeredShwartz, Yoav Goldberg, Ido Dagan&lt;ul&gt;
+&lt;li&gt;Bar-Ilan University, Israel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;venue&lt;ul&gt;
+&lt;li&gt;ACL 2016&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;url&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://aclanthology.coli.uni-saarland.de/papers/P16-1226/p16-1226"&gt;論文(ACL Anthology)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://u.cs.biu.ac.il/~havivv/"&gt;著者スライドなど&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/vered1986/HypeNET"&gt;実装&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;その他&lt;ul&gt;
+&lt;li&gt;ACL 2016 Outstanding Paper Award&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_2"&gt;解くべき問題は何か？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;単語の組(x,y)に対して、yがxの上位語であるかどうかを推定&lt;ul&gt;
+&lt;li&gt;例: x = トム・クルーズ, y = 俳優 -&amp;gt; yはxの上位語である&lt;/li&gt;
+&lt;li&gt;質問応答などで有用な応用がある …&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h3 id="_1"&gt;書誌情報&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;title&lt;ul&gt;
+&lt;li&gt;Improving Hypernymy Detection with an Integrated Path-based and Distributional Method&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;author&lt;ul&gt;
+&lt;li&gt;VeredShwartz, Yoav Goldberg, Ido Dagan&lt;ul&gt;
+&lt;li&gt;Bar-Ilan University, Israel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;venue&lt;ul&gt;
+&lt;li&gt;ACL 2016&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;url&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://aclanthology.coli.uni-saarland.de/papers/P16-1226/p16-1226"&gt;論文(ACL Anthology)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://u.cs.biu.ac.il/~havivv/"&gt;著者スライドなど&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/vered1986/HypeNET"&gt;実装&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;その他&lt;ul&gt;
+&lt;li&gt;ACL 2016 Outstanding Paper Award&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_2"&gt;解くべき問題は何か？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;単語の組(x,y)に対して、yがxの上位語であるかどうかを推定&lt;ul&gt;
+&lt;li&gt;例: x = トム・クルーズ, y = 俳優 -&amp;gt; yはxの上位語である&lt;/li&gt;
+&lt;li&gt;質問応答などで有用な応用がある&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_3"&gt;既存法との違いは何か？&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;構文解析木ベースの手法を、構文木をRNN-LSTMでencodeする手法を提案し、state of the artに近い評価値を達成&lt;/li&gt;
+&lt;li&gt;1の手法と分散表現ベースの手法を組み合わせる手法を提案して、state of the art を達成&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;この手法は以下の図で大体説明できる。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="提案手法(図は論文より引用)" class="img-responsive" src="https://knuu.github.io/images/conf-acl-ShwartzGD16-method.png"/&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;上図のキャプションの説明文を読めば分かるが、右側の四角の点線で囲まれた部分を取り除いたのが構文木ベースの手法&lt;/li&gt;
+&lt;li&gt;構文木ベースの手法の手順&lt;ol&gt;
+&lt;li&gt;用いるコーパスで単語ペア(x,y)が出現する文を収集し、構文解析を行って構文木を得る&lt;/li&gt;
+&lt;li&gt;構文解析木を無向グラフと見たときの、頂点xからyへの最短路の列p=(v_x, ..., v_y)をRNN-LSTMに入力としていれて、その出力o_pを得る&lt;ul&gt;
+&lt;li&gt;単語xに関するv_xは、上の図の色分けされて示されている情報(lemma, POS, dependency label, direction)をいれる&lt;/li&gt;
+&lt;li&gt;lemma: 単語xの単語ベクトル(ここではGloVeでコーパスとして学習させている)&lt;/li&gt;
+&lt;li&gt;POS: 品詞情報&lt;/li&gt;
+&lt;li&gt;dependency label: 依存関係のラベル、&lt;/li&gt;
+&lt;li&gt;direction: 最短路の枝の向き(&amp;lt;,-,&amp;gt;の3種類)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;単語(x,y)に関してRNN-LSTMから得られたベクトルを平均する&lt;/li&gt;
+&lt;li&gt;平均したベクトルを出力層に繋ぐ&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;分散表現と組み合わせた手法&lt;ul&gt;
+&lt;li&gt;構文木ベースの手法において出力層に繋ぐときに、単語x,yの単語ベクトル(上と同様にGloVe)も繋げる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_4"&gt;どうやって評価したか？&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;既存のデータセットを拡張し、これを用いて精度、再現率、F1値で評価し、ベースライン手法と比較した&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;データセット&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;既存の上位語下位語関係データセットは規模が小さく提案手法では上手く学習できないため、distant supervision (Riedel et al, NAACL 2013) を用いて拡張&lt;/li&gt;
+&lt;li&gt;具体的には、WordNet、DBPedia、Wikidata、Yagoに含まれる特定の関係のみを用いた(Table1参照)&lt;ul&gt;
+&lt;li&gt;約7万ペアの正解データを収集した&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;ベースライン手法&lt;ul&gt;
+&lt;li&gt;構文解析木ベースの手法&lt;ul&gt;
+&lt;li&gt;Snow (Snow et al., NIPS 2004): 構文解析木ベースの古典的な手法&lt;/li&gt;
+&lt;li&gt;Snow + Gen: Snowと構文木のパターンを一般化する手法(Nakashole et al., EMNLP &amp;amp; CoNLL 2012)の組み合わせ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;分散表現ベース&lt;ul&gt;
+&lt;li&gt;SLQS (Santus et al., EACL 2014)&lt;/li&gt;
+&lt;li&gt;Best supervised: 事前学習した単語ベクトルモデルと、いくつかの分散表現ベース手法を競わせた&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;結果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="結果(図は論文より引用)" class="img-responsive" src="https://knuu.github.io/images/conf-acl-ShwartzGD16-result.png"/&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;random split は作成した正解データをそのままランダムに分割&lt;/li&gt;
+&lt;li&gt;lexical split は (Levy et al., NAACL 2015)で指摘された lexical memorization という問題を避けるために提案された分け方&lt;ul&gt;
+&lt;li&gt;lexical memorization はざっくり言うと、animal みたいな多くの単語の上位語になる単語は、単語間の関係とは無関係に上位語と判定されてしまいやすいという問題&lt;/li&gt;
+&lt;li&gt;つまり、任意の単語xに対して、(x,animal)というペアではanimalはxの上位語と判定されてしまう&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;提案手法(HypeNET)がstate-of-the-artになった&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_5"&gt;その他&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;エラー分析&lt;ul&gt;
+&lt;li&gt;False Positive (上位語でないのに上位語と判断した場合): Table 6&lt;ul&gt;
+&lt;li&gt;約20%が同義語関係、約30%が下位語関係など&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;False Negative (上位語であるのに上位語でないと判断した場合)&lt;ul&gt;
+&lt;li&gt;8割が(x,y)の共起が25回以下(True positiveの平均共起回数は99.7回)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_6"&gt;参考資料&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://speakerdeck.com/himkt/improving-hypernymy-detection-with-an-integrated-path-based-and-distributional-method"&gt;筑波大の人による紹介(英語)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><category term="blog"></category><category term="論文メモ"></category></entry><entry><title>仮説検定早見表</title><link href="https://knuu.github.io/hypothesis-testings.html" rel="alternate"></link><published>2017-06-18T00:00:00+09:00</published><updated>2017-06-18T00:00:00+09:00</updated><author><name>knuu</name></author><id>tag:knuu.github.io,2017-06-18:/hypothesis-testings.html</id><summary type="html">&lt;h2 id="_1"&gt;正規母集団に対する仮説検定&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;『統計学入門』第12章より&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_2"&gt;早見表&lt;/h2&gt;
+&lt;table class="table-hover table table-striped"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="center"&gt;何の検定&lt;/th&gt;
+&lt;th align="center"&gt;検定統計量&lt;/th&gt;
+&lt;th align="center"&gt;自由度&lt;/th&gt;
+&lt;th align="center"&gt;分布&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;母平均(母分散既知)&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;/td&gt;
+&lt;td align="center"&gt;標準正規分布 &lt;span class="math"&gt;\(N(0,1)\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;母平均(母分散未知)&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{\overline{X}-\mu}{\sqrt{s^2/n}}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(n-1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;t分布&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;母分散&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{(n-1)s^2}{\sigma_{0}^2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(n-1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\chi^2\)&lt;/span&gt; 分布&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;2分布の平均(分散が等しい)&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{\overline …&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><content type="html">&lt;h2 id="_1"&gt;正規母集団に対する仮説検定&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;『統計学入門』第12章より&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_2"&gt;早見表&lt;/h2&gt;
+&lt;table class="table-hover table table-striped"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="center"&gt;何の検定&lt;/th&gt;
+&lt;th align="center"&gt;検定統計量&lt;/th&gt;
+&lt;th align="center"&gt;自由度&lt;/th&gt;
+&lt;th align="center"&gt;分布&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;母平均(母分散既知)&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;/td&gt;
+&lt;td align="center"&gt;標準正規分布 &lt;span class="math"&gt;\(N(0,1)\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;母平均(母分散未知)&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{\overline{X}-\mu}{\sqrt{s^2/n}}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(n-1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;t分布&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;母分散&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{(n-1)s^2}{\sigma_{0}^2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(n-1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\chi^2\)&lt;/span&gt; 分布&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;2分布の平均(分散が等しい)&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{\overline{X}-\overline{Y}}{\frac{(m-1)s_1^2+(n-1)s_2^2}{m+n-2}\sqrt{\frac{1}{m}+\frac{1}{n}}}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(m+n-2\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;t分布&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;2分布の平均(分散が等しくない)&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{\overline{X}-\overline{Y}}{\sqrt{s_1^2/m+s_2^2/n}}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{(s_1^2/m+s_2^2/n)^2}{\frac{(s_1^2/m)^2}{m-1}+\frac{(s_2^2/n)^2}{n-1}}\)&lt;/span&gt;に最も近い整数&lt;/td&gt;
+&lt;td align="center"&gt;t分布&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;2分布の分散&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{s_1^2}{s_2^2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\((m-1, n-1)\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;F分布&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;表の度数分布&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\sum_{i=1}^k\frac{(f_i-np_i)^2}{np_i}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(k-1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\chi^2\)&lt;/span&gt; 分布&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;分割表の属性の独立&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\sum_{i=1}^r\sum_{j=1}^c\frac{(nf_{ij}-f_{i\cdot}f_{\cdot j})^2}{nf_{i\cdot}f_{\cdot j}}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\((r-1)(c-1)\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\chi^2\)&lt;/span&gt; 分布&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="_3"&gt;母平均に関する検定&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;母分散が既知のとき&lt;ul&gt;
+&lt;li&gt;検定統計量 &lt;strong&gt;&lt;span class="math"&gt;\(Z\)&lt;/span&gt; は &lt;span class="math"&gt;\(\overline{X}\)&lt;/span&gt; の標準化変数&lt;/strong&gt; である&lt;/li&gt;
+&lt;li&gt;つまり &lt;strong&gt;&lt;span class="math"&gt;\(Z=\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}\)&lt;/span&gt;&lt;/strong&gt; である&lt;/li&gt;
+&lt;li&gt;帰無仮説が正しければ、これは &lt;strong&gt;標準正規分布N(0, 1)&lt;/strong&gt; に従う&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;母分散が未知のとき&lt;ul&gt;
+&lt;li&gt;検定統計量 &lt;strong&gt;&lt;span class="math"&gt;\(Z\)&lt;/span&gt; は &lt;span class="math"&gt;\(\overline{X}\)&lt;/span&gt; の標準化変数の母分散 &lt;span class="math"&gt;\(\sigma^2\)&lt;/span&gt; を不偏分散 &lt;span class="math"&gt;\(s^2\)&lt;/span&gt; に置き換えたもの&lt;/strong&gt; である&lt;/li&gt;
+&lt;li&gt;つまり &lt;strong&gt;&lt;span class="math"&gt;\(Z=\frac{\overline{X}-\mu}{\sqrt{s^2/n}}\)&lt;/span&gt;&lt;/strong&gt; である&lt;/li&gt;
+&lt;li&gt;帰無仮説が正しければ、これは &lt;strong&gt;自由度 &lt;span class="math"&gt;\(n-1\)&lt;/span&gt; のt分布 &lt;span class="math"&gt;\(t(n-1)\)&lt;/span&gt;&lt;/strong&gt; に従う&lt;/li&gt;
+&lt;li&gt;これをスチューデントのt検定と呼ぶ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_4"&gt;母分散に関する検定&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;検定統計量は &lt;strong&gt;&lt;span class="math"&gt;\(\chi^2=\frac{(n-1)s^2}{\sigma_{0}^2}\)&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;これは帰無仮説のもとで &lt;strong&gt;自由度 &lt;span class="math"&gt;\(n-1\)&lt;/span&gt; の &lt;span class="math"&gt;\(\chi^2\)&lt;/span&gt; 分布&lt;/strong&gt; に従う&lt;/li&gt;
+&lt;li&gt;これを &lt;span class="math"&gt;\(\chi^2\)&lt;/span&gt; 検定という&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_5"&gt;母平均の差の検定&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;2つの分布の結果に差があるかどうかを検定する&lt;/li&gt;
+&lt;li&gt;それぞれ大きさ &lt;span class="math"&gt;\(m, n\)&lt;/span&gt; の標本 &lt;span class="math"&gt;\(X_1, \cdots, X_m, Y_1, \cdots, Y_n\)&lt;/span&gt; とする&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(X, Y\)&lt;/span&gt;の不偏分散をそれぞれ&lt;span class="math"&gt;\(s_1^2, s_2^2\)&lt;/span&gt;とする&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;分散が等しいとき&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;合併した分散&lt;span class="math"&gt;\(s^2\)&lt;/span&gt;は&lt;span class="math"&gt;\(s^2=\frac{(m-1)s_1^2+(n-1)s_2^2}{m+n-2}\)&lt;/span&gt; と表せる&lt;/li&gt;
+&lt;li&gt;このとき検定統計量は &lt;strong&gt;&lt;span class="math"&gt;\(t=\frac{\overline{X}-\overline{Y}}{s\sqrt{1/m+1/n}}\)&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;これは &lt;strong&gt;自由度 &lt;span class="math"&gt;\(m+n-2\)&lt;/span&gt; の t分布 &lt;span class="math"&gt;\(t(m+n-2)\)&lt;/span&gt;&lt;/strong&gt; に従う&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;分散が等しくないとき&lt;ul&gt;
+&lt;li&gt;検定統計量は &lt;strong&gt;&lt;span class="math"&gt;\(t=\frac{\overline{X}-\overline{Y}}{\sqrt{s_1^2/m+s_2^2/n}}\)&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;span class="math"&gt;\(\nu=\frac{(s_1^2/m+s_2^2/n)^2}{\frac{(s_1^2/m)^2}{m-1}+\frac{(s_2^2/n)^2}{n-1}}\)&lt;/span&gt;&lt;/strong&gt; とおき、&lt;span class="math"&gt;\(\nu^\ast\)&lt;/span&gt; を &lt;span class="math"&gt;\(\nu\)&lt;/span&gt; に最も近い整数とすると、 &lt;span class="math"&gt;\(t\)&lt;/span&gt;は近似的に &lt;strong&gt;自由度 &lt;span class="math"&gt;\(\nu^\ast\)&lt;/span&gt; のt分布    &lt;span class="math"&gt;\(t(\nu^\ast)\)&lt;/span&gt;&lt;/strong&gt; に従う&lt;/li&gt;
+&lt;li&gt;この検定はウェルチの検定と呼ばれる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_6"&gt;母分散の比の検定&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;母分散が等しいかどうかを調べたいときの検定&lt;/li&gt;
+&lt;li&gt;それぞれ大きさ &lt;span class="math"&gt;\(m, n\)&lt;/span&gt; の標本 &lt;span class="math"&gt;\(X_1, \cdots, X_m, Y_1, \cdots, Y_n\)&lt;/span&gt; とする&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(X, Y\)&lt;/span&gt;の不偏分散をそれぞれ&lt;span class="math"&gt;\(s_1^2, s_2^2\)&lt;/span&gt;とする&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ここで検定統計量であるフィッシャーの分散比は &lt;strong&gt;&lt;span class="math"&gt;\(F=\frac{s_1^2}{s_2^2}\)&lt;/span&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;これは帰無仮説のもとで &lt;strong&gt;自由度 &lt;span class="math"&gt;\((m-1, n-1)\)&lt;/span&gt; のF分布 &lt;span class="math"&gt;\(F(m-1, n-1)\)&lt;/span&gt;&lt;/strong&gt; に従う&lt;/li&gt;
+&lt;li&gt;これをF検定という&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="chi2"&gt;様々な &lt;span class="math"&gt;\(\chi^2\)&lt;/span&gt; 検定&lt;/h2&gt;
+&lt;h3 id="_7"&gt;適合度の検定&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;適合度の &lt;span class="math"&gt;\(\chi^2\)&lt;/span&gt; 検定&lt;ul&gt;
+&lt;li&gt;仮定された確率分布に対して、標本から求められた度数が適合するかどうかを検証する検定&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;以下のような表を考える&lt;ul&gt;
+&lt;li&gt;理論確率は仮定した確率&lt;/li&gt;
+&lt;li&gt;理論度数は(サンプル数)×(理論確率)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table class="table-hover table table-striped"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="left"&gt;カテゴリ&lt;/th&gt;
+&lt;th align="center"&gt;&lt;span class="math"&gt;\(A_1\)&lt;/span&gt;&lt;/th&gt;
+&lt;th align="center"&gt;&lt;span class="math"&gt;\(A_2\)&lt;/span&gt;&lt;/th&gt;
+&lt;th align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/th&gt;
+&lt;th align="center"&gt;&lt;span class="math"&gt;\(A_k\)&lt;/span&gt;&lt;/th&gt;
+&lt;th align="center"&gt;計&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;観測度数&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_2\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_k\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(n\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;理論確率&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p_1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p_2\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p_k\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(1\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;理論度数&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(np_1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(np_2\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(np_k\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(n\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;検定統計量はピアソンの適合度基準 &lt;strong&gt;&lt;span class="math"&gt;\(\chi^2=\sum_{i=1}^k\frac{(f_i-np_i)^2}{np_i}\)&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;これは &lt;span class="math"&gt;\(n\)&lt;/span&gt; が大きいとき &lt;strong&gt;自由度 &lt;span class="math"&gt;\(k-1\)&lt;/span&gt; の &lt;span class="math"&gt;\(\chi^2\)&lt;/span&gt; 分布 &lt;span class="math"&gt;\(\chi^2(k-1)\)&lt;/span&gt;&lt;/strong&gt; に従う&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="_8"&gt;分割表と独立性の検定&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;属性 &lt;span class="math"&gt;\(A\)&lt;/span&gt; がカテゴリ &lt;span class="math"&gt;\(A_1, A_2, \cdots, A_r\)&lt;/span&gt; 、属性 &lt;span class="math"&gt;\(B\)&lt;/span&gt; がカテゴリ &lt;span class="math"&gt;\(B_1, B_2, \cdots, B_c\)&lt;/span&gt; をもつような分割表を考える&lt;ul&gt;
+&lt;li&gt;つまりは以下のような分割表である&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table class="table-hover table table-striped"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="left"&gt;カテゴリ&lt;/th&gt;
+&lt;th align="center"&gt;&lt;span class="math"&gt;\(B_1\)&lt;/span&gt;&lt;/th&gt;
+&lt;th align="center"&gt;&lt;span class="math"&gt;\(B_2\)&lt;/span&gt;&lt;/th&gt;
+&lt;th align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/th&gt;
+&lt;th align="center"&gt;&lt;span class="math"&gt;\(B_c\)&lt;/span&gt;&lt;/th&gt;
+&lt;th align="center"&gt;計&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;&lt;span class="math"&gt;\(A_1\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{11}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{12}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{1c}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{1\cdot}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;&lt;span class="math"&gt;\(A_2\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{21}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{22}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{2c}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{2\cdot}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;&lt;span class="math"&gt;\(A_r\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{r1}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{r2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{rc}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{r\cdot}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="left"&gt;計&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{\cdot 1}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{\cdot 2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\cdots\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(f_{\cdot c}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(n\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;属性 &lt;span class="math"&gt;\(A\)&lt;/span&gt; と属性 &lt;span class="math"&gt;\(B\)&lt;/span&gt; が　&lt;strong&gt;独立&lt;/strong&gt; であるかどうかを検定したい&lt;ul&gt;
+&lt;li&gt;独立性の &lt;span class="math"&gt;\(\chi^2\)&lt;/span&gt; 検定と呼ばれる&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;独立&lt;/strong&gt; とは &lt;span class="math"&gt;\(A_i \cap B_j\)&lt;/span&gt; に対して、&lt;strong&gt;&lt;span class="math"&gt;\(P(A_i \cap B_j)=P(A_i)P(B_j)\)&lt;/span&gt;&lt;/strong&gt; が成立すること&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;帰無仮説 &lt;span class="math"&gt;\(H_0\)&lt;/span&gt; : 任意の &lt;span class="math"&gt;\(i, j\)&lt;/span&gt; に対して &lt;span class="math"&gt;\(P(A_i \cap B_j)=P(A_i)P(B_j)\)&lt;/span&gt; が成立&lt;/li&gt;
+&lt;li&gt;検定統計量 &lt;strong&gt;&lt;span class="math"&gt;\(\chi^2=\sum_{i=1}^r\sum_{j=1}^c\frac{(f_{ij}-f_{i\cdot}f_{\cdot j}/n)^2}{f_{i\cdot}f_{\cdot j}/n}=\sum_{i=1}^r\sum_{j=1}^c\frac{(nf_{ij}-f_{i\cdot}f_{\cdot j})^2}{nf_{i\cdot}f_{\cdot j}}\)&lt;/span&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;これは &lt;strong&gt;自由度 &lt;span class="math"&gt;\((r-1)(c-1)\)&lt;/span&gt; の &lt;span class="math"&gt;\(\chi^2\)&lt;/span&gt; 検定&lt;/strong&gt; に従う&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_9"&gt;中心極限定理を用いる検定&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;母集団分布が正規分布でなくても、中心極限定理が成立するなど検定統計量が近似的に正規分布に従う場合、正規分布に対する検定の手続きをそのまま用いることができる&lt;ul&gt;
+&lt;li&gt;ex. 二項分布の標本数が多い場合、検定統計量は中心極限定理により、標本数が多くなると標準正規分布に従う&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="blog"></category><category term="統計"></category></entry><entry><title>確率分布早見表</title><link href="https://knuu.github.io/probability-distributions.html" rel="alternate"></link><published>2017-06-18T00:00:00+09:00</published><updated>2017-06-18T00:00:00+09:00</updated><author><name>knuu</name></author><id>tag:knuu.github.io,2017-06-18:/probability-distributions.html</id><summary type="html">&lt;h2 id="_1"&gt;離散分布&lt;/h2&gt;
+&lt;table class="table-hover table table-striped"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="center"&gt;確率分布&lt;/th&gt;
+&lt;th align="center"&gt;確率密度関数&lt;/th&gt;
+&lt;th align="center"&gt;定義域&lt;/th&gt;
+&lt;th align="center"&gt;パラメータ&lt;/th&gt;
+&lt;th align="center"&gt;平均&lt;/th&gt;
+&lt;th align="center"&gt;分散&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;ベルヌーイ分布&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p^x (1-p)^{1-x}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(x\in \{0,1\}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p(1-p)\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;二項分布&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\({}_nC_xp^x(1-p)^{n-x}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(x\in \{0,\cdots,n\}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(n,p\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(np\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(np(1-p)\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;ポアソン分布&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{\lambda^xe^{-\lambda}}{x!}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(x\in \{0,1,\cdots\}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\lambda\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\lambda\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\lambda\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;幾何分布 …&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</summary><content type="html">&lt;h2 id="_1"&gt;離散分布&lt;/h2&gt;
+&lt;table class="table-hover table table-striped"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="center"&gt;確率分布&lt;/th&gt;
+&lt;th align="center"&gt;確率密度関数&lt;/th&gt;
+&lt;th align="center"&gt;定義域&lt;/th&gt;
+&lt;th align="center"&gt;パラメータ&lt;/th&gt;
+&lt;th align="center"&gt;平均&lt;/th&gt;
+&lt;th align="center"&gt;分散&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;ベルヌーイ分布&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p^x (1-p)^{1-x}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(x\in \{0,1\}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p(1-p)\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;二項分布&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\({}_nC_xp^x(1-p)^{n-x}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(x\in \{0,\cdots,n\}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(n,p\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(np\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(np(1-p)\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;ポアソン分布&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{\lambda^xe^{-\lambda}}{x!}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(x\in \{0,1,\cdots\}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\lambda\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\lambda\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\lambda\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;幾何分布&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p(1-p)^{x-1}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(x\in \{1,2,\cdots\}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(p\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{1}{p}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{1-p}{p^2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;(離散)一様分布&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{1}{N}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(x\in \{1,\cdots,N\}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(N\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{N+1}{2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{N^2-1}{12}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="_2"&gt;連続分布&lt;/h2&gt;
+&lt;table class="table-hover table table-striped"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="center"&gt;確率分布&lt;/th&gt;
+&lt;th align="center"&gt;確率密度関数&lt;/th&gt;
+&lt;th align="center"&gt;定義域&lt;/th&gt;
+&lt;th align="center"&gt;パラメータ&lt;/th&gt;
+&lt;th align="center"&gt;平均&lt;/th&gt;
+&lt;th align="center"&gt;分散&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;正規分布&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\((-\infty,\infty)\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\mu,\sigma\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\mu\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\sigma^2\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;指数分布&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\lambda e^{-\lambda x}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\([0,\infty)\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\lambda\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{1}{\lambda}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{1}{\lambda^2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;(連続)一様分布&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{1}{b-a}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\([a,b]\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(a,b\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{a+b}{2}\)&lt;/span&gt;&lt;/td&gt;
+&lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{(a-b)^2}{12}\)&lt;/span&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="blog"></category><category term="統計"></category></entry><entry><title>Github Pages はじめました</title><link href="https://knuu.github.io/first-post.html" rel="alternate"></link><published>2017-06-07T00:00:00+09:00</published><updated>2017-06-07T00:00:00+09:00</updated><author><name>knuu</name></author><id>tag:knuu.github.io,2017-06-07:/first-post.html</id><summary type="html">&lt;h2 id="github-pages"&gt;Github Pages はじめました&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/getpelican/pelican"&gt;pelican&lt;/a&gt;でサイトを作ったので、競プロライブラリの公開とか、なにかメモ的なものとして使いたい&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;highlightのテスト&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;math&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Hello World!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;mathjaxのテスト&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;が&lt;span class="math"&gt;\(\beta\)&lt;/span&gt;を&lt;span class="math"&gt;\(\kappa\)&lt;/span&gt;らったら&lt;span class="math"&gt;\(\epsilon\)&lt;/span&gt;した。なぜだろう。
+(参考: &lt;a href="http://ja.uncyclopedia.info/wiki/%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A1%E3%81%8C%E3%83%99%E3%83%BC%E3%82%BF%E3%82%92%E3%82%AB%E3%83%83%E3%83%91%E3%82%89%E3%81%A3%E3%81%9F%E3%82%89%E3%82%A4%E3%83%97%E3%82%B7%E3%83%AD%E3%83%B3%E3%81%97%E3%81%9F%E3%80%82%E3%81%AA%E3%81%9C%E3%81%A0%E3%82%8D%E3%81%86%E3%80%82"&gt;アルファがベータをカッパらったらイプシロンした。なぜだろう。&lt;/a&gt;)&lt;/p&gt;
+&lt;div class="math"&gt;$$\left( \sum_{k=1}^n a_k b_k \right)^{2} \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_ …&lt;/div&gt;</summary><content type="html">&lt;h2 id="github-pages"&gt;Github Pages はじめました&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/getpelican/pelican"&gt;pelican&lt;/a&gt;でサイトを作ったので、競プロライブラリの公開とか、なにかメモ的なものとして使いたい&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;highlightのテスト&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;math&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;math&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sqrt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Hello World!"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;mathjaxのテスト&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(\alpha\)&lt;/span&gt;が&lt;span class="math"&gt;\(\beta\)&lt;/span&gt;を&lt;span class="math"&gt;\(\kappa\)&lt;/span&gt;らったら&lt;span class="math"&gt;\(\epsilon\)&lt;/span&gt;した。なぜだろう。
+(参考: &lt;a href="http://ja.uncyclopedia.info/wiki/%E3%82%A2%E3%83%AB%E3%83%95%E3%82%A1%E3%81%8C%E3%83%99%E3%83%BC%E3%82%BF%E3%82%92%E3%82%AB%E3%83%83%E3%83%91%E3%82%89%E3%81%A3%E3%81%9F%E3%82%89%E3%82%A4%E3%83%97%E3%82%B7%E3%83%AD%E3%83%B3%E3%81%97%E3%81%9F%E3%80%82%E3%81%AA%E3%81%9C%E3%81%A0%E3%82%8D%E3%81%86%E3%80%82"&gt;アルファがベータをカッパらったらイプシロンした。なぜだろう。&lt;/a&gt;)&lt;/p&gt;
+&lt;div class="math"&gt;$$\left( \sum_{k=1}^n a_k b_k \right)^{2} \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</content><category term="blog"></category><category term="Misc"></category></entry></feed>
