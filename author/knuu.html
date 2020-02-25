@@ -72,6 +72,41 @@
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="../manhattan_mst.html">Manhattan Minimum Spanning Tree</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2020-02-25T00:00:00+09:00"> 2020-02-25(火)</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/algorithm.html">アルゴリズム</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><h2 id="_1">問題</h2>
+<ul>
+<li><a href="https://judge.yosupo.jp/problem/manhattanmst">Manhattan MST (Libarry Checker)</a></li>
+</ul>
+<h2 id="_2">解法</h2>
+<ul>
+<li>NOTE: ここで述べる解法は基本的に以下の topcoder の記事を参考に分割統治部分を座標圧縮+セグメント木で置き換えたものである。<ul>
+<li><a href="https://www.topcoder.com/community/competitive-programming/tutorials/line-sweep-algorithms/">Line Sweep Algorithms</a></li>
+</ul>
+</li>
+</ul>
+<p>ナイーブに考えると、全点対でマンハッタン距離を計算して Kruskal 法などの最小全域木を求めるアルゴリズムを適用すればよいが、これは点の数 <span class="math">\(N\)</span> に対して計算量が <span class="math">\(O(N^2)\)</span> になってしまう。</p>
+<p>実は全点対を考える必要はなくて、マンハッタン距離で最小になる点の間で枝を貼るだけでよい（<strong>要証明</strong>）。枝が <span class="math">\(O(N)\)</span> になり、最小全域木の計算量は <span class="math">\(O(N \log N)\)</span> となる。</p>
+<p>ある点 P とマンハッタン距離が最短になる点を以下の図のような 8 方向の領域に分けて探索する。8 領域で最小になった点のみと枝を貼ることが通常考えられるが、実装上は 8 個の領域それぞれで見つかった、距離が最小の点と枝を構築してしても計算量は定数倍なので、どちらでもよい …</p>
+                    <a class="btn btn-default btn-xs" href="../manhattan_mst.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="../statsml2019-topconf.html">第4回 統計・機械学習若手シンポジウム「Academic Writing for Top Conferences」聴講録</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -288,7 +323,7 @@
 <li>『統計学入門』第12章より</li>
 </ul>
 <h2 id="_2">早見表</h2>
-<table class="table-hover table table-striped">
+<table class="table-striped table-hover table">
 <thead>
 <tr>
 <th align="center">何の検定</th>
@@ -341,7 +376,7 @@
     
 </footer><!-- /.post-info -->                    </div>
                 <div class="summary"><h2 id="_1">離散分布</h2>
-<table class="table-hover table table-striped">
+<table class="table-striped table-hover table">
 <thead>
 <tr>
 <th align="center">確率分布</th>
@@ -450,28 +485,28 @@
   <a href="../"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group " id="tags">
     <li class="list-group-item tag-1">
+      <a href="../tag/algorithm.html">アルゴリズム</a>
+    </li>
+    <li class="list-group-item tag-1">
       <a href="../tag/statistics.html">統計</a>
-    </li>
-    <li class="list-group-item tag-4">
-      <a href="../tag/conf_notes.html">聴講録</a>
-    </li>
-    <li class="list-group-item tag-4">
-      <a href="../tag/scraping.html">スクレイピング</a>
-    </li>
-    <li class="list-group-item tag-4">
-      <a href="../tag/paper-memo.html">論文メモ</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="../tag/misc.html">Misc</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/algorithm.html">アルゴリズム</a>
-    </li>
-    <li class="list-group-item tag-4">
       <a href="../tag/pelican.html">pelican</a>
     </li>
     <li class="list-group-item tag-4">
+      <a href="../tag/paper-memo.html">論文メモ</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/conf_notes.html">聴講録</a>
+    </li>
+    <li class="list-group-item tag-4">
       <a href="../tag/python.html">python</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/scraping.html">スクレイピング</a>
     </li>
   </ul>
 </li>
@@ -486,7 +521,7 @@
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2019 knuu
+         <div class="col-xs-10">&copy; 2020 knuu
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

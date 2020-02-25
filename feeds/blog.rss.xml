@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>霧でも食ってろ - blog</title><link>https://knuu.github.io/</link><description></description><lastBuildDate>Sun, 01 Dec 2019 00:00:00 +0900</lastBuildDate><item><title>第4回 統計・機械学習若手シンポジウム「Academic Writing for Top Conferences」聴講録</title><link>https://knuu.github.io/statsml2019-topconf.html</link><description>&lt;h2 id="_1"&gt;概要&lt;/h2&gt;
+<rss version="2.0"><channel><title>霧でも食ってろ - blog</title><link>https://knuu.github.io/</link><description></description><lastBuildDate>Tue, 25 Feb 2020 00:00:00 +0900</lastBuildDate><item><title>Manhattan Minimum Spanning Tree</title><link>https://knuu.github.io/manhattan_mst.html</link><description>&lt;h2 id="_1"&gt;問題&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://judge.yosupo.jp/problem/manhattanmst"&gt;Manhattan MST (Libarry Checker)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="_2"&gt;解法&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;NOTE: ここで述べる解法は基本的に以下の topcoder の記事を参考に分割統治部分を座標圧縮+セグメント木で置き換えたものである。&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.topcoder.com/community/competitive-programming/tutorials/line-sweep-algorithms/"&gt;Line Sweep Algorithms&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ナイーブに考えると、全点対でマンハッタン距離を計算して Kruskal 法などの最小全域木を求めるアルゴリズムを適用すればよいが、これは点の数 &lt;span class="math"&gt;\(N\)&lt;/span&gt; に対して計算量が &lt;span class="math"&gt;\(O(N^2)\)&lt;/span&gt; になってしまう。&lt;/p&gt;
+&lt;p&gt;実は全点対を考える必要はなくて、マンハッタン距離で最小になる点の間で枝を貼るだけでよい（&lt;strong&gt;要証明&lt;/strong&gt;）。枝が &lt;span class="math"&gt;\(O(N)\)&lt;/span&gt; になり、最小全域木の計算量は &lt;span class="math"&gt;\(O(N \log N)\)&lt;/span&gt; となる。&lt;/p&gt;
+&lt;p&gt;ある点 P とマンハッタン距離が最短になる点を以下の図のような 8 方向の領域に分けて探索する。8 領域で最小になった点のみと枝を貼ることが通常考えられるが、実装上は 8 個の領域それぞれで見つかった、距離が最小の点と枝を構築してしても計算量は定数倍なので、どちらでもよい …&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">knuu</dc:creator><pubDate>Tue, 25 Feb 2020 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:knuu.github.io,2020-02-25:/manhattan_mst.html</guid><category>blog</category><category>アルゴリズム</category></item><item><title>第4回 統計・機械学習若手シンポジウム「Academic Writing for Top Conferences」聴講録</title><link>https://knuu.github.io/statsml2019-topconf.html</link><description>&lt;h2 id="_1"&gt;概要&lt;/h2&gt;
 &lt;p&gt;2019/11/15(金)・16(土) に名古屋(名工大)で開催された、第 4 回統計・機械学習若手シンポジウムに参加してきました。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;URL: https://sites.google.com/view/statsml-symposium19/&lt;/li&gt;
@@ -87,7 +100,7 @@
 &lt;li&gt;『統計学入門』第12章より&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="_2"&gt;早見表&lt;/h2&gt;
-&lt;table class="table-hover table table-striped"&gt;
+&lt;table class="table-striped table-hover table"&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th align="center"&gt;何の検定&lt;/th&gt;
@@ -118,7 +131,7 @@
 &lt;tr&gt;
 &lt;td align="center"&gt;2分布の平均(分散が等しい)&lt;/td&gt;
 &lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{\overline …&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">knuu</dc:creator><pubDate>Sun, 18 Jun 2017 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:knuu.github.io,2017-06-18:/hypothesis-testings.html</guid><category>blog</category><category>統計</category></item><item><title>確率分布早見表</title><link>https://knuu.github.io/probability-distributions.html</link><description>&lt;h2 id="_1"&gt;離散分布&lt;/h2&gt;
-&lt;table class="table-hover table table-striped"&gt;
+&lt;table class="table-striped table-hover table"&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th align="center"&gt;確率分布&lt;/th&gt;

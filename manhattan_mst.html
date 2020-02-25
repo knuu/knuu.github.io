@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Manhattan Minimum Spanning Tree - 霧でも食ってろ</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./manhattan_mst.html">
+
+        <meta name="author" content="knuu" />
+        <meta name="keywords" content="アルゴリズム" />
+        <meta name="description" content="問題 Manhattan MST (Libarry Checker) 解法 NOTE: ここで述べる解法は基本的に以下の topcoder の記事を参考に分割統治部分を座標圧縮+セグメント木で置き換えたものである。 Line Sweep Algorithms ナイーブに考えると、全点対でマンハッタン距離を計算して Kruskal 法などの最小全域木を求めるアルゴリズムを適用すればよいが、これは点の数 \(N\) に対して計算量が \(O(N^2)\) になってしまう。 実は全点対を考える必要はなくて、マンハッタン距離で最小になる点の間で枝を貼るだけでよい（要証明）。枝が \(O(N)\) になり、最小全域木の計算量は \(O(N \log N)\) となる。 ある点 P とマンハッタン距離が最短になる点を以下の図のような 8 方向の領域に分けて探索する。8 領域で最小になった点のみと枝を貼ることが通常考えられるが、実装上は 8 個の領域それぞれで見つかった、距離が最小の点と枝を構築してしても計算量は定数倍なので、どちらでもよい …" />
+
+        <meta property="og:site_name" content="霧でも食ってろ" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Manhattan Minimum Spanning Tree"/>
+        <meta property="og:url" content="./manhattan_mst.html"/>
+        <meta property="og:description" content="問題 Manhattan MST (Libarry Checker) 解法 NOTE: ここで述べる解法は基本的に以下の topcoder の記事を参考に分割統治部分を座標圧縮+セグメント木で置き換えたものである。 Line Sweep Algorithms ナイーブに考えると、全点対でマンハッタン距離を計算して Kruskal 法などの最小全域木を求めるアルゴリズムを適用すればよいが、これは点の数 \(N\) に対して計算量が \(O(N^2)\) になってしまう。 実は全点対を考える必要はなくて、マンハッタン距離で最小になる点の間で枝を貼るだけでよい（要証明）。枝が \(O(N)\) になり、最小全域木の計算量は \(O(N \log N)\) となる。 ある点 P とマンハッタン距離が最短になる点を以下の図のような 8 方向の領域に分けて探索する。8 領域で最小になった点のみと枝を貼ることが通常考えられるが、実装上は 8 個の領域それぞれで見つかった、距離が最小の点と枝を構築してしても計算量は定数倍なので、どちらでもよい …"/>
+        <meta property="article:published_time" content="2020-02-25" />
+            <meta property="article:section" content="blog" />
+            <meta property="article:tag" content="アルゴリズム" />
+            <meta property="article:author" content="knuu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/emacs.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="霧でも食ってろ ATOM Feed"/>
+
+        <link href="./feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="霧でも食ってろ RSS Feed"/>
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+霧でも食ってろ            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="./pages/about-me.html">
+                             About Me
+                          </a></li>
+                         <li><a href="./pages/ml-dm-ai_jp_papers.html">
+                             ML-DM-AI Papers by Researchers in Japan
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./manhattan_mst.html"
+                       rel="bookmark"
+                       title="Permalink to Manhattan Minimum Spanning Tree">
+                        Manhattan Minimum Spanning Tree
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2020-02-25T00:00:00+09:00"> 2020-02-25(火)</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/algorithm.html">アルゴリズム</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h2 id="_1">問題</h2>
+<ul>
+<li><a href="https://judge.yosupo.jp/problem/manhattanmst">Manhattan MST (Libarry Checker)</a></li>
+</ul>
+<h2 id="_2">解法</h2>
+<ul>
+<li>NOTE: ここで述べる解法は基本的に以下の topcoder の記事を参考に分割統治部分を座標圧縮+セグメント木で置き換えたものである。<ul>
+<li><a href="https://www.topcoder.com/community/competitive-programming/tutorials/line-sweep-algorithms/">Line Sweep Algorithms</a></li>
+</ul>
+</li>
+</ul>
+<p>ナイーブに考えると、全点対でマンハッタン距離を計算して Kruskal 法などの最小全域木を求めるアルゴリズムを適用すればよいが、これは点の数 <span class="math">\(N\)</span> に対して計算量が <span class="math">\(O(N^2)\)</span> になってしまう。</p>
+<p>実は全点対を考える必要はなくて、マンハッタン距離で最小になる点の間で枝を貼るだけでよい（<strong>要証明</strong>）。枝が <span class="math">\(O(N)\)</span> になり、最小全域木の計算量は <span class="math">\(O(N \log N)\)</span> となる。</p>
+<p>ある点 P とマンハッタン距離が最短になる点を以下の図のような 8 方向の領域に分けて探索する。8 領域で最小になった点のみと枝を貼ることが通常考えられるが、実装上は 8 個の領域それぞれで見つかった、距離が最小の点と枝を構築してしても計算量は定数倍なので、どちらでもよい。</p>
+<p><img alt="octan" class="img-responsive" src="./images/octan.jpeg"/></p>
+<details><summary>8 領域に分ける理由についての自分の解釈</summary>
+このような 8 領域に分ける理由は微妙な点だが、まず、ある点 P からのマンハッタン距離が等しい点の等高線を考えると、4 方向の領域で直線の式が変わるので、4 方向に分けて考えてみよう、となる。ただその場合、点 P の座標 $(x_p, y_p)$ に対して、点 $(x, y)$ が $x_p \ge x$ かつ $y_p \le y$ という 2 つの条件を考える必要があり、8 方向に限定することで、これを 1 つだけにすることが可能になる、という理由がある。ただこれは、後述の平面走査による解法から来ており、かなりこじつけな気がしている。実際、平面走査がなければ、8 方向に限定することで結局もう 1 個直線の条件が増えている。より自然な理由を考える必要がありそう。
+</details>
+<p>ここでは上記の図の領域 0 を考えてみる。領域 0 において、点 P <span class="math">\((x_p, y_p)\)</span> からのマンハッタン距離が最小になる点は、以下の条件で与えられる。</p>
+<div class="highlight"><pre><span></span>min x+y
+s.t. y-x &lt;= y_p-x_p
+     y &gt;= y_p
+</pre></div>
+<p>ここで、<span class="math">\(y \ge y_p\)</span> という条件を除いて考えてみると、各点に対する領域 0 におけるマンハッタン距離が最小の点は、以下のような平面走査で求めることができる。</p>
+<ul>
+<li>イベント点: 与えられた <span class="math">\(N\)</span> 個の点</li>
+<li>走査線: 直線 <span class="math">\(y-x=k\)</span> に対して、<span class="math">\(k\)</span> を <span class="math">\(-\infty\)</span> から <span class="math">\(+\infty\)</span> へ動かす</li>
+<li>つまり、与えられた点を <span class="math">\(y-x\)</span> の値でソートして、その順に点を処理する</li>
+<li>イベント点の処理</li>
+<li>点 P <span class="math">\((x_p, y_p)\)</span> に対する処理: まず、過去に処理したイベント点の中で <span class="math">\(x+y\)</span> が最小の点 P' がマンハッタン距離が最小の点である。その後、<span class="math">\(x_p+y_p\)</span> が過去に処理したイベント点の中で <span class="math">\(x+y\)</span> が最小の点ならば、それを覚えておく。</li>
+</ul>
+<p>この計算量はイベント点の数が <span class="math">\(O(N)\)</span>、各点でのイベント点の処理が <span class="math">\(O(1)\)</span>、事前のソートが <span class="math">\(O (N \log N)\)</span> なので、全体では <span class="math">\(O (N \log N)\)</span> となる。</p>
+<p>では <span class="math">\(y \ge y_p\)</span> を加えて考えてみる。これは、上記の平面走査のイベント点の処理において、今まで処理した点の中で <span class="math">\(y\)</span> 座標が <span class="math">\(y_p\)</span> よりも大きい点の中で <span class="math">\(x+y\)</span> の最小値を取ればよい。これを実現するには、各点を <span class="math">\(y\)</span> 座標でソートした列に対して <span class="math">\(x+y\)</span> の最小値を返すようなセグメント木を作っておけばよい。結局イベント点の処理は以下のようになる。</p>
+<ul>
+<li>イベント点の処理</li>
+<li>初期化: イベント点を <span class="math">\(y\)</span> 座標でソートした列に対して、<span class="math">\(x+y\)</span> の値を列の値として持ち、最小値を返すようなセグメント木を構築する。ただし初期値は <span class="math">\(+\infty\)</span>。</li>
+<li>点 P <span class="math">\((x_p, y_p)\)</span> に対する処理: まず、上記で構築したセグメント木に対して、点 P の <span class="math">\(y\)</span> 座標 <span class="math">\(y_p\)</span> に対応するセグメント木の位置から右端までの区間で <span class="math">\(x+y\)</span> の最小値を取得する。もしその最小値が <span class="math">\(+\infty\)</span> でなければ、最小値に対応する点が領域 0 における点 P からマンハッタン距離が最小の点である。その後、<span class="math">\(x_p+y_p\)</span> をセグメント木の対応する位置で更新する。</li>
+</ul>
+<p>初期化は <span class="math">\(O(N \log N)\)</span>、各点でのイベント点の処理が <span class="math">\(O(log N)\)</span> なので、結局全体では <span class="math">\(O (N \log N)\)</span> のままである。</p>
+<p>他の領域も同じように考えれば、似たようなことを 8 回行うだけなので、最小全域木のもととなるグラフを構築するための計算量も <span class="math">\(O(N \log N)\)</span> となる。</p>
+<p>ここからは実装上の補足である。それぞれの領域でわざわざ同じことを考えて別々の処理を書く必要があるかというと、実はそうではない。以下のように線対称に点を移動させることで、上記の平面走査の処理を一度実装するだけでよくなる。</p>
+<div class="highlight"><pre><span></span>points := 与えられた点集合
+
+for i in 0..1:
+  for j in 0..1:
+    for k in 0..1:
+      # 平面走査の処理
+      ...
+      # 平面走査の処理が終了
+
+      # y=x で線対称に点を移動させる
+      for p in points: swap(p.x, p.y)
+    # x=0 で線対称に点を移動させる
+    for p in points: p.x = -p.x
+  # y=0 で線対称に点を移動させる
+  for p in points: p.y = -p.y
+</pre></div>
+<p>これの正当性は、各領域での走査線・イベント点の処理が何で、各領域が上記の <span class="math">\(i,j,k\)</span> のいつのときに処理されているかを考えればよい。まず、各領域での走査線とイベント点での処理を列挙してみると以下のようになる。</p>
+<table class="table-striped table-hover table">
+<thead>
+<tr>
+<th>領域</th>
+<th>走査線</th>
+<th><span class="math">\(k\)</span> の動かし方</th>
+<th>イベント点 (x', y') での最近傍点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><span class="math">\(y-x=k\)</span></td>
+<td><span class="math">\(-\infty \rightarrow +\infty\)</span></td>
+<td><span class="math">\(\min x+y\)</span> s.t. <span class="math">\(y \ge y'\)</span></td>
+</tr>
+<tr>
+<td>1</td>
+<td><span class="math">\(y-x=k\)</span></td>
+<td><span class="math">\(+\infty \rightarrow -\infty\)</span></td>
+<td><span class="math">\(\min x+y\)</span> s.t. <span class="math">\(x \ge x'\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td><span class="math">\(x+y=k\)</span></td>
+<td><span class="math">\(+\infty \rightarrow -\infty\)</span></td>
+<td><span class="math">\(\min y-x\)</span> s.t. <span class="math">\(x \le x'\)</span></td>
+</tr>
+<tr>
+<td>3</td>
+<td><span class="math">\(x+y=k\)</span></td>
+<td><span class="math">\(-\infty \rightarrow +\infty\)</span></td>
+<td><span class="math">\(\min y-x\)</span> s.t. <span class="math">\(y \ge y'\)</span></td>
+</tr>
+<tr>
+<td>4</td>
+<td><span class="math">\(y-x=k\)</span></td>
+<td><span class="math">\(+\infty \rightarrow -\infty\)</span></td>
+<td><span class="math">\(\max x+y\)</span> s.t. <span class="math">\(y \le y'\)</span></td>
+</tr>
+<tr>
+<td>5</td>
+<td><span class="math">\(y-x=k\)</span></td>
+<td><span class="math">\(-\infty \rightarrow +\infty\)</span></td>
+<td><span class="math">\(\max x+y\)</span> s.t. <span class="math">\(x \le x'\)</span></td>
+</tr>
+<tr>
+<td>6</td>
+<td><span class="math">\(x+y=k\)</span></td>
+<td><span class="math">\(-\infty \rightarrow +\infty\)</span></td>
+<td><span class="math">\(\max y-x\)</span> s.t. <span class="math">\(x \ge x'\)</span></td>
+</tr>
+<tr>
+<td>7</td>
+<td><span class="math">\(x+y=k\)</span></td>
+<td><span class="math">\(+\infty \rightarrow -\infty\)</span></td>
+<td><span class="math">\(\max y-x\)</span> s.t. <span class="math">\(y \le y'\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>例えば領域 4 は <span class="math">\(i=1,j=0,k=1\)</span> で処理されるが、このときは <span class="math">\((x,y)\)</span> が <span class="math">\((-x,-y)\)</span> に移動しているので、領域 0 の「走査線: <span class="math">\(y-x=k\)</span>、<span class="math">\(k\)</span> の動かし方: <span class="math">\(-\infty \rightarrow +\infty\)</span>、イベント点での最近傍点: <span class="math">\(\min x+y\)</span> s.t. <span class="math">\(y \ge y'\)</span>」という操作において、<span class="math">\((x,y)\)</span> を <span class="math">\((-x,-y)\)</span> に置き換えると、「走査線: <span class="math">\(-y+x=k\)</span>、<span class="math">\(k\)</span> の動かし方: <span class="math">\(-\infty \rightarrow +\infty\)</span>、イベント点での最近傍点: <span class="math">\(\min -x-y\)</span> s.t. <span class="math">\(-y \ge -y'\)</span>」となり、これは「走査線: <span class="math">\(y-x=k'\)</span>、<span class="math">\(k':=k\)</span> の動かし方: <span class="math">\(+\infty \rightarrow -\infty\)</span>、イベント点での最近傍点: <span class="math">\(\max x+y\)</span> s.t. <span class="math">\(y \le y'\)</span>」と言い換えることができ、これは領域 4 の条件と一致する。</p>
+<p>つまり、上記の擬似コードのように、for 文の終わりで点の変換処理を噛ませば、一度平面走査の処理を書くだけで使い回すことができ、実装の効率化ができる。</p>
+<h2 id="_3">コード</h2>
+<ul>
+<li><a href="https://judge.yosupo.jp/submission/4079">Libary Checker の Manhattan MST の提出コード</a></li>
+</ul>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <!-- AddThis Button END -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+        <p>
+            <img width="100%" class="img-thumbnail" src="./images/coffee.png"/>
+        </p>
+    <p>
+      <strong>About knuu</strong><br/>
+        京都->東京にいる競技プログラマ
+    </p>
+</div><!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/n_knuu6"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="https://github.com/knuu"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="./"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group " id="tags">
+    <li class="list-group-item tag-1">
+      <a href="./tag/algorithm.html">アルゴリズム</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="./tag/statistics.html">統計</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/pelican.html">pelican</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/paper-memo.html">論文メモ</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/conf_notes.html">聴講録</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/python.html">python</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/scraping.html">スクレイピング</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2020 knuu
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=True"></script>
+</body>
+</html>
