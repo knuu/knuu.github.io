@@ -100,7 +100,7 @@
 &lt;li&gt;『統計学入門』第12章より&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="_2"&gt;早見表&lt;/h2&gt;
-&lt;table class="table-striped table-hover table"&gt;
+&lt;table class="table-striped table table-hover"&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th align="center"&gt;何の検定&lt;/th&gt;
@@ -131,7 +131,7 @@
 &lt;tr&gt;
 &lt;td align="center"&gt;2分布の平均(分散が等しい)&lt;/td&gt;
 &lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{\overline …&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">knuu</dc:creator><pubDate>Sun, 18 Jun 2017 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:knuu.github.io,2017-06-18:/hypothesis-testings.html</guid><category>blog</category><category>統計</category></item><item><title>確率分布早見表</title><link>https://knuu.github.io/probability-distributions.html</link><description>&lt;h2 id="_1"&gt;離散分布&lt;/h2&gt;
-&lt;table class="table-striped table-hover table"&gt;
+&lt;table class="table-striped table table-hover"&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th align="center"&gt;確率分布&lt;/th&gt;
