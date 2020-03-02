@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>霧でも食ってろ</title><link>https://knuu.github.io/</link><description></description><lastBuildDate>Tue, 25 Feb 2020 00:00:00 +0900</lastBuildDate><item><title>Manhattan Minimum Spanning Tree</title><link>https://knuu.github.io/manhattan_mst.html</link><description>&lt;h2 id="_1"&gt;問題&lt;/h2&gt;
+<rss version="2.0"><channel><title>霧でも食ってろ</title><link>https://knuu.github.io/</link><description></description><lastBuildDate>Mon, 02 Mar 2020 00:00:00 +0900</lastBuildDate><item><title>Manhattan Minimum Spanning Tree</title><link>https://knuu.github.io/manhattan_mst.html</link><description>&lt;h2 id="_1"&gt;問題&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://judge.yosupo.jp/problem/manhattanmst"&gt;Manhattan MST (Libarry Checker)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -37,11 +37,11 @@
 &lt;p&gt;目視で収集する手法の問題点として、スケールしないことがあげられます。さらに近年は機械学習・データマイニング・人工知能分野の国際会議論文は増加している傾向もあり、目視で収集するには限界があります。&lt;/p&gt;
 &lt;p&gt;そこで今回は &lt;a href="https://dl.acm.org"&gt;ACM Digital …&lt;/a&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">knuu</dc:creator><pubDate>Mon, 12 Aug 2019 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:knuu.github.io,2019-08-12:/collecting_jp_ml-dm-ai_papers.html</guid><category>blog</category><category>スクレイピング</category></item><item><title>連続する部分列の和の総和</title><link>https://knuu.github.io/sum-of-all-continuous-subarrays.html</link><description>&lt;h2 id="_1"&gt;問題&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;長さ&lt;span class="math"&gt;\(N\)&lt;/span&gt;の数列 &lt;span class="math"&gt;\(A = [a_1, a_2, ..., a_N]\)&lt;/span&gt;が与えられる&lt;/li&gt;
-&lt;li&gt;この数列の任意の連続する部分列の和の総和を&lt;span class="math"&gt;\(10^9+7\)&lt;/span&gt;で割った余りを求めよ&lt;/li&gt;
+&lt;li&gt;長さ &lt;span class="math"&gt;\(N\)&lt;/span&gt; の数列 &lt;span class="math"&gt;\(A = [a_1, a_2, ..., a_N]\)&lt;/span&gt; が与えられる&lt;/li&gt;
+&lt;li&gt;この数列の任意の連続する部分列の和の総和を &lt;span class="math"&gt;\(10^9+7\)&lt;/span&gt; で割った余りを求めよ&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="_2"&gt;例&lt;/h2&gt;
-&lt;p&gt;&lt;span class="math"&gt;\(A = [1, 2, 3]\)&lt;/span&gt;のとき、和は&lt;span class="math"&gt;\(1+2+3+(1+2)+(2+3)+(1+2+3)=20\)&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(A = [1, 2, 3]\)&lt;/span&gt; のとき、和は &lt;span class="math"&gt;\(1+2+3+(1+2)+(2+3)+(1+2+3)=20\)&lt;/span&gt;&lt;/p&gt;
 &lt;h2 id="_3"&gt;制約&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span class="math"&gt;\(1 \le N \le 10^6\)&lt;/span&gt;&lt;/li&gt;
@@ -100,7 +100,7 @@
 &lt;li&gt;『統計学入門』第12章より&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="_2"&gt;早見表&lt;/h2&gt;
-&lt;table class="table-striped table table-hover"&gt;
+&lt;table class="table table-hover table-striped"&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th align="center"&gt;何の検定&lt;/th&gt;
@@ -131,7 +131,7 @@
 &lt;tr&gt;
 &lt;td align="center"&gt;2分布の平均(分散が等しい)&lt;/td&gt;
 &lt;td align="center"&gt;&lt;span class="math"&gt;\(\frac{\overline …&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">knuu</dc:creator><pubDate>Sun, 18 Jun 2017 00:00:00 +0900</pubDate><guid isPermaLink="false">tag:knuu.github.io,2017-06-18:/hypothesis-testings.html</guid><category>blog</category><category>統計</category></item><item><title>確率分布早見表</title><link>https://knuu.github.io/probability-distributions.html</link><description>&lt;h2 id="_1"&gt;離散分布&lt;/h2&gt;
-&lt;table class="table-striped table table-hover"&gt;
+&lt;table class="table table-hover table-striped"&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th align="center"&gt;確率分布&lt;/th&gt;
