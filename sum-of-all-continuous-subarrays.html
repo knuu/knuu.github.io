@@ -147,16 +147,16 @@
     <span class="k">return</span> <span class="nb">sum</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">i</span> <span class="o">-</span> <span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">s</span> <span class="o">%</span> <span class="n">mod</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">S</span><span class="p">))</span> <span class="o">%</span> <span class="n">mod</span>
 </pre></div>
 <ul>
-<li>負の剰余が出てくるが、python(2/3系ともに)では負の数<span class="math">\(x(x&gt;0)\)</span>の正の数<span class="math">\(m(m&gt;0)\)</span>についての剰余<span class="math">\(x\%m\)</span>は<span class="math">\((x+m)\%m\)</span>と一致するため、問題ない<ul>
-<li>C++ではこのコードは問題が出る</li>
+<li>負の剰余が出てくるが、Python (2/3系ともに) では負の数 <span class="math">\(x(x&gt;0)\)</span> の正の数 <span class="math">\(m(m&gt;0)\)</span> についての剰余 <span class="math">\(x\%m\)</span>は<span class="math">\((x+m)\%m\)</span> と一致するため、問題ない<ul>
+<li>C++ ではこのコードは問題が出る</li>
 <li>負の数の剰余の計算で負の数が出る場合の計算は、<a href="https://shunirr.hatenablog.jp/entry/20120409/1333993409">言語仕様によって異なる</a>ため、注意したほうがよい</li>
 </ul>
 </li>
 </ul>
 <h2 id="_6">類題</h2>
 <ul>
-<li>連続でなくてよい場合は、総和において各数は<span class="math">\(2^{N-1}\)</span>回出現する<ul>
-<li>よって答えは<span class="math">\(2^{N-1}\times\sum_{i=1}^{N}a_i\)</span></li>
+<li>連続でなくてよい場合は、総和において各数は <span class="math">\(2^{N-1}\)</span> 回出現する<ul>
+<li>よって答えは <span class="math">\(2^{N-1}\times\sum_{i=1}^{N}a_i\)</span></li>
 </ul>
 </li>
 <li>和ではなく積の場合も同様に求められる<ul>
@@ -288,19 +288,19 @@
       <a href="./tag/statistics.html">統計</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/scraping.html">スクレイピング</a>
+      <a href="./tag/pelican.html">pelican</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="./tag/misc.html">Misc</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/python.html">python</a>
+      <a href="./tag/scraping.html">スクレイピング</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="./tag/paper-memo.html">論文メモ</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="./tag/pelican.html">pelican</a>
+      <a href="./tag/python.html">python</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="./tag/conf_notes.html">聴講録</a>
