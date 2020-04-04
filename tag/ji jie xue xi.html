@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>About Me - 霧でも食ってろ</title>
+    <title>機械学習 - 霧でも食ってろ</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,16 +9,16 @@
 
 
 
-<link rel="canonical" href="../pages/about-me.html">
 
-        <meta name="author" content="knuu" />
-        <meta name="description" content="About Me" />
+    <meta name="author" content="knuu" />
+    <meta name="keywords" content="機械学習" />
 
-    <meta property="og:site_name" content="霧でも食ってろ" />
-    <meta property="og:type" content="article"/>
-    <meta property="og:title" content="About Me"/>
-    <meta property="og:url" content="../pages/about-me.html"/>
-    <meta property="og:description" content="About Me" />
+    <!-- Open Graph tags -->
+        <meta property="og:site_name" content="霧でも食ってろ" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="霧でも食ってろ"/>
+        <meta property="og:url" content=".."/>
+        <meta property="og:description" content="霧でも食ってろ"/>
 
 
 
@@ -54,7 +54,7 @@
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li class="active"><a href="../pages/about-me.html">
+                         <li><a href="../pages/about-me.html">
                              About Me
                           </a></li>
                          <li><a href="../pages/ml-dm-ai_jp_papers.html">
@@ -72,58 +72,47 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-    <section id="content" class="body">
-        <h1 class="entry-title">About Me</h1>
-        
-        <div class="entry-content">
-            <h2 id="profile">Profile</h2>
-<ul>
-<li>ID: knuu (読み方の例: くぬう、くぬー)</li>
-<li>京都の大学院(修士)-&gt;東京の会社-&gt;博士課程<ul>
-<li>情報検索をやっている</li>
-</ul>
-</li>
-</ul>
-<h2 id="interest">Interest</h2>
-<ul>
-<li>情報検索，情報推薦，自然言語処理</li>
-<li>アルゴリズムとデータ構造、グラフ理論</li>
-<li>競技プログラミング (アカウント: n_knuu)<ul>
-<li><a href="https://atcoder.jp/user/n_knuu">AtCoder</a></li>
-</ul>
-</li>
-<li>Web スクレイピング<ul>
-<li><a href="ml-dm-ai_jp_papers.html">ML-DM-AI Papers by Researchers in Japan</a><ul>
-<li>機械学習・データマイニング・人工知能分野のトップカンファレンスの論文のうち、日本の企業・研究機関に所属している人の論文を収集したもの</li>
-<li>明確な基準のある AI Lab Map が作りたくて、その基準の一つとしてトップカンファレンスを採用している</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="skills">Skills</h2>
-<ul>
-<li>主なプログラミング言語<ul>
-<li>Python 3、C++</li>
-<li><a href="https://nim-lang.org/">Nim</a><ul>
-<li>構文が Python Like な静的型つき言語</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>開発<ul>
-<li>Mac, Ubuntu, Windows</li>
-<li>Git (Github, Gitlab)</li>
-</ul>
-</li>
-<li>語学<ul>
-<li>日本語: ネイティブ</li>
-<li>英語: TOEIC 840 (June 2015)</li>
-</ul>
-</li>
-</ul>
-        </div>
-    </section>
+            <article>
+                <h2><a href="../ltr_by_lightgbm.html">LightGBM でかんたん Learning to Rank</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2020-04-05T00:00:00+09:00"> 2020-04-05(日)</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="../tag/rankinguxue xi.html">ランキング学習</a>
+        /
+	<a href="../tag/ji jie xue xi.html">機械学習</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><h2 id="_1">概要</h2>
+<p>LightGBM には LambdaRank が実装されており，簡単にランキング学習ができるようになっている．
+しかし残念なことに，日本語で試してみた例は非常に少ない．
+特に，実際にデータ用意して学習し，評価するところまでやって公開している例がほぼ見当たらない．</p>
+<p>そこで，ランキング学習の練習を兼ねて，データの読み込み，モデルの学習，評価までを行う notebook を作成して公開した．
+Google Colab で作成しているので，Open in Colab のリンク先に行くことで，作成した notebook を Google Colab 上ですぐに実行することも可能にしている．
+データとしては，LightGBM が公式で用意している examples のデータを使用し，評価指標としては NDCG@10 を用いた．</p>
+<h2 id="notebook">作成した notebook</h2>
+<div class="gist">
+    <script src='https://gist.github.com/3b978a2d458df5d7910d7e314f9d74f3.js'></script>
+    <noscript>
+        <pre><code>{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "LightGBM …</code></pre></noscript></div>
+                    <a class="btn btn-default btn-xs" href="../ltr_by_lightgbm.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
