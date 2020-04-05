@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ja" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>pelican - 霧でも食ってろ</title>
+    <title>霧でも食ってろ - 4月 2020 archives</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,29 +10,28 @@
 
 
 
-    <meta name="author" content="knuu" />
-    <meta name="keywords" content="pelican" />
+        <meta name="author" content="knuu" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="霧でも食ってろ" />
         <meta property="og:type" content="website"/>
         <meta property="og:title" content="霧でも食ってろ"/>
-        <meta property="og:url" content=".."/>
+        <meta property="og:url" content="../.."/>
         <meta property="og:description" content="霧でも食ってろ"/>
 
 
 
     <!-- Bootstrap -->
-        <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css"/>
-    <link href="../theme/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="../../theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="../theme/css/pygments/emacs.css" rel="stylesheet">
-    <link rel="stylesheet" href="../theme/css/style.css" type="text/css"/>
+    <link href="../../theme/css/pygments/emacs.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../theme/css/style.css" type="text/css"/>
 
-        <link href="../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+        <link href="../../feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="霧でも食ってろ ATOM Feed"/>
 
-        <link href="../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+        <link href="../../feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
               title="霧でも食ってろ RSS Feed"/>
 
 
@@ -49,15 +48,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="../" class="navbar-brand">
+            <a href="../../" class="navbar-brand">
 霧でも食ってろ            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="../pages/about-me.html">
+                         <li><a href="../../pages/about-me.html">
                              About Me
                           </a></li>
-                         <li><a href="../pages/ml-dm-ai_jp_papers.html">
+                         <li><a href="../../pages/ml-dm-ai_jp_papers.html">
                              ML-DM-AI Papers by Researchers in Japan
                           </a></li>
             </ul>
@@ -72,53 +71,18 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2><a href="../pelican-utf8-substitution.html">pelican(python3)で日本語のカテゴリやタグごとのページのurlを変更する方法</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-10-11T00:00:00+09:00"> 2017-10-11(水)</time>
-    </span>
+<h1>Archives for 4月 2020</h1>
 
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="../tag/pelican.html">pelican</a>
-        /
-	<a href="../tag/python.html">python</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><ul>
-<li>動作環境<ul>
-<li>Python 3.6.1</li>
-<li>pelican 3.7.1</li>
-</ul>
-</li>
-</ul>
-<h3 id="_1">状況</h3>
-<p>pelicanでタグ毎にページを表示するurlは<code>tag/(タグ名).html</code>であるが、日本語のタグを付けたときにはurlの(タグ名)の部分がよく分からない文字列に自動変換される。
-正確にはアルファベットと数字以外の文字列を使った場合であり、これはカテゴリでも同様である。</p>
-<p>例えば、日記というタグが付けられている記事一覧のurlは<code>tag/ri-ji.html</code>と変換される。</p>
-<h3 id="_2">対処</h3>
-<p>これを直すためには、<a href="http://docs.getpelican.com/en/stable/settings.html">公式ドキュメント</a>によると、<code>SLUG_SUBSTITUTIONS</code>、<code>AUTHOR_SUBSTITUTIONS</code>、<code>CATEGORY_SUBSTITUTIONS</code>、<code>TAG_SUBSTITUTIONS</code>などの設定を<code>pelicanconf.py</code>に追加すればよく、以下の例のように置き換え元と置き換え先の文字列の組を記述すれば良い。</p>
-<div class="highlight"><pre><span></span><span class="n">TAG_SUBSTITUTIONS</span> <span class="o">=</span> <span class="p">((</span><span class="s1">'C++'</span><span class="p">,</span> <span class="s1">'cpp'</span><span class="p">))</span>
-</pre></div>
-<p>この場合、<code>C++</code>というタグが付けられている記事一覧は、<code>tag/cpp.html</code>となる。</p>
-<p>しかし日本語タグの場合 …</p>
-                    <a class="btn btn-default btn-xs" href="../pelican-utf8-substitution.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-
+<dl>
+    <dt>2020-04-05(日)</dt>
+    <dd><a href="../../ltr_by_lightgbm.html">LightGBM でかんたん Learning to Rank</a></dd>
+</dl>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
 <div id="aboutme">
         <p>
-            <img width="100%" class="img-thumbnail" src="../images/coffee.png"/>
+            <img width="100%" class="img-thumbnail" src="../../images/coffee.png"/>
         </p>
     <p>
       <strong>About knuu</strong><br/>
@@ -142,44 +106,44 @@
 <li class="list-group-item">
   <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
   <ul class="list-group" id="recentposts">
-    <li class="list-group-item"><a href="../pelican-utf8-substitution.html">pelican(python3)で日本語のカテゴリやタグごとのページのurlを変更する方法</a></li>
+    <li class="list-group-item"><a href="../../ltr_by_lightgbm.html">LightGBM でかんたん Learning to Rank</a></li>
   </ul>
 </li>
 <!-- End Sidebar/Recent Posts -->
 
 <!-- Sidebar/Tag Cloud -->
 <li class="list-group-item">
-  <a href="../"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <a href="../../"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group " id="tags">
     <li class="list-group-item tag-1">
-      <a href="../tag/algorithm.html">アルゴリズム</a>
+      <a href="../../tag/algorithm.html">アルゴリズム</a>
     </li>
     <li class="list-group-item tag-1">
-      <a href="../tag/statistics.html">統計</a>
+      <a href="../../tag/statistics.html">統計</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/pelican.html">pelican</a>
+      <a href="../../tag/pelican.html">pelican</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/conf_notes.html">聴講録</a>
+      <a href="../../tag/conf_notes.html">聴講録</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/ji jie xue xi.html">機械学習</a>
+      <a href="../../tag/ji jie xue xi.html">機械学習</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/python.html">python</a>
+      <a href="../../tag/python.html">python</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/misc.html">Misc</a>
+      <a href="../../tag/misc.html">Misc</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/scraping.html">スクレイピング</a>
+      <a href="../../tag/scraping.html">スクレイピング</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/paper-memo.html">論文メモ</a>
+      <a href="../../tag/paper-memo.html">論文メモ</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/rankinguxue xi.html">ランキング学習</a>
+      <a href="../../tag/rankinguxue xi.html">ランキング学習</a>
     </li>
   </ul>
 </li>
@@ -205,7 +169,7 @@
   <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Archive</span></h4>
   <ul class="list-group" id="archive">
         <li class="list-group-item">
-          <a href="../2017/10/index.html"><i class="fa fa-calendar fa-lg"></i>10月 2017 (1)
+          <a href="../../2020/ 4/index.html"><i class="fa fa-calendar fa-lg"></i>4月 2020 (1)
           </a>
         </li>
   </ul>
@@ -221,7 +185,7 @@
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2017 knuu
+         <div class="col-xs-10">&copy; 2020 knuu
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
@@ -229,13 +193,13 @@
       </div>
    </div>
 </footer>
-<script src="../theme/js/jquery.min.js"></script>
+<script src="../../theme/js/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="../theme/js/bootstrap.min.js"></script>
+<script src="../../theme/js/bootstrap.min.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="../theme/js/respond.min.js"></script>
+<script src="../../theme/js/respond.min.js"></script>
 
 
     <!-- Google Analytics -->
