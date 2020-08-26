@@ -80,6 +80,10 @@
     <span class="published">
         <i class="fa fa-calendar"></i><time datetime="2020-02-25T00:00:00+09:00"> 2020-02-25(火)</time>
     </span>
+          <span class="label label-default">Modified</span>
+            <span class="modified">
+                <i class="fa fa-calendar"></i><time datetime="2020-08-27T00:00:00+09:00"> 2020-08-27(木)</time>
+            </span>
 
 
 
@@ -95,14 +99,14 @@
 </ul>
 <h2 id="_2">解法</h2>
 <ul>
-<li>NOTE: ここで述べる解法は基本的に以下の topcoder の記事を参考に分割統治部分を座標圧縮+セグメント木で置き換えたものである。<ul>
+<li>NOTE: ここで述べる解法は基本的に以下の topcoder の記事を参考に分割統治部分を座標圧縮+セグメント木で置き換えたものである．<ul>
 <li><a href="https://www.topcoder.com/community/competitive-programming/tutorials/line-sweep-algorithms/">Line Sweep Algorithms</a></li>
 </ul>
 </li>
 </ul>
-<p>ナイーブに考えると、全点対でマンハッタン距離を計算して Kruskal 法などの最小全域木を求めるアルゴリズムを適用すればよいが、これは点の数 <span class="math">\(N\)</span> に対して計算量が <span class="math">\(O(N^2)\)</span> になってしまう。</p>
-<p>実は全点対を考える必要はなくて、マンハッタン距離で最小になる点の間で枝を貼るだけでよい（<strong>要証明</strong>）。枝が <span class="math">\(O(N)\)</span> になり、最小全域木の計算量は <span class="math">\(O(N \log N)\)</span> となる。</p>
-<p>ある点 P とマンハッタン距離が最短になる点を以下の図のような 8 方向の領域に分けて探索する。8 領域で最小になった点のみと枝を貼ることが通常考えられるが、実装上は 8 個の領域それぞれで見つかった、距離が最小の点と枝を構築してしても計算量は定数倍なので、どちらでもよい …</p>
+<p>ナイーブに考えると，全点対でマンハッタン距離を計算して Kruskal 法などの最小全域木を求めるアルゴリズムを適用すればよいと思えるが，この解法では入力の頂点数 <span class="math">\(N\)</span> に対して，枝数が <span class="math">\(O(N^2)\)</span> になってしまう．</p>
+<p>実は全点対を考える必要はなくて，マンハッタン距離で最小になる点の間で枝を貼るだけでよい（<strong>要証明</strong>）．この方法によって枝数が <span class="math">\(O(N)\)</span> になり，解法の計算量を <span class="math">\(O(N \log N)\)</span> にすることができる．</p>
+<p>ではここからは，ある点 P に対してマンハッタン距離が最短になる点を求める方法を説明する．ある点 P とマンハッタン距離が最短になる点を以下の図のような 8 方向の領域のそれぞれで探索し，その 8 …</p>
                     <a class="btn btn-default btn-xs" href="../manhattan_mst.html">more ...</a>
                 </div>
             </article>
@@ -115,6 +119,10 @@
     <span class="published">
         <i class="fa fa-calendar"></i><time datetime="2018-06-20T00:00:00+09:00"> 2018-06-20(水)</time>
     </span>
+          <span class="label label-default">Modified</span>
+            <span class="modified">
+                <i class="fa fa-calendar"></i><time datetime="2020-03-02T00:00:00+09:00"> 2020-03-02(月)</time>
+            </span>
 
 
 
@@ -182,34 +190,34 @@
   <a href="../"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group " id="tags">
     <li class="list-group-item tag-1">
-      <a href="../tag/algorithm.html">アルゴリズム</a>
-    </li>
-    <li class="list-group-item tag-1">
       <a href="../tag/statistics.html">統計</a>
     </li>
-    <li class="list-group-item tag-4">
-      <a href="../tag/pelican.html">pelican</a>
+    <li class="list-group-item tag-1">
+      <a href="../tag/algorithm.html">アルゴリズム</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="../tag/conf_notes.html">聴講録</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/ji jie xue xi.html">機械学習</a>
-    </li>
-    <li class="list-group-item tag-4">
-      <a href="../tag/python.html">python</a>
-    </li>
-    <li class="list-group-item tag-4">
-      <a href="../tag/misc.html">Misc</a>
+      <a href="../tag/rankinguxue xi.html">ランキング学習</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="../tag/scraping.html">スクレイピング</a>
     </li>
     <li class="list-group-item tag-4">
+      <a href="../tag/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item tag-4">
       <a href="../tag/paper-memo.html">論文メモ</a>
     </li>
     <li class="list-group-item tag-4">
-      <a href="../tag/rankinguxue xi.html">ランキング学習</a>
+      <a href="../tag/ji jie xue xi.html">機械学習</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/pelican.html">pelican</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="../tag/python.html">python</a>
     </li>
   </ul>
 </li>
