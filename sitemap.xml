@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://knuu.github.io/</loc>
-<lastmod>2020-08-27T02:35:01-00:00</lastmod>
+<lastmod>2020-12-26T03:18:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/archives.html</loc>
-<lastmod>2020-08-27T02:35:01-00:00</lastmod>
+<lastmod>2020-12-26T03:18:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/tags.html</loc>
-<lastmod>2020-08-27T02:35:01-00:00</lastmod>
+<lastmod>2020-12-26T03:18:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/categories.html</loc>
-<lastmod>2020-08-27T02:35:01-00:00</lastmod>
+<lastmod>2020-12-26T03:18:11-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -41,6 +41,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://knuu.github.io/pages/ml-dm-ai_jp_papers.html</loc>
 <lastmod>2020-02-12T00:00:00+09:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://knuu.github.io/buttcher-book-8.html</loc>
+<lastmod>2020-12-26T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -117,20 +124,27 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://knuu.github.io/category/blog.html</loc>
-<lastmod>2020-08-27T00:00:00+09:19</lastmod>
+<lastmod>2020-12-26T00:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://knuu.github.io/tag/rankinguxue xi.html</loc>
+<loc>https://knuu.github.io/tag/information_retrieval.html</loc>
+<lastmod>2020-12-26T00:00:00+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://knuu.github.io/tag/learning_to_rank.html</loc>
 <lastmod>2020-04-05T00:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://knuu.github.io/tag/ji jie xue xi.html</loc>
+<loc>https://knuu.github.io/tag/machine_learning.html</loc>
 <lastmod>2020-04-05T00:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -194,7 +208,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://knuu.github.io/author/knuu.html</loc>
-<lastmod>2020-08-27T00:00:00+09:19</lastmod>
+<lastmod>2020-12-26T00:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
