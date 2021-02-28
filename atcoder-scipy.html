@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>AtCoder で scipy を使って問題を解く - 霧でも食ってろ</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="./atcoder-scipy.html">
+
+        <meta name="author" content="knuu" />
+        <meta name="keywords" content="競技プログラミング" />
+        <meta name="description" content="AtCoder で scipy を使って解いた問題をメモ代わりに残しておきます．一部 yukicoder や Library-Checker も含まれています（タイトル詐欺）． AtCoder に入っている numpy / scipy のバージョンはコードテストに以下を入力して実行することで確認できます． import numpy as np import scipy as sp print(f&#34;numpy {np.version.full_version}&#34;) print(f&#34;scipy {sp.version.full_version}&#34;) 出力結果（2020/02/28 時点） numpy 1.18.2 scipy 1.4.1 グラフアルゴリズム: scipy …" />
+
+        <meta property="og:site_name" content="霧でも食ってろ" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="AtCoder で scipy を使って問題を解く"/>
+        <meta property="og:url" content="./atcoder-scipy.html"/>
+        <meta property="og:description" content="AtCoder で scipy を使って解いた問題をメモ代わりに残しておきます．一部 yukicoder や Library-Checker も含まれています（タイトル詐欺）． AtCoder に入っている numpy / scipy のバージョンはコードテストに以下を入力して実行することで確認できます． import numpy as np import scipy as sp print(f&#34;numpy {np.version.full_version}&#34;) print(f&#34;scipy {sp.version.full_version}&#34;) 出力結果（2020/02/28 時点） numpy 1.18.2 scipy 1.4.1 グラフアルゴリズム: scipy …"/>
+        <meta property="article:published_time" content="2021-02-28" />
+            <meta property="article:section" content="blog" />
+            <meta property="article:tag" content="競技プログラミング" />
+            <meta property="article:author" content="knuu" />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/emacs.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="霧でも食ってろ ATOM Feed"/>
+
+        <link href="./feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="霧でも食ってろ RSS Feed"/>
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+霧でも食ってろ            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="./pages/about-me.html">
+                             About Me
+                          </a></li>
+                         <li><a href="./pages/ml-dm-ai_jp_papers.html">
+                             ML-DM-AI Papers by Researchers in Japan
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./atcoder-scipy.html"
+                       rel="bookmark"
+                       title="Permalink to AtCoder で scipy を使って問題を解く">
+                        AtCoder で scipy を使って問題を解く
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2021-02-28T00:00:00+09:00"> 2021-02-28(日)</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/competitive_programming.html">競技プログラミング</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>AtCoder で scipy を使って解いた問題をメモ代わりに残しておきます．一部 yukicoder や Library-Checker も含まれています（タイトル詐欺）．</p>
+<p>AtCoder に入っている numpy / scipy のバージョンはコードテストに以下を入力して実行することで確認できます．</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="kn">as</span> <span class="nn">sp</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">"numpy {np.version.full_version}"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s2">"scipy {sp.version.full_version}"</span><span class="p">)</span>
+</pre></div>
+<p>出力結果（2020/02/28 時点）</p>
+<div class="highlight"><pre><span></span>numpy 1.18.2
+scipy 1.4.1
+</pre></div>
+<h2 id="scipysparsecsgraph">グラフアルゴリズム: scipy.sparse.csgraph</h2>
+<h3 id="_1">使うライブラリ</h3>
+<table class="table-hover table-striped table">
+<thead>
+<tr>
+<th></th>
+<th>アルゴリズム・問題</th>
+<th>Library Checker</th>
+<th>提出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.connected_components.html">connected_components</a></td>
+<td>強連結成分分解（トポロジカルソート）</td>
+<td><a href="https://judge.yosupo.jp/problem/scc">問題</a></td>
+<td><a href="https://judge.yosupo.jp/submission/40475">Link</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.dijkstra.html">dijkstra</a></td>
+<td>単一始点最短路</td>
+<td><a href="https://judge.yosupo.jp/problem/shortest_path">問題</a></td>
+<td><a href="https://judge.yosupo.jp/submission/40468">Link</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.floyd_warshall.html">floyd_warshall</a></td>
+<td>全点対最短路</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.minimum_spanning_tree.html">minimum_spanning_tree</a></td>
+<td>最小全域木</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.maximum_flow.html">maximum_flow</a></td>
+<td>最大フロー</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.maximum_bipartite_matching.html">maximum_bipartite_matching</a></td>
+<td>二部グラフの最大マッチング</td>
+<td><a href="https://judge.yosupo.jp/problem/bipartitematching">問題</a></td>
+<td><a href="https://judge.yosupo.jp/submission/40476">Link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="atcoder">AtCoder 上の問題</h3>
+<table class="table-hover table-striped table">
+<thead>
+<tr>
+<th></th>
+<th>問題</th>
+<th>提出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connected_components</td>
+<td><a href="https://atcoder.jp/contests/dp/tasks/dp_g">Educational DP Contest-G Longest Path</a></td>
+<td><a href="https://atcoder.jp/contests/dp/submissions/9852385">Link</a></td>
+</tr>
+<tr>
+<td>dijkstra</td>
+<td><a href="https://atcoder.jp/contests/abc035/tasks/abc035_d">ABC035-D トレジャーハント</a></td>
+<td><a href="https://atcoder.jp/contests/abc035/submissions/3859248">Link</a></td>
+</tr>
+<tr>
+<td>dijkstra</td>
+<td><a href="https://atcoder.jp/contests/past201912-open/tasks/past201912_j">第一回アルゴリズム実技検定-J 地ならし</a></td>
+<td><a href="https://atcoder.jp/contests/past201912-open/submissions/9260157">Link</a></td>
+</tr>
+<tr>
+<td>floyd_warshall</td>
+<td><a href="https://atcoder.jp/contests/abc143/tasks/abc143_e">ABC143-E Travel by Car</a></td>
+<td><a href="https://atcoder.jp/contests/abc143/submissions/9854473">Link</a></td>
+</tr>
+<tr>
+<td>minimum_spanning_tree</td>
+<td><a href="https://atcoder.jp/contests/past201912-open/tasks/past201912_l">第一回アルゴリズム実技検定-L グラデーション</a></td>
+<td><a href="https://atcoder.jp/contests/past201912-open/submissions/9236781">Link</a></td>
+</tr>
+<tr>
+<td>maximum_flow</td>
+<td><a href="https://atcoder.jp/contests/abc010/tasks/abc010_4">ABC010-D 浮気予防</a></td>
+<td><a href="https://atcoder.jp/contests/abc010/submissions/20563398">Link</a></td>
+</tr>
+<tr>
+<td>maximum_flow</td>
+<td><a href="https://atcoder.jp/contests/abc193/tasks/abc193_f">ABC193-F Zebraness</a></td>
+<td><a href="https://atcoder.jp/contests/abc193/submissions/20563184">Link</a></td>
+</tr>
+<tr>
+<td>maximum_bipartite_matching</td>
+<td><a href="https://atcoder.jp/contests/arc092/tasks/arc092_a">ARC092-C 2D Plane 2N Points</a></td>
+<td><a href="https://atcoder.jp/contests/arc092/submissions/20563432">Link</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>要検証事項等<ul>
+<li>maximum_flow は特殊なケース（source と sink が連結でない場合など）で ValueError が投げられて RuntimeError になることがあるっぽい？</li>
+</ul>
+</li>
+</ul>
+<h2 id="scipyoptimize">最適化: scipy.optimize</h2>
+<h3 id="_2">使うライブラリ</h3>
+<table class="table-hover table-striped table">
+<thead>
+<tr>
+<th></th>
+<th>アルゴリズム・問題</th>
+<th>Library Checker</th>
+<th>提出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize_scalar.html">minimize_scalar</a></td>
+<td>関数の最小値</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html">newton</a></td>
+<td>ニュートン法（関数の根）</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html">linprog</a></td>
+<td>線形計画法</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linear_sum_assignment.html">linear_sum_assignment</a></td>
+<td>割当問題</td>
+<td><a href="https://judge.yosupo.jp/problem/assignment">問題</a></td>
+<td><a href="https://judge.yosupo.jp/submission/40473">Link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="atcoder_1">AtCoder 上の問題</h3>
+<table class="table-hover table-striped table">
+<thead>
+<tr>
+<th></th>
+<th>問題</th>
+<th>提出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>minimize_scalar</td>
+<td><a href="https://atcoder.jp/contests/arc054/tasks/arc054_b">ARC054-B ムーアの法則</a></td>
+<td><a href="https://atcoder.jp/contests/arc054/submissions/9856839">Link</a></td>
+</tr>
+<tr>
+<td>minimize_scalar</td>
+<td><a href="https://atcoder.jp/contests/arc049/tasks/arc049_b">ARC049-B 高橋ノルム君</a></td>
+<td><a href="https://atcoder.jp/contests/arc049/submissions/9857834">Link</a></td>
+</tr>
+<tr>
+<td>newton</td>
+<td><a href="https://atcoder.jp/contests/abc026/tasks/abc026_d">ABC026-D 高橋君ボール1号</a></td>
+<td><a href="https://atcoder.jp/contests/abc026/submissions/9853305">Link</a></td>
+</tr>
+<tr>
+<td>linprog</td>
+<td><a href="https://yukicoder.me/problems/no/453">yukicoder No.453 製薬会社</a></td>
+<td><a href="https://yukicoder.me/submissions/425071">Link</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>要検証事項等<ul>
+<li>linprog を用いる試みは<a href="https://kimiyuki.net/writeup/algo/atcoder/arc_050_b/">他にもある</a>が，再現しようとしても <a href="https://atcoder.jp/contests/arc050/submissions/20563509">Wrong Answer が取れなかった</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="scipyspatial">計算幾何: scipy.spatial</h2>
+<h3 id="_3">使うライブラリ</h3>
+<table class="table-hover table-striped table">
+<thead>
+<tr>
+<th></th>
+<th>アルゴリズム・問題</th>
+<th>Library Checker</th>
+<th>提出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.ConvexHull.html">ConvexHull</a></td>
+<td>凸包</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="atcoder_2">AtCoder 上の問題</h3>
+<table class="table-hover table-striped table">
+<thead>
+<tr>
+<th></th>
+<th>問題</th>
+<th>提出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ConvexHull</td>
+<td><a href="https://atcoder.jp/contests/abc022/tasks/abc022_d">ABC022-D Big Bang</a></td>
+<td><a href="https://atcoder.jp/contests/abc022/submissions/9854257">Link</a></td>
+</tr>
+<tr>
+<td>ConvexHull</td>
+<td><a href="https://atcoder.jp/contests/agc021/tasks/agc021_b">AGC021-B Holes</a></td>
+<td><a href="https://atcoder.jp/contests/agc021/submissions/9855223">Link</a></td>
+</tr>
+<tr>
+<td>ConvexHull</td>
+<td><a href="https://yukicoder.me/problems/no/199">yukicoder No.199 星を描こう</a></td>
+<td><a href="https://yukicoder.me/submissions/345450">Link</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>要検討事項<ul>
+<li>ABC022-D を <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.cKDTree.html">kd-tree</a> で最近点対を求める解法でやってみたが，<a href="https://atcoder.jp/contests/abc022/submissions/20563595">提出してみると TLE だった</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="todo">TODO</h2>
+<ul>
+<li>FFT</li>
+<li>ボロノイ図・ドロネー三角形分割・KD 木</li>
+<li>from scipy.ndimage import distance_transform_cdt:<ul>
+<li>https://atcoder.jp/contests/agc033/submissions/5279051</li>
+<li>https://twitter.com/lily0727k/status/1124964133730783233</li>
+</ul>
+</li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+    <hr />
+    <!-- AddThis Button BEGIN -->
+    <div class="addthis_toolbox addthis_default_style">
+            <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+            <a class="addthis_button_tweet"></a>
+            <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    </div>
+    <!-- AddThis Button END -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+        <p>
+            <img width="100%" class="img-thumbnail" src="./images/coffee.png"/>
+        </p>
+    <p>
+      <strong>About knuu</strong><br/>
+        京都->東京->どこかで情報検索をやる博士課程学生
+    </p>
+</div><!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://twitter.com/n_knuu6"><i class="fa fa-twitter-square fa-lg"></i> Twitter</a></li>
+    <li class="list-group-item"><a href="https://github.com/knuu"><i class="fa fa-github-square fa-lg"></i> Github</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
+
+<!-- Sidebar/Recent Posts -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
+  <ul class="list-group" id="recentposts">
+    <li class="list-group-item"><a href="./atcoder-scipy.html">AtCoder で scipy を使って問題を解く</a></li>
+    <li class="list-group-item"><a href="./buttcher-book-8.html">情報検索：検索エンジンの実装と評価 第 8 章 確率的情報検索</a></li>
+    <li class="list-group-item"><a href="./ltr_by_lightgbm.html">LightGBM でかんたん Learning to Rank</a></li>
+    <li class="list-group-item"><a href="./manhattan_mst.html">Manhattan Minimum Spanning Tree</a></li>
+    <li class="list-group-item"><a href="./statsml2019-topconf.html">第4回 統計・機械学習若手シンポジウム「Academic Writing for Top Conferences」聴講録</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Recent Posts -->
+
+<!-- Sidebar/Tag Cloud -->
+<li class="list-group-item">
+  <a href="./"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+  <ul class="list-group " id="tags">
+    <li class="list-group-item tag-1">
+      <a href="./tag/information_retrieval.html">情報検索</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="./tag/statistics.html">統計</a>
+    </li>
+    <li class="list-group-item tag-1">
+      <a href="./tag/algorithm.html">アルゴリズム</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/conf_notes.html">聴講録</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/competitive_programming.html">競技プログラミング</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/misc.html">Misc</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/machine_learning.html">機械学習</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/python.html">python</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/scraping.html">スクレイピング</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/learning_to_rank.html">ランキング学習</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/pelican.html">pelican</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="./tag/paper-memo.html">論文メモ</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Tag Cloud -->
+
+<!-- Sidebar/Twitter Timeline -->
+<!--
+<li class="list-group-item">
+  <h4><i class="fa fa-twitter fa-lg"></i><span class="icon-label">Latest Tweets</span></h4>
+  <div id="twitter_timeline">
+    <a class="twitter-timeline" data-width="250" data-height="300" data-dnt="true" data-theme="light" href="https://twitter.com/n_knuu6">Tweets by n_knuu6</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+</li>
+-->
+<a class="twitter-timeline" data-lang="ja" data-width="250" data-height="300" data-dnt="true" data-theme="light" href="https://twitter.com/n_knuu6">
+  Tweets by n_knuu6
+</a>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<!-- End Sidebar/Twitter Timeline -->
+
+<!-- Sidebar/Archive -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Archive</span></h4>
+  <ul class="list-group" id="archive">
+        <li class="list-group-item">
+          <a href="./2021/ 2/index.html"><i class="fa fa-calendar fa-lg"></i>2月 2021 (1)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./2020/12/index.html"><i class="fa fa-calendar fa-lg"></i>12月 2020 (1)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./2020/ 4/index.html"><i class="fa fa-calendar fa-lg"></i>4月 2020 (1)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./2020/ 2/index.html"><i class="fa fa-calendar fa-lg"></i>2月 2020 (1)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./2019/12/index.html"><i class="fa fa-calendar fa-lg"></i>12月 2019 (1)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./2019/ 8/index.html"><i class="fa fa-calendar fa-lg"></i>8月 2019 (1)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./2018/ 6/index.html"><i class="fa fa-calendar fa-lg"></i>6月 2018 (1)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./2017/10/index.html"><i class="fa fa-calendar fa-lg"></i>10月 2017 (2)
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="./2017/ 6/index.html"><i class="fa fa-calendar fa-lg"></i>6月 2017 (3)
+          </a>
+        </li>
+  </ul>
+</li>
+<!-- End Sidebar/Archive -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2021 knuu
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-62983192-5']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=True"></script>
+</body>
+</html>
