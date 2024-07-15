@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="./theme/css/stork.css">
     <link rel="stylesheet" media="screen and (prefers-color-scheme: dark)"
         href="./theme/css/stork-dark.css">
-<meta name="description" content="正規母集団に対する仮説検定 『統計学入門』第12章より 早見表 何の検定 検定統計量 自由度 分布 母平均(母分散既知) $\frac{\overline{X}-\mu}{\sqrt …" />
+<meta name="description" content="正規母集団に対する仮説検定 『統計学入門』第12章より 早見表 何の検定 検定統計量 自由度 分布 母平均(母分散既知) \(\frac{\overline{X}-\mu}{\sqrt …if..." />
 </head>
 
 <body class="min-h-screen flex flex-col max-w-7xl lg:max-w-none text-zinc-800 bg-neutral-100
@@ -96,7 +96,7 @@
       <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
         <time>6月 18, 2017</time>
         <div>
-          <span>&nbsp;·&nbsp;{'minutes': 3} min read</span>
+          <span>&nbsp;·&nbsp;{'minutes': 4} min read</span>
         </div>
         <div>
           <span>&nbsp;·&nbsp;knuu</span>
@@ -107,7 +107,7 @@
   <details class="flex flex-col my-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg">
     <summary class="text-lg font-bold">Table of contents</summary>
     <div class="mx-4 px-4 underline">
-      <div id="toc"><ul><li><a class="toc-href" href="#_1" title="正規母集団に対する仮説検定">正規母集団に対する仮説検定</a></li><li><a class="toc-href" href="#_2" title="早見表">早見表</a><ul><li><a class="toc-href" href="#_3" title="母平均に関する検定">母平均に関する検定</a></li><li><a class="toc-href" href="#_4" title="母分散に関する検定">母分散に関する検定</a></li><li><a class="toc-href" href="#_5" title="母平均の差の検定">母平均の差の検定</a></li><li><a class="toc-href" href="#_6" title="母分散の比の検定">母分散の比の検定</a></li></ul></li><li><a class="toc-href" href="#chi2_1" title="様々な $\chi^2$ 検定">様々な $\chi^2$ 検定</a><ul><li><a class="toc-href" href="#_7" title="適合度の検定">適合度の検定</a></li><li><a class="toc-href" href="#_8" title="分割表と独立性の検定">分割表と独立性の検定</a></li></ul></li><li><a class="toc-href" href="#_10" title="中心極限定理を用いる検定">中心極限定理を用いる検定</a></li></ul></div>
+      <div id="toc"><ul><li><a class="toc-href" href="#_1" title="正規母集団に対する仮説検定">正規母集団に対する仮説検定</a></li><li><a class="toc-href" href="#_2" title="早見表">早見表</a><ul><li><a class="toc-href" href="#_3" title="母平均に関する検定">母平均に関する検定</a></li><li><a class="toc-href" href="#_4" title="母分散に関する検定">母分散に関する検定</a></li><li><a class="toc-href" href="#_5" title="母平均の差の検定">母平均の差の検定</a></li><li><a class="toc-href" href="#_6" title="母分散の比の検定">母分散の比の検定</a></li></ul></li><li><a class="toc-href" href="#chi2_1" title="様々な \(\chi^2\) 検定">様々な \(\chi^2\) 検定</a><ul><li><a class="toc-href" href="#_7" title="適合度の検定">適合度の検定</a></li><li><a class="toc-href" href="#_8" title="分割表と独立性の検定">分割表と独立性の検定</a></li></ul></li><li><a class="toc-href" href="#_10" title="中心極限定理を用いる検定">中心極限定理を用いる検定</a></li></ul></div>
     </div>
   </details>
   <div class="max-w-7xl container mx-auto my-8 text-zinc-800 dark:text-zinc-300  
@@ -144,94 +144,94 @@
 <tbody>
 <tr>
 <td style="text-align: center;">母平均(母分散既知)</td>
-<td style="text-align: center;">$\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}$</td>
+<td style="text-align: center;"><span class="math">\(\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}\)</span></td>
 <td style="text-align: center;"></td>
-<td style="text-align: center;">標準正規分布 $N(0,1)$</td>
+<td style="text-align: center;">標準正規分布 <span class="math">\(N(0,1)\)</span></td>
 </tr>
 <tr>
 <td style="text-align: center;">母平均(母分散未知)</td>
-<td style="text-align: center;">$\frac{\overline{X}-\mu}{\sqrt{s^2/n}}$</td>
-<td style="text-align: center;">$n-1$</td>
+<td style="text-align: center;"><span class="math">\(\frac{\overline{X}-\mu}{\sqrt{s^2/n}}\)</span></td>
+<td style="text-align: center;"><span class="math">\(n-1\)</span></td>
 <td style="text-align: center;">t分布</td>
 </tr>
 <tr>
 <td style="text-align: center;">母分散</td>
-<td style="text-align: center;">$\frac{(n-1)s^2}{\sigma_{0}^2}$</td>
-<td style="text-align: center;">$n-1$</td>
-<td style="text-align: center;">$\chi^2$ 分布</td>
+<td style="text-align: center;"><span class="math">\(\frac{(n-1)s^2}{\sigma_{0}^2}\)</span></td>
+<td style="text-align: center;"><span class="math">\(n-1\)</span></td>
+<td style="text-align: center;"><span class="math">\(\chi^2\)</span> 分布</td>
 </tr>
 <tr>
 <td style="text-align: center;">2分布の平均(分散が等しい)</td>
-<td style="text-align: center;">$\frac{\overline{X}-\overline{Y}}{\frac{(m-1)s_1^2+(n-1)s_2^2}{m+n-2}\sqrt{\frac{1}{m}+\frac{1}{n}}}$</td>
-<td style="text-align: center;">$m+n-2$</td>
+<td style="text-align: center;"><span class="math">\(\frac{\overline{X}-\overline{Y}}{\frac{(m-1)s_1^2+(n-1)s_2^2}{m+n-2}\sqrt{\frac{1}{m}+\frac{1}{n}}}\)</span></td>
+<td style="text-align: center;"><span class="math">\(m+n-2\)</span></td>
 <td style="text-align: center;">t分布</td>
 </tr>
 <tr>
 <td style="text-align: center;">2分布の平均(分散が等しくない)</td>
-<td style="text-align: center;">$\frac{\overline{X}-\overline{Y}}{\sqrt{s_1^2/m+s_2^2/n}}$</td>
-<td style="text-align: center;">$\frac{(s_1^2/m+s_2^2/n)^2}{\frac{(s_1^2/m)^2}{m-1}+\frac{(s_2^2/n)^2}{n-1}}$に最も近い整数</td>
+<td style="text-align: center;"><span class="math">\(\frac{\overline{X}-\overline{Y}}{\sqrt{s_1^2/m+s_2^2/n}}\)</span></td>
+<td style="text-align: center;"><span class="math">\(\frac{(s_1^2/m+s_2^2/n)^2}{\frac{(s_1^2/m)^2}{m-1}+\frac{(s_2^2/n)^2}{n-1}}\)</span>に最も近い整数</td>
 <td style="text-align: center;">t分布</td>
 </tr>
 <tr>
 <td style="text-align: center;">2分布の分散</td>
-<td style="text-align: center;">$\frac{s_1^2}{s_2^2}$</td>
-<td style="text-align: center;">$(m-1, n-1)$</td>
+<td style="text-align: center;"><span class="math">\(\frac{s_1^2}{s_2^2}\)</span></td>
+<td style="text-align: center;"><span class="math">\((m-1, n-1)\)</span></td>
 <td style="text-align: center;">F分布</td>
 </tr>
 <tr>
 <td style="text-align: center;">表の度数分布</td>
-<td style="text-align: center;">$\sum_{i=1}^k\frac{(f_i-np_i)^2}{np_i}$</td>
-<td style="text-align: center;">$k-1$</td>
-<td style="text-align: center;">$\chi^2$ 分布</td>
+<td style="text-align: center;"><span class="math">\(\sum_{i=1}^k\frac{(f_i-np_i)^2}{np_i}\)</span></td>
+<td style="text-align: center;"><span class="math">\(k-1\)</span></td>
+<td style="text-align: center;"><span class="math">\(\chi^2\)</span> 分布</td>
 </tr>
 <tr>
 <td style="text-align: center;">分割表の属性の独立</td>
-<td style="text-align: center;">$\sum_{i=1}^r\sum_{j=1}^c\frac{(nf_{ij}-f_{i\cdot}f_{\cdot j})^2}{nf_{i\cdot}f_{\cdot j}}$</td>
-<td style="text-align: center;">$(r-1)(c-1)$</td>
-<td style="text-align: center;">$\chi^2$ 分布</td>
+<td style="text-align: center;"><span class="math">\(\sum_{i=1}^r\sum_{j=1}^c\frac{(nf_{ij}-f_{i\cdot}f_{\cdot j})^2}{nf_{i\cdot}f_{\cdot j}}\)</span></td>
+<td style="text-align: center;"><span class="math">\((r-1)(c-1)\)</span></td>
+<td style="text-align: center;"><span class="math">\(\chi^2\)</span> 分布</td>
 </tr>
 </tbody>
 </table>
 <h3 id="_3">母平均に関する検定</h3>
 <ul>
 <li>母分散が既知のとき<ul>
-<li>検定統計量 <strong>$Z$ は $\overline{X}$ の標準化変数</strong> である</li>
-<li>つまり <strong>$Z=\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}$</strong> である</li>
+<li>検定統計量 <strong><span class="math">\(Z\)</span> は <span class="math">\(\overline{X}\)</span> の標準化変数</strong> である</li>
+<li>つまり <strong><span class="math">\(Z=\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}\)</span></strong> である</li>
 <li>帰無仮説が正しければ、これは <strong>標準正規分布N(0, 1)</strong> に従う</li>
 </ul>
 </li>
 <li>母分散が未知のとき<ul>
-<li>検定統計量 <strong>$Z$ は $\overline{X}$ の標準化変数の母分散 $\sigma^2$ を不偏分散 $s^2$ に置き換えたもの</strong> である</li>
-<li>つまり <strong>$Z=\frac{\overline{X}-\mu}{\sqrt{s^2/n}}$</strong> である</li>
-<li>帰無仮説が正しければ、これは <strong>自由度 $n-1$ のt分布 $t(n-1)$</strong> に従う</li>
+<li>検定統計量 <strong><span class="math">\(Z\)</span> は <span class="math">\(\overline{X}\)</span> の標準化変数の母分散 <span class="math">\(\sigma^2\)</span> を不偏分散 <span class="math">\(s^2\)</span> に置き換えたもの</strong> である</li>
+<li>つまり <strong><span class="math">\(Z=\frac{\overline{X}-\mu}{\sqrt{s^2/n}}\)</span></strong> である</li>
+<li>帰無仮説が正しければ、これは <strong>自由度 <span class="math">\(n-1\)</span> のt分布 <span class="math">\(t(n-1)\)</span></strong> に従う</li>
 <li>これをスチューデントのt検定と呼ぶ</li>
 </ul>
 </li>
 </ul>
 <h3 id="_4">母分散に関する検定</h3>
 <ul>
-<li>検定統計量は <strong>$\chi^2=\frac{(n-1)s^2}{\sigma_{0}^2}$</strong></li>
-<li>これは帰無仮説のもとで <strong>自由度 $n-1$ の $\chi^2$ 分布</strong> に従う</li>
-<li>これを $\chi^2$ 検定という</li>
+<li>検定統計量は <strong><span class="math">\(\chi^2=\frac{(n-1)s^2}{\sigma_{0}^2}\)</span></strong></li>
+<li>これは帰無仮説のもとで <strong>自由度 <span class="math">\(n-1\)</span> の <span class="math">\(\chi^2\)</span> 分布</strong> に従う</li>
+<li>これを <span class="math">\(\chi^2\)</span> 検定という</li>
 </ul>
 <h3 id="_5">母平均の差の検定</h3>
 <ul>
 <li>2つの分布の結果に差があるかどうかを検定する</li>
-<li>それぞれ大きさ $m, n$ の標本 $X_1, \cdots, X_m, Y_1, \cdots, Y_n$ とする</li>
+<li>それぞれ大きさ <span class="math">\(m, n\)</span> の標本 <span class="math">\(X_1, \cdots, X_m, Y_1, \cdots, Y_n\)</span> とする</li>
 <li>
-<p>$X, Y$の不偏分散をそれぞれ$s_1^2, s_2^2$とする</p>
+<p><span class="math">\(X, Y\)</span>の不偏分散をそれぞれ<span class="math">\(s_1^2, s_2^2\)</span>とする</p>
 </li>
 <li>
 <p>分散が等しいとき</p>
 <ul>
-<li>合併した分散$s^2$は$s^2=\frac{(m-1)s_1^2+(n-1)s_2^2}{m+n-2}$ と表せる</li>
-<li>このとき検定統計量は <strong>$t=\frac{\overline{X}-\overline{Y}}{s\sqrt{1/m+1/n}}$</strong></li>
-<li>これは <strong>自由度 $m+n-2$ の t分布 $t(m+n-2)$</strong> に従う</li>
+<li>合併した分散<span class="math">\(s^2\)</span>は<span class="math">\(s^2=\frac{(m-1)s_1^2+(n-1)s_2^2}{m+n-2}\)</span> と表せる</li>
+<li>このとき検定統計量は <strong><span class="math">\(t=\frac{\overline{X}-\overline{Y}}{s\sqrt{1/m+1/n}}\)</span></strong></li>
+<li>これは <strong>自由度 <span class="math">\(m+n-2\)</span> の t分布 <span class="math">\(t(m+n-2)\)</span></strong> に従う</li>
 </ul>
 </li>
 <li>分散が等しくないとき<ul>
-<li>検定統計量は <strong>$t=\frac{\overline{X}-\overline{Y}}{\sqrt{s_1^2/m+s_2^2/n}}$</strong></li>
-<li><strong>$\nu=\frac{(s_1^2/m+s_2^2/n)^2}{\frac{(s_1^2/m)^2}{m-1}+\frac{(s_2^2/n)^2}{n-1}}$</strong> とおき、$\nu^\ast$ を $\nu$ に最も近い整数とすると、 $t$は近似的に <strong>自由度 $\nu^\ast$ のt分布    $t(\nu^\ast)$</strong> に従う</li>
+<li>検定統計量は <strong><span class="math">\(t=\frac{\overline{X}-\overline{Y}}{\sqrt{s_1^2/m+s_2^2/n}}\)</span></strong></li>
+<li><strong><span class="math">\(\nu=\frac{(s_1^2/m+s_2^2/n)^2}{\frac{(s_1^2/m)^2}{m-1}+\frac{(s_2^2/n)^2}{n-1}}\)</span></strong> とおき、<span class="math">\(\nu^\ast\)</span> を <span class="math">\(\nu\)</span> に最も近い整数とすると、 <span class="math">\(t\)</span>は近似的に <strong>自由度 <span class="math">\(\nu^\ast\)</span> のt分布    <span class="math">\(t(\nu^\ast)\)</span></strong> に従う</li>
 <li>この検定はウェルチの検定と呼ばれる</li>
 </ul>
 </li>
@@ -239,20 +239,20 @@
 <h3 id="_6">母分散の比の検定</h3>
 <ul>
 <li>母分散が等しいかどうかを調べたいときの検定</li>
-<li>それぞれ大きさ $m, n$ の標本 $X_1, \cdots, X_m, Y_1, \cdots, Y_n$ とする</li>
+<li>それぞれ大きさ <span class="math">\(m, n\)</span> の標本 <span class="math">\(X_1, \cdots, X_m, Y_1, \cdots, Y_n\)</span> とする</li>
 <li>
-<p>$X, Y$の不偏分散をそれぞれ$s_1^2, s_2^2$とする</p>
+<p><span class="math">\(X, Y\)</span>の不偏分散をそれぞれ<span class="math">\(s_1^2, s_2^2\)</span>とする</p>
 </li>
 <li>
-<p>ここで検定統計量であるフィッシャーの分散比は <strong>$F=\frac{s_1^2}{s_2^2}$</strong></p>
+<p>ここで検定統計量であるフィッシャーの分散比は <strong><span class="math">\(F=\frac{s_1^2}{s_2^2}\)</span></strong></p>
 </li>
-<li>これは帰無仮説のもとで <strong>自由度 $(m-1, n-1)$ のF分布 $F(m-1, n-1)$</strong> に従う</li>
+<li>これは帰無仮説のもとで <strong>自由度 <span class="math">\((m-1, n-1)\)</span> のF分布 <span class="math">\(F(m-1, n-1)\)</span></strong> に従う</li>
 <li>これをF検定という</li>
 </ul>
-<h2 id="chi2_1">様々な $\chi^2$ 検定</h2>
+<h2 id="chi2_1">様々な <span class="math">\(\chi^2\)</span> 検定</h2>
 <h3 id="_7">適合度の検定</h3>
 <ul>
-<li>適合度の $\chi^2$ 検定<ul>
+<li>適合度の <span class="math">\(\chi^2\)</span> 検定<ul>
 <li>仮定された確率分布に対して、標本から求められた度数が適合するかどうかを検証する検定</li>
 </ul>
 </li>
@@ -266,47 +266,47 @@
 <thead>
 <tr>
 <th style="text-align: left;">カテゴリ</th>
-<th style="text-align: center;">$A_1$</th>
-<th style="text-align: center;">$A_2$</th>
-<th style="text-align: center;">$\cdots$</th>
-<th style="text-align: center;">$A_k$</th>
+<th style="text-align: center;"><span class="math">\(A_1\)</span></th>
+<th style="text-align: center;"><span class="math">\(A_2\)</span></th>
+<th style="text-align: center;"><span class="math">\(\cdots\)</span></th>
+<th style="text-align: center;"><span class="math">\(A_k\)</span></th>
 <th style="text-align: center;">計</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align: left;">観測度数</td>
-<td style="text-align: center;">$f_1$</td>
-<td style="text-align: center;">$f_2$</td>
-<td style="text-align: center;">$\cdots$</td>
-<td style="text-align: center;">$f_k$</td>
-<td style="text-align: center;">$n$</td>
+<td style="text-align: center;"><span class="math">\(f_1\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_2\)</span></td>
+<td style="text-align: center;"><span class="math">\(\cdots\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_k\)</span></td>
+<td style="text-align: center;"><span class="math">\(n\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;">理論確率</td>
-<td style="text-align: center;">$p_1$</td>
-<td style="text-align: center;">$p_2$</td>
-<td style="text-align: center;">$\cdots$</td>
-<td style="text-align: center;">$p_k$</td>
-<td style="text-align: center;">$1$</td>
+<td style="text-align: center;"><span class="math">\(p_1\)</span></td>
+<td style="text-align: center;"><span class="math">\(p_2\)</span></td>
+<td style="text-align: center;"><span class="math">\(\cdots\)</span></td>
+<td style="text-align: center;"><span class="math">\(p_k\)</span></td>
+<td style="text-align: center;"><span class="math">\(1\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;">理論度数</td>
-<td style="text-align: center;">$np_1$</td>
-<td style="text-align: center;">$np_2$</td>
-<td style="text-align: center;">$\cdots$</td>
-<td style="text-align: center;">$np_k$</td>
-<td style="text-align: center;">$n$</td>
+<td style="text-align: center;"><span class="math">\(np_1\)</span></td>
+<td style="text-align: center;"><span class="math">\(np_2\)</span></td>
+<td style="text-align: center;"><span class="math">\(\cdots\)</span></td>
+<td style="text-align: center;"><span class="math">\(np_k\)</span></td>
+<td style="text-align: center;"><span class="math">\(n\)</span></td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>検定統計量はピアソンの適合度基準 <strong>$\chi^2=\sum_{i=1}^k\frac{(f_i-np_i)^2}{np_i}$</strong></li>
-<li>これは $n$ が大きいとき <strong>自由度 $k-1$ の $\chi^2$ 分布 $\chi^2(k-1)$</strong> に従う</li>
+<li>検定統計量はピアソンの適合度基準 <strong><span class="math">\(\chi^2=\sum_{i=1}^k\frac{(f_i-np_i)^2}{np_i}\)</span></strong></li>
+<li>これは <span class="math">\(n\)</span> が大きいとき <strong>自由度 <span class="math">\(k-1\)</span> の <span class="math">\(\chi^2\)</span> 分布 <span class="math">\(\chi^2(k-1)\)</span></strong> に従う</li>
 </ul>
 <h3 id="_8">分割表と独立性の検定</h3>
 <ul>
-<li>属性 $A$ がカテゴリ $A_1, A_2, \cdots, A_r$ 、属性 $B$ がカテゴリ $B_1, B_2, \cdots, B_c$ をもつような分割表を考える<ul>
+<li>属性 <span class="math">\(A\)</span> がカテゴリ <span class="math">\(A_1, A_2, \cdots, A_r\)</span> 、属性 <span class="math">\(B\)</span> がカテゴリ <span class="math">\(B_1, B_2, \cdots, B_c\)</span> をもつような分割表を考える<ul>
 <li>つまりは以下のような分割表である</li>
 </ul>
 </li>
@@ -315,65 +315,65 @@
 <thead>
 <tr>
 <th style="text-align: left;">カテゴリ</th>
-<th style="text-align: center;">$B_1$</th>
-<th style="text-align: center;">$B_2$</th>
-<th style="text-align: center;">$\cdots$</th>
-<th style="text-align: center;">$B_c$</th>
+<th style="text-align: center;"><span class="math">\(B_1\)</span></th>
+<th style="text-align: center;"><span class="math">\(B_2\)</span></th>
+<th style="text-align: center;"><span class="math">\(\cdots\)</span></th>
+<th style="text-align: center;"><span class="math">\(B_c\)</span></th>
 <th style="text-align: center;">計</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">$A_1$</td>
-<td style="text-align: center;">$f_{11}$</td>
-<td style="text-align: center;">$f_{12}$</td>
-<td style="text-align: center;">$\cdots$</td>
-<td style="text-align: center;">$f_{1c}$</td>
-<td style="text-align: center;">$f_{1\cdot}$</td>
+<td style="text-align: left;"><span class="math">\(A_1\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{11}\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{12}\)</span></td>
+<td style="text-align: center;"><span class="math">\(\cdots\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{1c}\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{1\cdot}\)</span></td>
 </tr>
 <tr>
-<td style="text-align: left;">$A_2$</td>
-<td style="text-align: center;">$f_{21}$</td>
-<td style="text-align: center;">$f_{22}$</td>
-<td style="text-align: center;">$\cdots$</td>
-<td style="text-align: center;">$f_{2c}$</td>
-<td style="text-align: center;">$f_{2\cdot}$</td>
+<td style="text-align: left;"><span class="math">\(A_2\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{21}\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{22}\)</span></td>
+<td style="text-align: center;"><span class="math">\(\cdots\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{2c}\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{2\cdot}\)</span></td>
 </tr>
 <tr>
-<td style="text-align: left;">$\cdots$</td>
-<td style="text-align: center;">$\cdots$</td>
-<td style="text-align: center;">$\cdots$</td>
-<td style="text-align: center;">$\cdots$</td>
-<td style="text-align: center;">$\cdots$</td>
-<td style="text-align: center;">$\cdots$</td>
+<td style="text-align: left;"><span class="math">\(\cdots\)</span></td>
+<td style="text-align: center;"><span class="math">\(\cdots\)</span></td>
+<td style="text-align: center;"><span class="math">\(\cdots\)</span></td>
+<td style="text-align: center;"><span class="math">\(\cdots\)</span></td>
+<td style="text-align: center;"><span class="math">\(\cdots\)</span></td>
+<td style="text-align: center;"><span class="math">\(\cdots\)</span></td>
 </tr>
 <tr>
-<td style="text-align: left;">$A_r$</td>
-<td style="text-align: center;">$f_{r1}$</td>
-<td style="text-align: center;">$f_{r2}$</td>
-<td style="text-align: center;">$\cdots$</td>
-<td style="text-align: center;">$f_{rc}$</td>
-<td style="text-align: center;">$f_{r\cdot}$</td>
+<td style="text-align: left;"><span class="math">\(A_r\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{r1}\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{r2}\)</span></td>
+<td style="text-align: center;"><span class="math">\(\cdots\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{rc}\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{r\cdot}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;">計</td>
-<td style="text-align: center;">$f_{\cdot 1}$</td>
-<td style="text-align: center;">$f_{\cdot 2}$</td>
-<td style="text-align: center;">$\cdots$</td>
-<td style="text-align: center;">$f_{\cdot c}$</td>
-<td style="text-align: center;">$n$</td>
+<td style="text-align: center;"><span class="math">\(f_{\cdot 1}\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{\cdot 2}\)</span></td>
+<td style="text-align: center;"><span class="math">\(\cdots\)</span></td>
+<td style="text-align: center;"><span class="math">\(f_{\cdot c}\)</span></td>
+<td style="text-align: center;"><span class="math">\(n\)</span></td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>属性 $A$ と属性 $B$ が　<strong>独立</strong> であるかどうかを検定したい<ul>
-<li>独立性の $\chi^2$ 検定と呼ばれる</li>
-<li><strong>独立</strong> とは $A_i \cap B_j$ に対して、<strong>$P(A_i \cap B_j)=P(A_i)P(B_j)$</strong> が成立すること</li>
+<li>属性 <span class="math">\(A\)</span> と属性 <span class="math">\(B\)</span> が　<strong>独立</strong> であるかどうかを検定したい<ul>
+<li>独立性の <span class="math">\(\chi^2\)</span> 検定と呼ばれる</li>
+<li><strong>独立</strong> とは <span class="math">\(A_i \cap B_j\)</span> に対して、<strong><span class="math">\(P(A_i \cap B_j)=P(A_i)P(B_j)\)</span></strong> が成立すること</li>
 </ul>
 </li>
-<li>帰無仮説 $H_0$ : 任意の $i, j$ に対して $P(A_i \cap B_j)=P(A_i)P(B_j)$ が成立</li>
-<li>検定統計量 <strong>$\chi^2=\sum_{i=1}^r\sum_{j=1}^c\frac{(f_{ij}-f_{i\cdot}f_{\cdot j}/n)^2}{f_{i\cdot}f_{\cdot j}/n}=\sum_{i=1}^r\sum_{j=1}^c\frac{(nf_{ij}-f_{i\cdot}f_{\cdot j})^2}{nf_{i\cdot}f_{\cdot j}}$</strong></li>
-<li>これは <strong>自由度 $(r-1)(c-1)$ の $\chi^2$ 検定</strong> に従う</li>
+<li>帰無仮説 <span class="math">\(H_0\)</span> : 任意の <span class="math">\(i, j\)</span> に対して <span class="math">\(P(A_i \cap B_j)=P(A_i)P(B_j)\)</span> が成立</li>
+<li>検定統計量 <strong><span class="math">\(\chi^2=\sum_{i=1}^r\sum_{j=1}^c\frac{(f_{ij}-f_{i\cdot}f_{\cdot j}/n)^2}{f_{i\cdot}f_{\cdot j}/n}=\sum_{i=1}^r\sum_{j=1}^c\frac{(nf_{ij}-f_{i\cdot}f_{\cdot j})^2}{nf_{i\cdot}f_{\cdot j}}\)</span></strong></li>
+<li>これは <strong>自由度 <span class="math">\((r-1)(c-1)\)</span> の <span class="math">\(\chi^2\)</span> 検定</strong> に従う</li>
 </ul>
 <h2 id="_10">中心極限定理を用いる検定</h2>
 <ul>
@@ -383,6 +383,68 @@
 </li>
 </ul>
 <iframe frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=nknuu-22&amp;language=ja_JP&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=4130420658&amp;linkId=51b214b10cca8e1ea81eb4d4a56d3592" style="width:120px;height:240px;"></iframe>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
     <!-- <div class="aspect-w-16 aspect-h-9 mx-auto"></div> CSS placeholder -->
   </div>
   <footer class="flex flex-col mt-10 ">

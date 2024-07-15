@@ -96,7 +96,7 @@
       <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
         <time>2月 25, 2020</time>
         <div>
-          <span>&nbsp;·&nbsp;{'minutes': 2} min read</span>
+          <span>&nbsp;·&nbsp;{'minutes': 3} min read</span>
         </div>
         <div>
           <span>&nbsp;·&nbsp;knuu</span>
@@ -141,38 +141,38 @@
 </ul>
 </li>
 </ul>
-<p>ナイーブに考えると，全点対でマンハッタン距離を計算して Kruskal 法などの最小全域木を求めるアルゴリズムを適用すればよいと思えるが，この解法では入力の頂点数 $N$ に対して，枝数が $O(N^2)$ になってしまう．</p>
-<p>実は全点対を考える必要はなくて，マンハッタン距離で最小になる点の間で枝を貼るだけでよい（<strong>要証明</strong>）．この方法によって枝数が $O(N)$ になり，解法の計算量を $O(N \log N)$ にすることができる．</p>
+<p>ナイーブに考えると，全点対でマンハッタン距離を計算して Kruskal 法などの最小全域木を求めるアルゴリズムを適用すればよいと思えるが，この解法では入力の頂点数 <span class="math">\(N\)</span> に対して，枝数が <span class="math">\(O(N^2)\)</span> になってしまう．</p>
+<p>実は全点対を考える必要はなくて，マンハッタン距離で最小になる点の間で枝を貼るだけでよい（<strong>要証明</strong>）．この方法によって枝数が <span class="math">\(O(N)\)</span> になり，解法の計算量を <span class="math">\(O(N \log N)\)</span> にすることができる．</p>
 <p>ではここからは，ある点 P に対してマンハッタン距離が最短になる点を求める方法を説明する．ある点 P とマンハッタン距離が最短になる点を以下の図のような 8 方向の領域のそれぞれで探索し，その 8 領域で最小になった点のみと枝を貼る<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup><sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>．</p>
 <p><img alt="octan" class="img-fluid" src="./images/octan.jpeg"/></p>
-<p>ここでは上記の図の領域 0 を考えてみる．領域 0 において，点 P $(x_p, y_p)$ からのマンハッタン距離が最小になる点は，以下の条件で与えられる．</p>
+<p>ここでは上記の図の領域 0 を考えてみる．領域 0 において，点 P <span class="math">\((x_p, y_p)\)</span> からのマンハッタン距離が最小になる点は，以下の条件で与えられる．</p>
 <div class="highlight"><pre><span></span><code>min x+y
 s.t. y-x &lt;= y_p-x_p
      y &gt;= y_p
 </code></pre></div>
-<p>ここで，$y \ge y_p$ という条件を除いて考えてみると，各点に対する領域 0 におけるマンハッタン距離が最小の点は，以下のような平面走査で求めることができる．</p>
+<p>ここで，<span class="math">\(y \ge y_p\)</span> という条件を除いて考えてみると，各点に対する領域 0 におけるマンハッタン距離が最小の点は，以下のような平面走査で求めることができる．</p>
 <ul>
-<li>イベント点: 与えられた $N$ 個の点</li>
-<li>走査線: 直線 $y-x=k$ に対して，$k$ を $-\infty$ から $+\infty$ へ動かす<ul>
-<li>つまり，与えられた点を $y-x$ の値でソートして，その順に点を処理する</li>
+<li>イベント点: 与えられた <span class="math">\(N\)</span> 個の点</li>
+<li>走査線: 直線 <span class="math">\(y-x=k\)</span> に対して，<span class="math">\(k\)</span> を <span class="math">\(-\infty\)</span> から <span class="math">\(+\infty\)</span> へ動かす<ul>
+<li>つまり，与えられた点を <span class="math">\(y-x\)</span> の値でソートして，その順に点を処理する</li>
 </ul>
 </li>
 <li>イベント点の処理<ul>
-<li>点 P $(x_p, y_p)$ に対する処理: まず，過去に処理したイベント点の中で $x+y$ が最小の点 P' がマンハッタン距離が最小の点である．その後，$x_p+y_p$ が過去に処理したイベント点の中で $x+y$ が最小の点ならば，それを覚えておく．</li>
+<li>点 P <span class="math">\((x_p, y_p)\)</span> に対する処理: まず，過去に処理したイベント点の中で <span class="math">\(x+y\)</span> が最小の点 P' がマンハッタン距離が最小の点である．その後，<span class="math">\(x_p+y_p\)</span> が過去に処理したイベント点の中で <span class="math">\(x+y\)</span> が最小の点ならば，それを覚えておく．</li>
 </ul>
 </li>
 </ul>
-<p>この計算量はイベント点の数が $O(N)$，各点でのイベント点の処理が $O(1)$，事前のソートが $O (N \log N)$ なので，全体では $O (N \log N)$ となる．</p>
-<p>では $y \ge y_p$ を加えて考えてみる．これは，上記の平面走査のイベント点の処理において，今まで処理した点の中で $y$ 座標が $y_p$ よりも大きい点の中で $x+y$ の最小値を取ればよい．これを実現するには，各点を $y$ 座標でソートした列に対して $x+y$ の最小値を返すようなセグメント木を作っておけばよい．結局イベント点の処理は以下のようになる．</p>
+<p>この計算量はイベント点の数が <span class="math">\(O(N)\)</span>，各点でのイベント点の処理が <span class="math">\(O(1)\)</span>，事前のソートが <span class="math">\(O (N \log N)\)</span> なので，全体では <span class="math">\(O (N \log N)\)</span> となる．</p>
+<p>では <span class="math">\(y \ge y_p\)</span> を加えて考えてみる．これは，上記の平面走査のイベント点の処理において，今まで処理した点の中で <span class="math">\(y\)</span> 座標が <span class="math">\(y_p\)</span> よりも大きい点の中で <span class="math">\(x+y\)</span> の最小値を取ればよい．これを実現するには，各点を <span class="math">\(y\)</span> 座標でソートした列に対して <span class="math">\(x+y\)</span> の最小値を返すようなセグメント木を作っておけばよい．結局イベント点の処理は以下のようになる．</p>
 <ul>
 <li>イベント点の処理<ul>
-<li>初期化: イベント点を $y$ 座標でソートした列に対して，$x+y$ の値を列の値として持ち，最小値を返すようなセグメント木を構築する．ただし初期値は $+\infty$．</li>
-<li>点 P $(x_p, y_p)$ に対する処理: まず，上記で構築したセグメント木に対して，点 P の $y$ 座標 $y_p$ に対応するセグメント木の位置から右端までの区間で $x+y$ の最小値を取得する．もしその最小値が $+\infty$ でなければ，最小値に対応する点が領域 0 における点 P からマンハッタン距離が最小の点である．その後，$x_p+y_p$ をセグメント木の対応する位置で更新する．</li>
+<li>初期化: イベント点を <span class="math">\(y\)</span> 座標でソートした列に対して，<span class="math">\(x+y\)</span> の値を列の値として持ち，最小値を返すようなセグメント木を構築する．ただし初期値は <span class="math">\(+\infty\)</span>．</li>
+<li>点 P <span class="math">\((x_p, y_p)\)</span> に対する処理: まず，上記で構築したセグメント木に対して，点 P の <span class="math">\(y\)</span> 座標 <span class="math">\(y_p\)</span> に対応するセグメント木の位置から右端までの区間で <span class="math">\(x+y\)</span> の最小値を取得する．もしその最小値が <span class="math">\(+\infty\)</span> でなければ，最小値に対応する点が領域 0 における点 P からマンハッタン距離が最小の点である．その後，<span class="math">\(x_p+y_p\)</span> をセグメント木の対応する位置で更新する．</li>
 </ul>
 </li>
 </ul>
-<p>初期化は $O(N \log N)$，各点でのイベント点の処理が $O(log N)$ なので，結局全体では $O (N \log N)$ のままである．</p>
-<p>他の領域も同じように考えれば，似たようなことを 8 回行うだけなので，最小全域木のもととなるグラフを構築するための計算量も $O(N \log N)$ となる．</p>
+<p>初期化は <span class="math">\(O(N \log N)\)</span>，各点でのイベント点の処理が <span class="math">\(O(log N)\)</span> なので，結局全体では <span class="math">\(O (N \log N)\)</span> のままである．</p>
+<p>他の領域も同じように考えれば，似たようなことを 8 回行うだけなので，最小全域木のもととなるグラフを構築するための計算量も <span class="math">\(O(N \log N)\)</span> となる．</p>
 <p>ここからは実装上の補足である．それぞれの領域でわざわざ同じことを考えて別々の処理を書く必要があるかというと，実はそうではない．以下のように線対称に点を移動させることで，上記の平面走査の処理を一度実装するだけでよくなる．</p>
 <div class="highlight"><pre><span></span><code><span class="nv">points</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>与えられた点集合
 
@@ -192,68 +192,68 @@ s.t. y-x &lt;= y_p-x_p
 <span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="nv">p</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">points</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nv">p</span><span class="o">.</span><span class="nv">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="nv">p</span><span class="o">.</span><span class="nv">y</span><span class="w"> </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>上記の点の変換処理の正当性は，各領域での走査線・イベント点の処理が何で，各領域が上記の $i,j,k$ のいつのときに処理されているかを考えればよい．まず，各領域での走査線とイベント点での処理を列挙してみると以下のようになる．</p>
+<p>上記の点の変換処理の正当性は，各領域での走査線・イベント点の処理が何で，各領域が上記の <span class="math">\(i,j,k\)</span> のいつのときに処理されているかを考えればよい．まず，各領域での走査線とイベント点での処理を列挙してみると以下のようになる．</p>
 <table class="table table-striped">
 <thead>
 <tr>
 <th>領域</th>
 <th>走査線</th>
-<th>$k$ の動かし方</th>
+<th><span class="math">\(k\)</span> の動かし方</th>
 <th>イベント点 (x', y') での最近傍点</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>0</td>
-<td>$y-x=k$</td>
-<td>$-\infty \rightarrow +\infty$</td>
-<td>$\min x+y$ s.t. $y \ge y'$</td>
+<td><span class="math">\(y-x=k\)</span></td>
+<td><span class="math">\(-\infty \rightarrow +\infty\)</span></td>
+<td><span class="math">\(\min x+y\)</span> s.t. <span class="math">\(y \ge y'\)</span></td>
 </tr>
 <tr>
 <td>1</td>
-<td>$y-x=k$</td>
-<td>$+\infty \rightarrow -\infty$</td>
-<td>$\min x+y$ s.t. $x \ge x'$</td>
+<td><span class="math">\(y-x=k\)</span></td>
+<td><span class="math">\(+\infty \rightarrow -\infty\)</span></td>
+<td><span class="math">\(\min x+y\)</span> s.t. <span class="math">\(x \ge x'\)</span></td>
 </tr>
 <tr>
 <td>2</td>
-<td>$x+y=k$</td>
-<td>$+\infty \rightarrow -\infty$</td>
-<td>$\min y-x$ s.t. $x \le x'$</td>
+<td><span class="math">\(x+y=k\)</span></td>
+<td><span class="math">\(+\infty \rightarrow -\infty\)</span></td>
+<td><span class="math">\(\min y-x\)</span> s.t. <span class="math">\(x \le x'\)</span></td>
 </tr>
 <tr>
 <td>3</td>
-<td>$x+y=k$</td>
-<td>$-\infty \rightarrow +\infty$</td>
-<td>$\min y-x$ s.t. $y \ge y'$</td>
+<td><span class="math">\(x+y=k\)</span></td>
+<td><span class="math">\(-\infty \rightarrow +\infty\)</span></td>
+<td><span class="math">\(\min y-x\)</span> s.t. <span class="math">\(y \ge y'\)</span></td>
 </tr>
 <tr>
 <td>4</td>
-<td>$y-x=k$</td>
-<td>$+\infty \rightarrow -\infty$</td>
-<td>$\max x+y$ s.t. $y \le y'$</td>
+<td><span class="math">\(y-x=k\)</span></td>
+<td><span class="math">\(+\infty \rightarrow -\infty\)</span></td>
+<td><span class="math">\(\max x+y\)</span> s.t. <span class="math">\(y \le y'\)</span></td>
 </tr>
 <tr>
 <td>5</td>
-<td>$y-x=k$</td>
-<td>$-\infty \rightarrow +\infty$</td>
-<td>$\max x+y$ s.t. $x \le x'$</td>
+<td><span class="math">\(y-x=k\)</span></td>
+<td><span class="math">\(-\infty \rightarrow +\infty\)</span></td>
+<td><span class="math">\(\max x+y\)</span> s.t. <span class="math">\(x \le x'\)</span></td>
 </tr>
 <tr>
 <td>6</td>
-<td>$x+y=k$</td>
-<td>$-\infty \rightarrow +\infty$</td>
-<td>$\max y-x$ s.t. $x \ge x'$</td>
+<td><span class="math">\(x+y=k\)</span></td>
+<td><span class="math">\(-\infty \rightarrow +\infty\)</span></td>
+<td><span class="math">\(\max y-x\)</span> s.t. <span class="math">\(x \ge x'\)</span></td>
 </tr>
 <tr>
 <td>7</td>
-<td>$x+y=k$</td>
-<td>$+\infty \rightarrow -\infty$</td>
-<td>$\max y-x$ s.t. $y \le y'$</td>
+<td><span class="math">\(x+y=k\)</span></td>
+<td><span class="math">\(+\infty \rightarrow -\infty\)</span></td>
+<td><span class="math">\(\max y-x\)</span> s.t. <span class="math">\(y \le y'\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>例えば領域 4 は $i=1,j=0,k=1$ で処理されるが，このときは $(x,y)$ が $(-x,-y)$ に移動しているので，領域 0 の「走査線: $y-x=k$，$k$ の動かし方: $-\infty \rightarrow +\infty$，イベント点での最近傍点: $\min x+y$ s.t. $y \ge y'$」という操作において，$(x,y)$ を $(-x,-y)$ に置き換えると，「走査線: $-y+x=k$，$k$ の動かし方: $-\infty \rightarrow +\infty$，イベント点での最近傍点: $\min -x-y$ s.t. $-y \ge -y'$」となり，これは「走査線: $y-x=k'$，$k':=k$ の動かし方: $+\infty \rightarrow -\infty$，イベント点での最近傍点: $\max x+y$ s.t. $y \le y'$」と言い換えることができ，これは領域 4 の条件と一致する．</p>
+<p>例えば領域 4 は <span class="math">\(i=1,j=0,k=1\)</span> で処理されるが，このときは <span class="math">\((x,y)\)</span> が <span class="math">\((-x,-y)\)</span> に移動しているので，領域 0 の「走査線: <span class="math">\(y-x=k\)</span>，<span class="math">\(k\)</span> の動かし方: <span class="math">\(-\infty \rightarrow +\infty\)</span>，イベント点での最近傍点: <span class="math">\(\min x+y\)</span> s.t. <span class="math">\(y \ge y'\)</span>」という操作において，<span class="math">\((x,y)\)</span> を <span class="math">\((-x,-y)\)</span> に置き換えると，「走査線: <span class="math">\(-y+x=k\)</span>，<span class="math">\(k\)</span> の動かし方: <span class="math">\(-\infty \rightarrow +\infty\)</span>，イベント点での最近傍点: <span class="math">\(\min -x-y\)</span> s.t. <span class="math">\(-y \ge -y'\)</span>」となり，これは「走査線: <span class="math">\(y-x=k'\)</span>，<span class="math">\(k':=k\)</span> の動かし方: <span class="math">\(+\infty \rightarrow -\infty\)</span>，イベント点での最近傍点: <span class="math">\(\max x+y\)</span> s.t. <span class="math">\(y \le y'\)</span>」と言い換えることができ，これは領域 4 の条件と一致する．</p>
 <p>つまり，上記の擬似コードのように，for 文の終わりで点の変換処理を噛ませば，一度平面走査の処理を書くだけで使い回すことができる．</p>
 <h2 id="_3">コード</h2>
 <ul>
@@ -272,10 +272,72 @@ s.t. y-x &lt;= y_p-x_p
 <p>8 個のそれぞれの領域においてマンハッタン距離が最短となる点と枝を構築したとしても計算量は定数倍なので，実装上は 8 つの領域の最小値をとってもとらなくても，計算量のオーダーは変わらない．&nbsp;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&larrhk;</a></p>
 </li>
 <li id="fn:2">
-<p>8 領域に分ける理由についての自分の解釈をメモとして残しておく．まず，ある点 P からのマンハッタン距離が等しい点の等高線を考えると，4 方向の領域で直線の式が変わるので，4 方向に分けて考えてみよう，となる．ただその場合，各領域ごとに 2 つの条件を考慮する必要がある．点 P の座標 $(x_p, y_p)$ の右上の領域（図の 0 と 1 の領域）に対して，距離が最短となる点 $(x, y)$ は $x_p \le x$ かつ $y_p \ge y$ という 2 つの条件を満たさなければならない．しかし 8 方向に分けてみると，領域ごとに平面走査を行うことで，1 つの条件だけを考えればよいという状況になる．これが 8 つの領域に分ける理由である．ただこれは平面走査という解法ありきの理由であり，発想の飛躍が大きい．実際，平面走査がなければ，8 方向に限定することで結局もう 1 個直線の条件が増えている．より自然な理由を考えられた人がいれば教えてほしい．&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&larrhk;</a></p>
+<p>8 領域に分ける理由についての自分の解釈をメモとして残しておく．まず，ある点 P からのマンハッタン距離が等しい点の等高線を考えると，4 方向の領域で直線の式が変わるので，4 方向に分けて考えてみよう，となる．ただその場合，各領域ごとに 2 つの条件を考慮する必要がある．点 P の座標 <span class="math">\((x_p, y_p)\)</span> の右上の領域（図の 0 と 1 の領域）に対して，距離が最短となる点 <span class="math">\((x, y)\)</span> は <span class="math">\(x_p \le x\)</span> かつ <span class="math">\(y_p \ge y\)</span> という 2 つの条件を満たさなければならない．しかし 8 方向に分けてみると，領域ごとに平面走査を行うことで，1 つの条件だけを考えればよいという状況になる．これが 8 つの領域に分ける理由である．ただこれは平面走査という解法ありきの理由であり，発想の飛躍が大きい．実際，平面走査がなければ，8 方向に限定することで結局もう 1 個直線の条件が増えている．より自然な理由を考えられた人がいれば教えてほしい．&nbsp;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&larrhk;</a></p>
 </li>
 </ol>
 </div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
     <!-- <div class="aspect-w-16 aspect-h-9 mx-auto"></div> CSS placeholder -->
   </div>
   <footer class="flex flex-col mt-10 ">

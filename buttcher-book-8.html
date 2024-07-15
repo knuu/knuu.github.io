@@ -96,7 +96,7 @@
       <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
         <time>12月 26, 2020</time>
         <div>
-          <span>&nbsp;·&nbsp;{'minutes': 3} min read</span>
+          <span>&nbsp;·&nbsp;{'minutes': 4} min read</span>
         </div>
         <div>
           <span>&nbsp;·&nbsp;knuu</span>
@@ -132,9 +132,9 @@
 <p>この記事では，8.6 と 8.7 について解説をしていきます．</p>
 <h2 id="86-relevance-feedback">8.6 Relevance Feedback（適合性フィードバック）</h2>
 <p>これまで BM25 について説明してきましたが，その途中にもいくつかのスコア関数が出てきました．バイナリ独立モデルもその一つであり，スコア関数は以下の式で表されます．</p>
-<p>$$
+<div class="math">$$
 \sum_{t \in q \cap d} w_t = \sum_{t \in q \cap d} \log \frac{p_t(1-\bar{p_t})}{\bar{p_t}(1-p_t)}
-$$</p>
+$$</div>
 <p>ただし，各記号は以下の通りです．</p>
 <ul>
 <li>\(q,d\): それぞれクエリと文書に含まれる語の集合</li>
@@ -181,13 +181,13 @@ $$</p>
 </ul>
 <p>ここまで考えてきた BM25 は文章の長さや単語の出現頻度の情報をスコア計算に使う手法であるため，フィールドごとに大きくスコアが変化するはずであることが推測されます．では BM25 においてフィールドごとに異なる情報をどのように組み合わせればよいでしょうか？</p>
 <p>BM25F<sup id="fnref:BM25F"><a class="footnote-ref" href="#fn:BM25F">9</a></sup><sup id="fnref:BM25_2"><a class="footnote-ref" href="#fn:BM25_2">10</a></sup> はフィールドごとの（擬似的な）単語頻度の重み付き和を用いてフィールドごとの情報を統合する検索手法です．BM25 におけるクエリ \(t\) のスコアは以下の式で表されます．</p>
-<p>$$
+<div class="math">$$
 \frac{f_{t,d} (k_1 + 1)}{k_1 \left((1-b)+b\frac{l_d}{l_{\mathrm{avg}}}\right) + f_{t,d}} w_t = \frac{f_{t,d}' (k_1 + 1)}{k_1 + f_{t,d}'} w_t
-$$</p>
+$$</div>
 <p>ただし，\(f_{t,d}'=\frac{f_{t,d}}{(1-b)+b\frac{l_d}{l_{\mathrm{avg}}}}\) であり，\(w_t\) は任意のロバートソン/スパルク・ジョーンズ重み付け（実用上は IDF が用いられることが多い）です．BM25F はこの \(f_{t,d}'\) をフィールドごとに計算し，その重み付き和を文書全体に対する単語頻度として BM25 のスコアを計算します．式で書くと以下のようになります．</p>
-<p>$$
+<div class="math">$$
 f_{t,d}'=\sum_{s \in S} v_s \frac{f_{t,d,s}}{(1-b_s)+b_s\frac{l_{d,s}}{l_{\mathrm{s, avg}}}}
-$$</p>
+$$</div>
 <p>ただし，この式に出現する記号は以下の通りです．</p>
 <ul>
 <li>\(S\): 文書 \(d\) が持つフィールドの集合</li>
@@ -197,9 +197,9 @@ $$</p>
 <li>\(v_s, b_s\): フィールドごとに決めなければならないハイパーパラメータ</li>
 </ul>
 <p>これにより，フィールドごとの単語頻度や文書長を考慮した検索が行えるようになりました．一方で BM25F は決めるべきパラメータ数が多くなってしまっています．BM25 では \(2\) 個だったパラメータ数が BM25F では \(2|S|+1\) 個になっています（\(|S|\) はフィールド数）．そこで，よりシンプルな BM25F として BM25 の \(f_{t,d}, l_d\) のかわりに以下の \(f_{t,d}', l_d'\) を用いる手法も提案されています．</p>
-<p>$$
+<div class="math">$$
 f_{t,d}'=\sum_{s \in S} v_s f_{t,d,s}, \ \ \ l_d'=\sum_{s \in S} v_s l_{d,s}
-$$</p>
+$$</div>
 <p>フィールドごとに決めるべきパラメータは \(v_s\) のみとなっており，パラメータの個数は \(|S|+2\) 個に減りました．</p>
 <h3 id="_1">複数フィールド検索に関するその他の話題</h3>
 <p>まずパラメータチューニングについてです．BM25 や BM25F はハイパーパラメータを持っていますが，これらはどのように決めればよいでしょうか？これはなんらかアノテーションされたデータを用意し，NDCG などの評価指標を用いてパラメータを選択すればよいです．パラメータ探索アルゴリズムとしては，グリッドサーチの他に，座標降下法が用いられていることが多い印象です（あまり詳しくないので間違っている場合はこっそり教えて下さい...）．</p>
@@ -260,6 +260,68 @@ mjx-container svg text { font-family: Meiryo !important; }
 </li>
 </ol>
 </div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+
+    var configscript = document.createElement('script');
+    configscript.type = 'text/x-mathjax-config';
+    configscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'none' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        availableFonts: ['STIX', 'TeX']," +
+        "        preferredFont: 'STIX'," +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(configscript);
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
     <!-- <div class="aspect-w-16 aspect-h-9 mx-auto"></div> CSS placeholder -->
   </div>
   <footer class="flex flex-col mt-10 ">
