@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="霧でも食ってろ Blog Posts">
+    <title>AtCoder で scipy を使って問題を解く</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/pygment.css" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./theme/css/stork.css">
+    <link rel="stylesheet" media="screen and (prefers-color-scheme: dark)"
+        href="./theme/css/stork-dark.css">
+<meta name="description" content="AtCoder で scipy を使って解いた問題をメモ代わりに残しておきます．一部 yukicoder や Library-Checker も含まれています（タイトル詐欺）． AtCoder に入って …" />
+</head>
+
+<body class="min-h-screen flex flex-col max-w-7xl lg:max-w-none text-zinc-800 bg-neutral-100 
+    dark:bg-neutral-900 dark:text-zinc-300 container mx-auto justify-center md:px-3 ">
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <nav class="sm:flex sm:justify-between xl:ml-32 pl-4 items-center">
+        <div class="flex pt-4">
+            <h1 class="font-semibold text-2xl"><a href="./">霧でも食ってろ</a></h1>
+            <button id="theme-toggle" type="button" aria-label="Light|Dark"
+                class="text-zinc-700 dark:text-zinc-400 rounded-full focus:outline-none text-sm ml-2 p-1">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="flex flex-wrap lg:mr-24 md:pt-0">
+            <li class="mr-4 pt-6"><a  href="./pages/about-me.html">About Me</a></li>
+            <li class="mr-4 pt-6"><a  href="./pages/ml-dm-ai_jp_papers.html">ML-DM-AI Papers by Researchers in Japan</a></li>
+            <li class="mr-4 pt-6"><a  href="./archives.html">Archive</a></li>
+            <li class="mr-4 pt-6"><a                     href="./categories.html">Categories</a></li>
+            <li class="mr-4 pt-6"><a  href="./tags.html">Tags</a></li>
+            <li class="mr-4 pt-6"><a  href="./search.html">Search</a></li>
+        </ul>
+    </nav>
+    <div class="flex-grow md:max-w-screen-md md:mx-auto md:w-3/4 px-4">
+        <nav class="text-zinc-800 dark:text-zinc-300 mt-12 pb-2 md:mt-16" aria-label="Breadcrumb">
+            <ul class="p-0 inline-flex items-center">
+                <li class="flex items-center">
+                    <a href="./" class="text-zinc-800 dark:text-zinc-300 inline-flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        Home
+                    </a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./categories.html">Categories</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./category/blog.html">blog</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+            </ul>
+        </nav>
+
+<main>
+  <header>
+    <h1 class="font-semibold text-3xl my-2">AtCoder で scipy を使って問題を解く</h1>
+    <footer class="flex text-sm text-zinc-800 dark:text-zinc-400">
+      <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
+        <time>2月 28, 2021</time>
+        <div>
+          <span>&nbsp;·&nbsp;{'minutes': 1} min read</span>
+        </div>
+        <div>
+          <span>&nbsp;·&nbsp;knuu</span>
+        </div>
+      </div>
+    </footer>
+  </header>
+  <details class="flex flex-col my-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg">
+    <summary class="text-lg font-bold">Table of contents</summary>
+    <div class="mx-4 px-4 underline">
+      <div id="toc"><ul><li><a class="toc-href" href="#scipysparsecsgraph" title="グラフアルゴリズム: scipy.sparse.csgraph">グラフアルゴリズム: scipy.sparse.csgraph</a><ul><li><a class="toc-href" href="#_1" title="使うライブラリ">使うライブラリ</a></li><li><a class="toc-href" href="#atcoder" title="AtCoder 上の問題">AtCoder 上の問題</a></li></ul></li><li><a class="toc-href" href="#scipyoptimize_1" title="最適化: scipy.optimize">最適化: scipy.optimize</a><ul><li><a class="toc-href" href="#_2" title="使うライブラリ">使うライブラリ</a></li><li><a class="toc-href" href="#atcoder_1" title="AtCoder 上の問題">AtCoder 上の問題</a></li></ul></li><li><a class="toc-href" href="#scipyspatial_1" title="計算幾何: scipy.spatial">計算幾何: scipy.spatial</a><ul><li><a class="toc-href" href="#_3" title="使うライブラリ">使うライブラリ</a></li><li><a class="toc-href" href="#atcoder_2" title="AtCoder 上の問題">AtCoder 上の問題</a></li></ul></li><li><a class="toc-href" href="#todo_1" title="TODO">TODO</a></li></ul></div>
+    </div>
+  </details>
+  <div class="max-w-7xl container mx-auto my-8 text-zinc-800 dark:text-zinc-300  
+              prose lg:max-w-none prose-headings:text-zinc-800 prose-headings:dark:text-zinc-300 
+              prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-semibold 
+              prose-pre:bg-zinc-200 prose-pre:text-zinc-800
+              dark:prose-pre:bg-zinc-800 dark:prose-pre:text-zinc-200
+              prose-blockquote:text-zinc-800
+              dark:prose-blockquote:text-zinc-200
+              prose-a:text-slate-600 prose-a:font-normal
+              dark:prose-a:text-slate-400
+              dark:prose-strong:text-zinc-200 
+              dark:prose-code:text-zinc-200
+              dark:prose-code:bg-zinc-800
+              prose-code:bg-zinc-200
+              prose-code:font-light
+              prose-img:rounded-md
+              sm:text-left md:text-justify
+              ">
+    <p>AtCoder で scipy を使って解いた問題をメモ代わりに残しておきます．一部 yukicoder や Library-Checker も含まれています（タイトル詐欺）．</p>
+<p>AtCoder に入っている numpy / scipy のバージョンはコードテストに以下を入力して実行することで確認できます．</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"numpy </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">full_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"scipy </span><span class="si">{</span><span class="n">sp</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">full_version</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<p>出力結果（2020/02/28 時点）</p>
+<div class="highlight"><pre><span></span><code>numpy 1.18.2
+scipy 1.4.1
+</code></pre></div>
+<h2 id="scipysparsecsgraph">グラフアルゴリズム: scipy.sparse.csgraph</h2>
+<h3 id="_1">使うライブラリ</h3>
+<table class="table table-striped">
+<thead>
+<tr>
+<th></th>
+<th>アルゴリズム・問題</th>
+<th>Library Checker</th>
+<th>提出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.connected_components.html">connected_components</a></td>
+<td>強連結成分分解（トポロジカルソート）</td>
+<td><a href="https://judge.yosupo.jp/problem/scc">問題</a></td>
+<td><a href="https://judge.yosupo.jp/submission/40475">Link</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.dijkstra.html">dijkstra</a></td>
+<td>単一始点最短路</td>
+<td><a href="https://judge.yosupo.jp/problem/shortest_path">問題</a></td>
+<td><a href="https://judge.yosupo.jp/submission/40468">Link</a></td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.floyd_warshall.html">floyd_warshall</a></td>
+<td>全点対最短路</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.minimum_spanning_tree.html">minimum_spanning_tree</a></td>
+<td>最小全域木</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.maximum_flow.html">maximum_flow</a></td>
+<td>最大フロー</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csgraph.maximum_bipartite_matching.html">maximum_bipartite_matching</a></td>
+<td>二部グラフの最大マッチング</td>
+<td><a href="https://judge.yosupo.jp/problem/bipartitematching">問題</a></td>
+<td><a href="https://judge.yosupo.jp/submission/40476">Link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="atcoder">AtCoder 上の問題</h3>
+<table class="table table-striped">
+<thead>
+<tr>
+<th></th>
+<th>問題</th>
+<th>提出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connected_components</td>
+<td><a href="https://atcoder.jp/contests/dp/tasks/dp_g">Educational DP Contest-G Longest Path</a></td>
+<td><a href="https://atcoder.jp/contests/dp/submissions/9852385">Link</a></td>
+</tr>
+<tr>
+<td>dijkstra</td>
+<td><a href="https://atcoder.jp/contests/abc035/tasks/abc035_d">ABC035-D トレジャーハント</a></td>
+<td><a href="https://atcoder.jp/contests/abc035/submissions/3859248">Link</a></td>
+</tr>
+<tr>
+<td>dijkstra</td>
+<td><a href="https://atcoder.jp/contests/past201912-open/tasks/past201912_j">第一回アルゴリズム実技検定-J 地ならし</a></td>
+<td><a href="https://atcoder.jp/contests/past201912-open/submissions/9260157">Link</a></td>
+</tr>
+<tr>
+<td>floyd_warshall</td>
+<td><a href="https://atcoder.jp/contests/abc143/tasks/abc143_e">ABC143-E Travel by Car</a></td>
+<td><a href="https://atcoder.jp/contests/abc143/submissions/9854473">Link</a></td>
+</tr>
+<tr>
+<td>minimum_spanning_tree</td>
+<td><a href="https://atcoder.jp/contests/past201912-open/tasks/past201912_l">第一回アルゴリズム実技検定-L グラデーション</a></td>
+<td><a href="https://atcoder.jp/contests/past201912-open/submissions/9236781">Link</a></td>
+</tr>
+<tr>
+<td>maximum_flow</td>
+<td><a href="https://atcoder.jp/contests/abc010/tasks/abc010_4">ABC010-D 浮気予防</a></td>
+<td><a href="https://atcoder.jp/contests/abc010/submissions/20563398">Link</a></td>
+</tr>
+<tr>
+<td>maximum_flow</td>
+<td><a href="https://atcoder.jp/contests/abc193/tasks/abc193_f">ABC193-F Zebraness</a></td>
+<td><a href="https://atcoder.jp/contests/abc193/submissions/20563184">Link</a></td>
+</tr>
+<tr>
+<td>maximum_bipartite_matching</td>
+<td><a href="https://atcoder.jp/contests/arc092/tasks/arc092_a">ARC092-C 2D Plane 2N Points</a></td>
+<td><a href="https://atcoder.jp/contests/arc092/submissions/20563432">Link</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>要検証事項等<ul>
+<li>maximum_flow は特殊なケース（source と sink が連結でない場合など）で ValueError が投げられて RuntimeError になることがあるっぽい？</li>
+</ul>
+</li>
+</ul>
+<h2 id="scipyoptimize_1">最適化: scipy.optimize</h2>
+<h3 id="_2">使うライブラリ</h3>
+<table class="table table-striped">
+<thead>
+<tr>
+<th></th>
+<th>アルゴリズム・問題</th>
+<th>Library Checker</th>
+<th>提出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize_scalar.html">minimize_scalar</a></td>
+<td>関数の最小値</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.newton.html">newton</a></td>
+<td>ニュートン法（関数の根）</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linprog.html">linprog</a></td>
+<td>線形計画法</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.linear_sum_assignment.html">linear_sum_assignment</a></td>
+<td>割当問題</td>
+<td><a href="https://judge.yosupo.jp/problem/assignment">問題</a></td>
+<td><a href="https://judge.yosupo.jp/submission/40473">Link</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="atcoder_1">AtCoder 上の問題</h3>
+<table class="table table-striped">
+<thead>
+<tr>
+<th></th>
+<th>問題</th>
+<th>提出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>minimize_scalar</td>
+<td><a href="https://atcoder.jp/contests/arc054/tasks/arc054_b">ARC054-B ムーアの法則</a></td>
+<td><a href="https://atcoder.jp/contests/arc054/submissions/9856839">Link</a></td>
+</tr>
+<tr>
+<td>minimize_scalar</td>
+<td><a href="https://atcoder.jp/contests/arc049/tasks/arc049_b">ARC049-B 高橋ノルム君</a></td>
+<td><a href="https://atcoder.jp/contests/arc049/submissions/9857834">Link</a></td>
+</tr>
+<tr>
+<td>newton</td>
+<td><a href="https://atcoder.jp/contests/abc026/tasks/abc026_d">ABC026-D 高橋君ボール1号</a></td>
+<td><a href="https://atcoder.jp/contests/abc026/submissions/9853305">Link</a></td>
+</tr>
+<tr>
+<td>linprog</td>
+<td><a href="https://yukicoder.me/problems/no/453">yukicoder No.453 製薬会社</a></td>
+<td><a href="https://yukicoder.me/submissions/425071">Link</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>要検証事項等<ul>
+<li>linprog を用いる試みは<a href="https://kimiyuki.net/writeup/algo/atcoder/arc_050_b/">他にもある</a>が，再現しようとしても <a href="https://atcoder.jp/contests/arc050/submissions/20563509">Wrong Answer が取れなかった</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="scipyspatial_1">計算幾何: scipy.spatial</h2>
+<h3 id="_3">使うライブラリ</h3>
+<table class="table table-striped">
+<thead>
+<tr>
+<th></th>
+<th>アルゴリズム・問題</th>
+<th>Library Checker</th>
+<th>提出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.ConvexHull.html">ConvexHull</a></td>
+<td>凸包</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="atcoder_2">AtCoder 上の問題</h3>
+<table class="table table-striped">
+<thead>
+<tr>
+<th></th>
+<th>問題</th>
+<th>提出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ConvexHull</td>
+<td><a href="https://atcoder.jp/contests/abc022/tasks/abc022_d">ABC022-D Big Bang</a></td>
+<td><a href="https://atcoder.jp/contests/abc022/submissions/9854257">Link</a></td>
+</tr>
+<tr>
+<td>ConvexHull</td>
+<td><a href="https://atcoder.jp/contests/agc021/tasks/agc021_b">AGC021-B Holes</a></td>
+<td><a href="https://atcoder.jp/contests/agc021/submissions/9855223">Link</a></td>
+</tr>
+<tr>
+<td>ConvexHull</td>
+<td><a href="https://yukicoder.me/problems/no/199">yukicoder No.199 星を描こう</a></td>
+<td><a href="https://yukicoder.me/submissions/345450">Link</a></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>要検討事項<ul>
+<li>ABC022-D を <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.cKDTree.html">kd-tree</a> で最近点対を求める解法でやってみたが，<a href="https://atcoder.jp/contests/abc022/submissions/20563595">提出してみると TLE だった</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="todo_1">TODO</h2>
+<ul>
+<li>FFT</li>
+<li>ボロノイ図・ドロネー三角形分割・KD 木</li>
+<li>from scipy.ndimage import distance_transform_cdt:<ul>
+<li>https://atcoder.jp/contests/agc033/submissions/5279051</li>
+<li>https://twitter.com/lily0727k/status/1124964133730783233</li>
+</ul>
+</li>
+</ul>
+<iframe frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="https://rcm-fe.amazon-adsystem.com/e/cm?ref=qf_sp_asin_til&amp;t=nknuu-22&amp;m=amazon&amp;o=9&amp;p=8&amp;l=as1&amp;IS1=1&amp;detail=1&amp;asins=4839941068&amp;linkId=9119505a6abff7792f516548de62ecc1&amp;bc1=ffffff&lt;1=_top&amp;fc1=333333&amp;lc1=0066c0&amp;bg1=ffffff&amp;f=ifr" style="width:120px;height:240px;">
+</iframe>
+    <!-- <div class="aspect-w-16 aspect-h-9 mx-auto"></div> CSS placeholder -->
+  </div>
+  <footer class="flex flex-col mt-10 ">
+    <ul class="flex flex-wrap">
+        <li
+          class="bg-zinc-200 hover:bg-zinc-300 dark:hover:bg-zinc-800 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-300 mb-2 mr-2 px-3 py-1.5 rounded-md transition ease-in active:-translate-y-1 active:scale-110 duration-75">
+          <a href="./tag/competitive_programming.html">競技プログラミング</a>
+        </li>
+    </ul>
+    <div class="flex w-full my-2 bg-zinc-200 dark:bg-zinc-700 rounded-lg">
+      <div class="w-1/2 rounded-l-lg"></div>
+      <div class="w-1/2 hover:bg-zinc-300 dark:hover:bg-zinc-800 rounded-r-lg ">
+        <a class="flex flex-col" href="./buttcher-book-8.html">
+          <div class="text-right mx-4 py-2">
+            <p class="text-zinc-600 dark:text-zinc-300 text-sm">NEXT PAGE »</p>
+            <p class="text-right py-1 hover:underline">情報検索：検索エンジンの実装と評価 第 8 章 確率的情報検索</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <div>
+  </div>
+</main>
+
+    </div>
+    <footer class="flex w-full text-xs justify-center mt-10 mb-6 text-zinc-600 dark:text-zinc-400">
+        <div class="px-4">
+            <span>©2024&nbsp;&#8226;&nbsp;</span>Powered by
+            <a class="underline" href="https://getpelican.com/">Pelican</a>&nbsp;&
+            <a class="underline" href="https://github.com/aleylara/Papyrus">Papyrus</a>
+        </div>
+    </footer>
+
+
+    <script>
+        let themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        let themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        let themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function () {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

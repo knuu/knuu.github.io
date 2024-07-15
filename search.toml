@@ -1,0 +1,73 @@
+[input]
+html_selector = "main"
+base_directory = "output"
+
+[[input.files]]
+path = "pages/about-me.html"
+url = "/pages/about-me.html"
+title = "About Me"
+
+[[input.files]]
+path = "pages/ml-dm-ai_jp_papers.html"
+url = "/pages/ml-dm-ai_jp_papers.html"
+title = "ML-DM-AI Papers by Researchers in Japan"
+
+[[input.files]]
+path = "atcoder-scipy.html"
+url = "/atcoder-scipy.html"
+title = "AtCoder で scipy を使って問題を解く"
+
+[[input.files]]
+path = "buttcher-book-8.html"
+url = "/buttcher-book-8.html"
+title = "情報検索：検索エンジンの実装と評価 第 8 章 確率的情報検索"
+
+[[input.files]]
+path = "ltr_by_lightgbm.html"
+url = "/ltr_by_lightgbm.html"
+title = "LightGBM でかんたん Learning to Rank"
+
+[[input.files]]
+path = "manhattan_mst.html"
+url = "/manhattan_mst.html"
+title = "Manhattan Minimum Spanning Tree"
+
+[[input.files]]
+path = "statsml2019-topconf.html"
+url = "/statsml2019-topconf.html"
+title = "第4回 統計・機械学習若手シンポジウム「Academic Writing for Top Conferences」聴講録"
+
+[[input.files]]
+path = "collecting_jp_ml-dm-ai_papers.html"
+url = "/collecting_jp_ml-dm-ai_papers.html"
+title = "機械学習・データマイニング・人工知能分野周りの日本所属の国際会議論文を集めてみる"
+
+[[input.files]]
+path = "sum-of-all-continuous-subarrays.html"
+url = "/sum-of-all-continuous-subarrays.html"
+title = "連続する部分列の和の総和"
+
+[[input.files]]
+path = "pelican-utf8-substitution.html"
+url = "/pelican-utf8-substitution.html"
+title = "pelican(python3)で日本語のカテゴリやタグごとのページのurlを変更する方法"
+
+[[input.files]]
+path = "conf-acl-ShwartzGD16.html"
+url = "/conf-acl-ShwartzGD16.html"
+title = "(論文メモ) Improving Hypernymy Detection with an Integrated Path-based and Distributional Method (ACL2016)"
+
+[[input.files]]
+path = "hypothesis-testings.html"
+url = "/hypothesis-testings.html"
+title = "仮説検定早見表"
+
+[[input.files]]
+path = "probability-distributions.html"
+url = "/probability-distributions.html"
+title = "確率分布早見表"
+
+[[input.files]]
+path = "first-post.html"
+url = "/first-post.html"
+title = "Github Pages はじめました"

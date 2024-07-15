@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="霧でも食ってろ Blog Posts">
+    <title>仮説検定早見表</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/pygment.css" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./theme/css/stork.css">
+    <link rel="stylesheet" media="screen and (prefers-color-scheme: dark)"
+        href="./theme/css/stork-dark.css">
+<meta name="description" content="正規母集団に対する仮説検定 『統計学入門』第12章より 早見表 何の検定 検定統計量 自由度 分布 母平均(母分散既知) $\frac{\overline{X}-\mu}{\sqrt …" />
+</head>
+
+<body class="min-h-screen flex flex-col max-w-7xl lg:max-w-none text-zinc-800 bg-neutral-100 
+    dark:bg-neutral-900 dark:text-zinc-300 container mx-auto justify-center md:px-3 ">
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <nav class="sm:flex sm:justify-between xl:ml-32 pl-4 items-center">
+        <div class="flex pt-4">
+            <h1 class="font-semibold text-2xl"><a href="./">霧でも食ってろ</a></h1>
+            <button id="theme-toggle" type="button" aria-label="Light|Dark"
+                class="text-zinc-700 dark:text-zinc-400 rounded-full focus:outline-none text-sm ml-2 p-1">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="flex flex-wrap lg:mr-24 md:pt-0">
+            <li class="mr-4 pt-6"><a  href="./pages/about-me.html">About Me</a></li>
+            <li class="mr-4 pt-6"><a  href="./pages/ml-dm-ai_jp_papers.html">ML-DM-AI Papers by Researchers in Japan</a></li>
+            <li class="mr-4 pt-6"><a  href="./archives.html">Archive</a></li>
+            <li class="mr-4 pt-6"><a                     href="./categories.html">Categories</a></li>
+            <li class="mr-4 pt-6"><a  href="./tags.html">Tags</a></li>
+            <li class="mr-4 pt-6"><a  href="./search.html">Search</a></li>
+        </ul>
+    </nav>
+    <div class="flex-grow md:max-w-screen-md md:mx-auto md:w-3/4 px-4">
+        <nav class="text-zinc-800 dark:text-zinc-300 mt-12 pb-2 md:mt-16" aria-label="Breadcrumb">
+            <ul class="p-0 inline-flex items-center">
+                <li class="flex items-center">
+                    <a href="./" class="text-zinc-800 dark:text-zinc-300 inline-flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        Home
+                    </a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./categories.html">Categories</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./category/blog.html">blog</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+            </ul>
+        </nav>
+
+<main>
+  <header>
+    <h1 class="font-semibold text-3xl my-2">仮説検定早見表</h1>
+    <footer class="flex text-sm text-zinc-800 dark:text-zinc-400">
+      <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
+        <time>6月 18, 2017</time>
+        <div>
+          <span>&nbsp;·&nbsp;{'minutes': 3} min read</span>
+        </div>
+        <div>
+          <span>&nbsp;·&nbsp;knuu</span>
+        </div>
+      </div>
+    </footer>
+  </header>
+  <details class="flex flex-col my-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg">
+    <summary class="text-lg font-bold">Table of contents</summary>
+    <div class="mx-4 px-4 underline">
+      <div id="toc"><ul><li><a class="toc-href" href="#_1" title="正規母集団に対する仮説検定">正規母集団に対する仮説検定</a></li><li><a class="toc-href" href="#_2" title="早見表">早見表</a><ul><li><a class="toc-href" href="#_3" title="母平均に関する検定">母平均に関する検定</a></li><li><a class="toc-href" href="#_4" title="母分散に関する検定">母分散に関する検定</a></li><li><a class="toc-href" href="#_5" title="母平均の差の検定">母平均の差の検定</a></li><li><a class="toc-href" href="#_6" title="母分散の比の検定">母分散の比の検定</a></li></ul></li><li><a class="toc-href" href="#chi2_1" title="様々な $\chi^2$ 検定">様々な $\chi^2$ 検定</a><ul><li><a class="toc-href" href="#_7" title="適合度の検定">適合度の検定</a></li><li><a class="toc-href" href="#_8" title="分割表と独立性の検定">分割表と独立性の検定</a></li></ul></li><li><a class="toc-href" href="#_10" title="中心極限定理を用いる検定">中心極限定理を用いる検定</a></li></ul></div>
+    </div>
+  </details>
+  <div class="max-w-7xl container mx-auto my-8 text-zinc-800 dark:text-zinc-300  
+              prose lg:max-w-none prose-headings:text-zinc-800 prose-headings:dark:text-zinc-300 
+              prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-semibold 
+              prose-pre:bg-zinc-200 prose-pre:text-zinc-800
+              dark:prose-pre:bg-zinc-800 dark:prose-pre:text-zinc-200
+              prose-blockquote:text-zinc-800
+              dark:prose-blockquote:text-zinc-200
+              prose-a:text-slate-600 prose-a:font-normal
+              dark:prose-a:text-slate-400
+              dark:prose-strong:text-zinc-200 
+              dark:prose-code:text-zinc-200
+              dark:prose-code:bg-zinc-800
+              prose-code:bg-zinc-200
+              prose-code:font-light
+              prose-img:rounded-md
+              sm:text-left md:text-justify
+              ">
+    <h2 id="_1">正規母集団に対する仮説検定</h2>
+<ul>
+<li>『統計学入門』第12章より</li>
+</ul>
+<h2 id="_2">早見表</h2>
+<table class="table table-striped">
+<thead>
+<tr>
+<th style="text-align: center;">何の検定</th>
+<th style="text-align: center;">検定統計量</th>
+<th style="text-align: center;">自由度</th>
+<th style="text-align: center;">分布</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">母平均(母分散既知)</td>
+<td style="text-align: center;">$\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}$</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">標準正規分布 $N(0,1)$</td>
+</tr>
+<tr>
+<td style="text-align: center;">母平均(母分散未知)</td>
+<td style="text-align: center;">$\frac{\overline{X}-\mu}{\sqrt{s^2/n}}$</td>
+<td style="text-align: center;">$n-1$</td>
+<td style="text-align: center;">t分布</td>
+</tr>
+<tr>
+<td style="text-align: center;">母分散</td>
+<td style="text-align: center;">$\frac{(n-1)s^2}{\sigma_{0}^2}$</td>
+<td style="text-align: center;">$n-1$</td>
+<td style="text-align: center;">$\chi^2$ 分布</td>
+</tr>
+<tr>
+<td style="text-align: center;">2分布の平均(分散が等しい)</td>
+<td style="text-align: center;">$\frac{\overline{X}-\overline{Y}}{\frac{(m-1)s_1^2+(n-1)s_2^2}{m+n-2}\sqrt{\frac{1}{m}+\frac{1}{n}}}$</td>
+<td style="text-align: center;">$m+n-2$</td>
+<td style="text-align: center;">t分布</td>
+</tr>
+<tr>
+<td style="text-align: center;">2分布の平均(分散が等しくない)</td>
+<td style="text-align: center;">$\frac{\overline{X}-\overline{Y}}{\sqrt{s_1^2/m+s_2^2/n}}$</td>
+<td style="text-align: center;">$\frac{(s_1^2/m+s_2^2/n)^2}{\frac{(s_1^2/m)^2}{m-1}+\frac{(s_2^2/n)^2}{n-1}}$に最も近い整数</td>
+<td style="text-align: center;">t分布</td>
+</tr>
+<tr>
+<td style="text-align: center;">2分布の分散</td>
+<td style="text-align: center;">$\frac{s_1^2}{s_2^2}$</td>
+<td style="text-align: center;">$(m-1, n-1)$</td>
+<td style="text-align: center;">F分布</td>
+</tr>
+<tr>
+<td style="text-align: center;">表の度数分布</td>
+<td style="text-align: center;">$\sum_{i=1}^k\frac{(f_i-np_i)^2}{np_i}$</td>
+<td style="text-align: center;">$k-1$</td>
+<td style="text-align: center;">$\chi^2$ 分布</td>
+</tr>
+<tr>
+<td style="text-align: center;">分割表の属性の独立</td>
+<td style="text-align: center;">$\sum_{i=1}^r\sum_{j=1}^c\frac{(nf_{ij}-f_{i\cdot}f_{\cdot j})^2}{nf_{i\cdot}f_{\cdot j}}$</td>
+<td style="text-align: center;">$(r-1)(c-1)$</td>
+<td style="text-align: center;">$\chi^2$ 分布</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">母平均に関する検定</h3>
+<ul>
+<li>母分散が既知のとき<ul>
+<li>検定統計量 <strong>$Z$ は $\overline{X}$ の標準化変数</strong> である</li>
+<li>つまり <strong>$Z=\frac{\overline{X}-\mu}{\sqrt{\sigma^2/n}}$</strong> である</li>
+<li>帰無仮説が正しければ、これは <strong>標準正規分布N(0, 1)</strong> に従う</li>
+</ul>
+</li>
+<li>母分散が未知のとき<ul>
+<li>検定統計量 <strong>$Z$ は $\overline{X}$ の標準化変数の母分散 $\sigma^2$ を不偏分散 $s^2$ に置き換えたもの</strong> である</li>
+<li>つまり <strong>$Z=\frac{\overline{X}-\mu}{\sqrt{s^2/n}}$</strong> である</li>
+<li>帰無仮説が正しければ、これは <strong>自由度 $n-1$ のt分布 $t(n-1)$</strong> に従う</li>
+<li>これをスチューデントのt検定と呼ぶ</li>
+</ul>
+</li>
+</ul>
+<h3 id="_4">母分散に関する検定</h3>
+<ul>
+<li>検定統計量は <strong>$\chi^2=\frac{(n-1)s^2}{\sigma_{0}^2}$</strong></li>
+<li>これは帰無仮説のもとで <strong>自由度 $n-1$ の $\chi^2$ 分布</strong> に従う</li>
+<li>これを $\chi^2$ 検定という</li>
+</ul>
+<h3 id="_5">母平均の差の検定</h3>
+<ul>
+<li>2つの分布の結果に差があるかどうかを検定する</li>
+<li>それぞれ大きさ $m, n$ の標本 $X_1, \cdots, X_m, Y_1, \cdots, Y_n$ とする</li>
+<li>
+<p>$X, Y$の不偏分散をそれぞれ$s_1^2, s_2^2$とする</p>
+</li>
+<li>
+<p>分散が等しいとき</p>
+<ul>
+<li>合併した分散$s^2$は$s^2=\frac{(m-1)s_1^2+(n-1)s_2^2}{m+n-2}$ と表せる</li>
+<li>このとき検定統計量は <strong>$t=\frac{\overline{X}-\overline{Y}}{s\sqrt{1/m+1/n}}$</strong></li>
+<li>これは <strong>自由度 $m+n-2$ の t分布 $t(m+n-2)$</strong> に従う</li>
+</ul>
+</li>
+<li>分散が等しくないとき<ul>
+<li>検定統計量は <strong>$t=\frac{\overline{X}-\overline{Y}}{\sqrt{s_1^2/m+s_2^2/n}}$</strong></li>
+<li><strong>$\nu=\frac{(s_1^2/m+s_2^2/n)^2}{\frac{(s_1^2/m)^2}{m-1}+\frac{(s_2^2/n)^2}{n-1}}$</strong> とおき、$\nu^\ast$ を $\nu$ に最も近い整数とすると、 $t$は近似的に <strong>自由度 $\nu^\ast$ のt分布    $t(\nu^\ast)$</strong> に従う</li>
+<li>この検定はウェルチの検定と呼ばれる</li>
+</ul>
+</li>
+</ul>
+<h3 id="_6">母分散の比の検定</h3>
+<ul>
+<li>母分散が等しいかどうかを調べたいときの検定</li>
+<li>それぞれ大きさ $m, n$ の標本 $X_1, \cdots, X_m, Y_1, \cdots, Y_n$ とする</li>
+<li>
+<p>$X, Y$の不偏分散をそれぞれ$s_1^2, s_2^2$とする</p>
+</li>
+<li>
+<p>ここで検定統計量であるフィッシャーの分散比は <strong>$F=\frac{s_1^2}{s_2^2}$</strong></p>
+</li>
+<li>これは帰無仮説のもとで <strong>自由度 $(m-1, n-1)$ のF分布 $F(m-1, n-1)$</strong> に従う</li>
+<li>これをF検定という</li>
+</ul>
+<h2 id="chi2_1">様々な $\chi^2$ 検定</h2>
+<h3 id="_7">適合度の検定</h3>
+<ul>
+<li>適合度の $\chi^2$ 検定<ul>
+<li>仮定された確率分布に対して、標本から求められた度数が適合するかどうかを検証する検定</li>
+</ul>
+</li>
+<li>以下のような表を考える<ul>
+<li>理論確率は仮定した確率</li>
+<li>理論度数は(サンプル数)&times;(理論確率)</li>
+</ul>
+</li>
+</ul>
+<table class="table table-striped">
+<thead>
+<tr>
+<th style="text-align: left;">カテゴリ</th>
+<th style="text-align: center;">$A_1$</th>
+<th style="text-align: center;">$A_2$</th>
+<th style="text-align: center;">$\cdots$</th>
+<th style="text-align: center;">$A_k$</th>
+<th style="text-align: center;">計</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">観測度数</td>
+<td style="text-align: center;">$f_1$</td>
+<td style="text-align: center;">$f_2$</td>
+<td style="text-align: center;">$\cdots$</td>
+<td style="text-align: center;">$f_k$</td>
+<td style="text-align: center;">$n$</td>
+</tr>
+<tr>
+<td style="text-align: left;">理論確率</td>
+<td style="text-align: center;">$p_1$</td>
+<td style="text-align: center;">$p_2$</td>
+<td style="text-align: center;">$\cdots$</td>
+<td style="text-align: center;">$p_k$</td>
+<td style="text-align: center;">$1$</td>
+</tr>
+<tr>
+<td style="text-align: left;">理論度数</td>
+<td style="text-align: center;">$np_1$</td>
+<td style="text-align: center;">$np_2$</td>
+<td style="text-align: center;">$\cdots$</td>
+<td style="text-align: center;">$np_k$</td>
+<td style="text-align: center;">$n$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>検定統計量はピアソンの適合度基準 <strong>$\chi^2=\sum_{i=1}^k\frac{(f_i-np_i)^2}{np_i}$</strong></li>
+<li>これは $n$ が大きいとき <strong>自由度 $k-1$ の $\chi^2$ 分布 $\chi^2(k-1)$</strong> に従う</li>
+</ul>
+<h3 id="_8">分割表と独立性の検定</h3>
+<ul>
+<li>属性 $A$ がカテゴリ $A_1, A_2, \cdots, A_r$ 、属性 $B$ がカテゴリ $B_1, B_2, \cdots, B_c$ をもつような分割表を考える<ul>
+<li>つまりは以下のような分割表である</li>
+</ul>
+</li>
+</ul>
+<table class="table table-striped">
+<thead>
+<tr>
+<th style="text-align: left;">カテゴリ</th>
+<th style="text-align: center;">$B_1$</th>
+<th style="text-align: center;">$B_2$</th>
+<th style="text-align: center;">$\cdots$</th>
+<th style="text-align: center;">$B_c$</th>
+<th style="text-align: center;">計</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">$A_1$</td>
+<td style="text-align: center;">$f_{11}$</td>
+<td style="text-align: center;">$f_{12}$</td>
+<td style="text-align: center;">$\cdots$</td>
+<td style="text-align: center;">$f_{1c}$</td>
+<td style="text-align: center;">$f_{1\cdot}$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$A_2$</td>
+<td style="text-align: center;">$f_{21}$</td>
+<td style="text-align: center;">$f_{22}$</td>
+<td style="text-align: center;">$\cdots$</td>
+<td style="text-align: center;">$f_{2c}$</td>
+<td style="text-align: center;">$f_{2\cdot}$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$\cdots$</td>
+<td style="text-align: center;">$\cdots$</td>
+<td style="text-align: center;">$\cdots$</td>
+<td style="text-align: center;">$\cdots$</td>
+<td style="text-align: center;">$\cdots$</td>
+<td style="text-align: center;">$\cdots$</td>
+</tr>
+<tr>
+<td style="text-align: left;">$A_r$</td>
+<td style="text-align: center;">$f_{r1}$</td>
+<td style="text-align: center;">$f_{r2}$</td>
+<td style="text-align: center;">$\cdots$</td>
+<td style="text-align: center;">$f_{rc}$</td>
+<td style="text-align: center;">$f_{r\cdot}$</td>
+</tr>
+<tr>
+<td style="text-align: left;">計</td>
+<td style="text-align: center;">$f_{\cdot 1}$</td>
+<td style="text-align: center;">$f_{\cdot 2}$</td>
+<td style="text-align: center;">$\cdots$</td>
+<td style="text-align: center;">$f_{\cdot c}$</td>
+<td style="text-align: center;">$n$</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>属性 $A$ と属性 $B$ が　<strong>独立</strong> であるかどうかを検定したい<ul>
+<li>独立性の $\chi^2$ 検定と呼ばれる</li>
+<li><strong>独立</strong> とは $A_i \cap B_j$ に対して、<strong>$P(A_i \cap B_j)=P(A_i)P(B_j)$</strong> が成立すること</li>
+</ul>
+</li>
+<li>帰無仮説 $H_0$ : 任意の $i, j$ に対して $P(A_i \cap B_j)=P(A_i)P(B_j)$ が成立</li>
+<li>検定統計量 <strong>$\chi^2=\sum_{i=1}^r\sum_{j=1}^c\frac{(f_{ij}-f_{i\cdot}f_{\cdot j}/n)^2}{f_{i\cdot}f_{\cdot j}/n}=\sum_{i=1}^r\sum_{j=1}^c\frac{(nf_{ij}-f_{i\cdot}f_{\cdot j})^2}{nf_{i\cdot}f_{\cdot j}}$</strong></li>
+<li>これは <strong>自由度 $(r-1)(c-1)$ の $\chi^2$ 検定</strong> に従う</li>
+</ul>
+<h2 id="_10">中心極限定理を用いる検定</h2>
+<ul>
+<li>母集団分布が正規分布でなくても、中心極限定理が成立するなど検定統計量が近似的に正規分布に従う場合、正規分布に対する検定の手続きをそのまま用いることができる<ul>
+<li>ex. 二項分布の標本数が多い場合、検定統計量は中心極限定理により、標本数が多くなると標準正規分布に従う</li>
+</ul>
+</li>
+</ul>
+<iframe frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=nknuu-22&amp;language=ja_JP&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=4130420658&amp;linkId=51b214b10cca8e1ea81eb4d4a56d3592" style="width:120px;height:240px;"></iframe>
+    <!-- <div class="aspect-w-16 aspect-h-9 mx-auto"></div> CSS placeholder -->
+  </div>
+  <footer class="flex flex-col mt-10 ">
+    <ul class="flex flex-wrap">
+        <li
+          class="bg-zinc-200 hover:bg-zinc-300 dark:hover:bg-zinc-800 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-300 mb-2 mr-2 px-3 py-1.5 rounded-md transition ease-in active:-translate-y-1 active:scale-110 duration-75">
+          <a href="./tag/statistics.html">統計</a>
+        </li>
+    </ul>
+    <div class="flex w-full my-2 bg-zinc-200 dark:bg-zinc-700 rounded-lg">
+      <div class="w-1/2 hover:bg-zinc-300 dark:hover:bg-zinc-800 rounded-l-lg">
+        <a class="flex flex-col pr-2" href="./conf-acl-ShwartzGD16.html">
+          <div class="mx-4 py-2 text-left">
+            <p class="text-zinc-600 dark:text-zinc-300 text-sm">« PREV PAGE</p>
+            <p class="text-left py-1 hover:underline">(論文メモ) Improving Hypernymy Detection with an Integrated Path-based and Distributional Method (ACL2016)</p>
+          </div>
+        </a>
+      </div>
+      <div class="w-1/2 hover:bg-zinc-300 dark:hover:bg-zinc-800 rounded-r-lg ">
+        <a class="flex flex-col" href="./probability-distributions.html">
+          <div class="text-right mx-4 py-2">
+            <p class="text-zinc-600 dark:text-zinc-300 text-sm">NEXT PAGE »</p>
+            <p class="text-right py-1 hover:underline">確率分布早見表</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <div>
+  </div>
+</main>
+
+    </div>
+    <footer class="flex w-full text-xs justify-center mt-10 mb-6 text-zinc-600 dark:text-zinc-400">
+        <div class="px-4">
+            <span>©2024&nbsp;&#8226;&nbsp;</span>Powered by
+            <a class="underline" href="https://getpelican.com/">Pelican</a>&nbsp;&
+            <a class="underline" href="https://github.com/aleylara/Papyrus">Papyrus</a>
+        </div>
+    </footer>
+
+
+    <script>
+        let themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        let themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        let themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function () {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

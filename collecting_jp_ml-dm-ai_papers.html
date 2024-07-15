@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="霧でも食ってろ Blog Posts">
+    <title>機械学習・データマイニング・人工知能分野周りの日本所属の国際会議論文を集めてみる</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/pygment.css" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./theme/css/stork.css">
+    <link rel="stylesheet" media="screen and (prefers-color-scheme: dark)"
+        href="./theme/css/stork-dark.css">
+<meta name="description" content="概要 学生が研究室を選んだり、企業が共同研究先を選ぶ際に、その研究室がきちんと論文を通している研究室かどう …" />
+</head>
+
+<body class="min-h-screen flex flex-col max-w-7xl lg:max-w-none text-zinc-800 bg-neutral-100 
+    dark:bg-neutral-900 dark:text-zinc-300 container mx-auto justify-center md:px-3 ">
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <nav class="sm:flex sm:justify-between xl:ml-32 pl-4 items-center">
+        <div class="flex pt-4">
+            <h1 class="font-semibold text-2xl"><a href="./">霧でも食ってろ</a></h1>
+            <button id="theme-toggle" type="button" aria-label="Light|Dark"
+                class="text-zinc-700 dark:text-zinc-400 rounded-full focus:outline-none text-sm ml-2 p-1">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="flex flex-wrap lg:mr-24 md:pt-0">
+            <li class="mr-4 pt-6"><a  href="./pages/about-me.html">About Me</a></li>
+            <li class="mr-4 pt-6"><a  href="./pages/ml-dm-ai_jp_papers.html">ML-DM-AI Papers by Researchers in Japan</a></li>
+            <li class="mr-4 pt-6"><a  href="./archives.html">Archive</a></li>
+            <li class="mr-4 pt-6"><a                     href="./categories.html">Categories</a></li>
+            <li class="mr-4 pt-6"><a  href="./tags.html">Tags</a></li>
+            <li class="mr-4 pt-6"><a  href="./search.html">Search</a></li>
+        </ul>
+    </nav>
+    <div class="flex-grow md:max-w-screen-md md:mx-auto md:w-3/4 px-4">
+        <nav class="text-zinc-800 dark:text-zinc-300 mt-12 pb-2 md:mt-16" aria-label="Breadcrumb">
+            <ul class="p-0 inline-flex items-center">
+                <li class="flex items-center">
+                    <a href="./" class="text-zinc-800 dark:text-zinc-300 inline-flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        Home
+                    </a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./categories.html">Categories</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./category/blog.html">blog</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+            </ul>
+        </nav>
+
+<main>
+  <header>
+    <h1 class="font-semibold text-3xl my-2">機械学習・データマイニング・人工知能分野周りの日本所属の国際会議論文を集めてみる</h1>
+    <footer class="flex text-sm text-zinc-800 dark:text-zinc-400">
+      <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
+        <time>8月 12, 2019</time>
+        <div>
+          <span>&nbsp;·&nbsp;{'minutes': 2} min read</span>
+        </div>
+        <div>
+          <span>&nbsp;·&nbsp;knuu</span>
+        </div>
+      </div>
+    </footer>
+  </header>
+  <details class="flex flex-col my-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg">
+    <summary class="text-lg font-bold">Table of contents</summary>
+    <div class="mx-4 px-4 underline">
+      <div id="toc"><ul><li><a class="toc-href" href="#_1" title="概要">概要</a></li><li><a class="toc-href" href="#_2" title="手法">手法</a><ul><li><a class="toc-href" href="#sigmod" title="SIGMOD のデータ例">SIGMOD のデータ例</a></li></ul></li><li><a class="toc-href" href="#_4" title="今後の方針について">今後の方針について</a></li></ul></div>
+    </div>
+  </details>
+  <div class="max-w-7xl container mx-auto my-8 text-zinc-800 dark:text-zinc-300  
+              prose lg:max-w-none prose-headings:text-zinc-800 prose-headings:dark:text-zinc-300 
+              prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-semibold 
+              prose-pre:bg-zinc-200 prose-pre:text-zinc-800
+              dark:prose-pre:bg-zinc-800 dark:prose-pre:text-zinc-200
+              prose-blockquote:text-zinc-800
+              dark:prose-blockquote:text-zinc-200
+              prose-a:text-slate-600 prose-a:font-normal
+              dark:prose-a:text-slate-400
+              dark:prose-strong:text-zinc-200 
+              dark:prose-code:text-zinc-200
+              dark:prose-code:bg-zinc-800
+              prose-code:bg-zinc-200
+              prose-code:font-light
+              prose-img:rounded-md
+              sm:text-left md:text-justify
+              ">
+    <h2 id="_1">概要</h2>
+<p>学生が研究室を選んだり、企業が共同研究先を選ぶ際に、その研究室がきちんと論文を通している研究室かどうかというのは一つに基準になるかと思います。計算機科学分野、特に機械学習・データマイニング・人工知能分野周りの分野では、企業の研究所が強く速報性が求められる影響などにより国際会議論文の影響力が強い傾向があります。そこで本記事では、これらの分野の国際会議に日本所属で論文を通している人を収集することを考えます。</p>
+<p>本記事では機械学習・データマイニング・人工知能分野の国際会議を <a href="http://www.kamishima.net/archive/MLDMAImap.pdf">ML, DM, and AI Conference Map</a> に記載されている国際会議とします。</p>
+<h2 id="_2">手法</h2>
+<p>日本所属の国際会議論文を収集する方法として、現在は目視で収集する方法が主流です。既存のプロジェクトとしては以下のものがあります。</p>
+<ul>
+<li><a href="https://siggraph.xyz/japanese/">SIGGRAPH Papers by Japanese Researchers</a></li>
+<li><a href="https://ishikawa.cc/ieee/index.html">IEEE Journals &amp; Magazines - papers published by researchers in Japan</a></li>
+<li><a href="http://murawaki.org/misc/japan-nlp-2018.html">日本所属の言語処理トップカンファレンス論文</a></li>
+<li><a href="https://medium.com/@mpkato/%E6%83%85%E5%A0%B1%E6%A4%9C%E7%B4%A2%E3%82%92%E7%A0%94%E7%A9%B6%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E6%97%A5%E6%9C%AC%E3%81%AE%E7%A0%94%E7%A9%B6%E5%AE%A4%E4%B8%80%E8%A6%A7-7e4961054c7e">情報検索を研究している日本の研究室一覧</a></li>
+</ul>
+<p>目視で収集する手法の問題点として、スケールしないことがあげられます。さらに近年は機械学習・データマイニング・人工知能分野の国際会議論文は増加している傾向もあり、目視で収集するには限界があります。</p>
+<p>そこで今回は <a href="https://dl.acm.org">ACM Digital Library</a> (ACM DL) のような、各学会や企業が公開している Digital Library の情報を利用して自動で収集することを考えます。Digital Library にはその学会が主催する国際会議やジャーナル論文が登録されており、著者の所属組織とその所在地が記載されています。</p>
+<ul>
+<li><a href="https://dl.acm.org/citation.cfm?doid=3331184.3331220">ACM DL における論文の例</a></li>
+</ul>
+<p><img alt="論文の例" class="img-fluid" src="./images/acmdl_example.png"/></p>
+<p>Digital Library を利用することで、どの国のどの組織に所属しているかを容易に収集することができるようになるという利点もありますが、別々の国の組織に複数所属している場合でも 1 つの国に所属している扱いになるなど、目視に比べて正確さに欠けるという欠点もあります（今回はこの部分には目を瞑ります）。</p>
+<p>収集は以下の手順で行います。</p>
+<ol>
+<li>dblp の該当会議の該当年のページにアクセスし、論文名・著者名・Digital Library へのリンクを収集する</li>
+<li>論文ごとに収集した Digital Library のリンクをたどり、遷移先のページの著者情報を収集する</li>
+</ol>
+<p>上記の手順により、まず、ACM DL を対象として、KDD, CIKM, SIGMOD, PODS, SIGIR, WWW, WSDM, RecSys, STOC について、2016 年から 2019 年の論文を収集しました（ただし CIKM, RecSys は 2019 年は未開催のためありません）。</p>
+<h3 id="sigmod">SIGMOD のデータ例</h3>
+<p>注: SIGMOD はデータベース分野のトップカンファレンスです。</p>
+<table class="table table-striped">
+<thead>
+<tr>
+<th>年</th>
+<th>タイトル</th>
+<th>著者</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2016</td>
+<td>Local Similarity Search for Unstructured Text</td>
+<td>Pei Wang(名大)<br/>Chuan Xiao(名大)<br/>Jianbin Qin(The University of New South Wales)<br/>Wei Wang(The University of New South Wales)<br/>Xiaoyang Zhang(The University of New South Wales)<br/>Yoshiharu Ishikawa(名大)</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>Landmark Indexing for Evaluation of Label-Constrained Reachability Queries</td>
+<td>Lucien D.J. Valstar(Eindhoven University of Technology)<br/>George H.L. Fletcher(Eindhoven University of Technology)<br/>Yuichi Yoshida(NII; PFI)</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>Coarsening Massive Influence Networks for Scalable Diffusion Analysis</td>
+<td>Naoto Ohsaka(東大; JST)<br/>Tomohiro Sonobe(NII; JST)<br/>Sumio Fujita(Yahoo Japan)<br/>Ken-ichi Kawarabayashi(NII; JST)</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>Cryptanalysis of Comparable Encryption in SIGMOD'16</td>
+<td>Caleb Horst(University of Washington Tacoma)<br/>Ryo Kikuchi(NTT)<br/>Keita Xagawa(NTT)</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>Scaling Locally Linear Embedding</td>
+<td>Yasuhiro Fujiwara(NTT)<br/>Naoki Marumo(NTT)<br/>Mathieu Blondel(NTT)<br/>Koh Takeuchi(NTT)<br/>Hideaki Kim(NTT)<br/>Tomoharu Iwata(NTT)<br/>Naonori Ueda(NTT)</td>
+</tr>
+<tr>
+<td>2017</td>
+<td>QUILTS: Multidimensional Data Partitioning Framework Based on Query-Aware and Skew-Tolerant Space-Filling Curves</td>
+<td>Shoji Nishimura(NEC)<br/>Haruo Yokota(東工大)</td>
+</tr>
+<tr>
+<td>2018</td>
+<td>Managing Non-Volatile Memory in Database Systems</td>
+<td>Alexander van Renen(Technische Universit&auml;t M&uuml;nchen)<br/>Viktor Leis(Technische Universit&auml;t M&uuml;nchen)<br/>Alfons Kemper(Technische Universit&auml;t M&uuml;nchen)<br/>Thomas Neumann(Technische Universit&auml;t M&uuml;nchen)<br/>Takushi Hashida(富士通研究所)<br/>Kazuichi Oe(富士通研究所)<br/>Yoshiyasu Doi(富士通研究所)<br/>Lilian Harada(富士通研究所)<br/>Mitsuru Sato(富士通研究所)</td>
+</tr>
+<tr>
+<td>2019</td>
+<td>Autocompletion for Prefix-Abbreviated Input</td>
+<td>Sheng Hu(名大; 京大)<br/>Chuan Xiao(名大; 阪大)<br/>Jianbin Qin(Shenzhen University)<br/>Yoshiharu Ishikawa(名大)<br/>Qiang Ma(京大)</td>
+</tr>
+</tbody>
+</table>
+<p>収集したデータは順次以下のページに掲載予定です。</p>
+<p><a href="/pages/ml-dm-ai_jp_papers.html">ML-DM-AI Papers by Researchers in Japan</a></p>
+<h2 id="_4">今後の方針について</h2>
+<p>最終的な目標としては、<a href="http://www.kamishima.net/archive/MLDMAImap.pdf">ML, DM, and AI Conference Map</a> にある国際会議について全て収集することを考えています。</p>
+<p>この中でも、IEEE Xplore や SpringerLink に登録されている論文については同様に集めることが可能です。ただ、IEEE Xplore については所属組織が登録されていない場合も多くあります。また、Neurips/ICML/COLT のような機械学習系や、ACL/EMNLP/NAACL などの自然言語処理系の国際会議については、Digital Library に登録されていないため、この手法で集めることができません。そこで、以下の方法を考えています。</p>
+<ul>
+<li>PDF を収集し、parse する<ul>
+<li>使えそうなツール<ul>
+<li>https://github.com/allenai/spv2</li>
+<li>https://github.com/WING-NUS/Neural-ParsCit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>著者の他の論文の情報を使う<ul>
+<li>著者の dblp のリンクをたどり、Digital Library へのリンクがある論文を探す</li>
+</ul>
+</li>
+</ul>
+<p>他にやり方がありましたら、ぜひ twitter で <a href="https://twitter.com/n_knuu6">@n_knuu6</a> までお教えいただけますと幸いです。</p>
+<iframe frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=nknuu-22&amp;language=ja_JP&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=4873118719&amp;linkId=a9df3d253b6bfd3b5aff6fdf37086092" style="width:120px;height:240px;"></iframe>
+    <!-- <div class="aspect-w-16 aspect-h-9 mx-auto"></div> CSS placeholder -->
+  </div>
+  <footer class="flex flex-col mt-10 ">
+    <ul class="flex flex-wrap">
+        <li
+          class="bg-zinc-200 hover:bg-zinc-300 dark:hover:bg-zinc-800 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-300 mb-2 mr-2 px-3 py-1.5 rounded-md transition ease-in active:-translate-y-1 active:scale-110 duration-75">
+          <a href="./tag/scraping.html">スクレイピング</a>
+        </li>
+    </ul>
+    <div class="flex w-full my-2 bg-zinc-200 dark:bg-zinc-700 rounded-lg">
+      <div class="w-1/2 hover:bg-zinc-300 dark:hover:bg-zinc-800 rounded-l-lg">
+        <a class="flex flex-col pr-2" href="./statsml2019-topconf.html">
+          <div class="mx-4 py-2 text-left">
+            <p class="text-zinc-600 dark:text-zinc-300 text-sm">« PREV PAGE</p>
+            <p class="text-left py-1 hover:underline">第4回 統計・機械学習若手シンポジウム「Academic Writing for Top Conferences」聴講録</p>
+          </div>
+        </a>
+      </div>
+      <div class="w-1/2 hover:bg-zinc-300 dark:hover:bg-zinc-800 rounded-r-lg ">
+        <a class="flex flex-col" href="./sum-of-all-continuous-subarrays.html">
+          <div class="text-right mx-4 py-2">
+            <p class="text-zinc-600 dark:text-zinc-300 text-sm">NEXT PAGE »</p>
+            <p class="text-right py-1 hover:underline">連続する部分列の和の総和</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <div>
+  </div>
+</main>
+
+    </div>
+    <footer class="flex w-full text-xs justify-center mt-10 mb-6 text-zinc-600 dark:text-zinc-400">
+        <div class="px-4">
+            <span>©2024&nbsp;&#8226;&nbsp;</span>Powered by
+            <a class="underline" href="https://getpelican.com/">Pelican</a>&nbsp;&
+            <a class="underline" href="https://github.com/aleylara/Papyrus">Papyrus</a>
+        </div>
+    </footer>
+
+
+    <script>
+        let themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        let themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        let themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function () {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="霧でも食ってろ Blog Posts">
+    <title>情報検索：検索エンジンの実装と評価 第 8 章 確率的情報検索</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/pygment.css" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./theme/css/stork.css">
+    <link rel="stylesheet" media="screen and (prefers-color-scheme: dark)"
+        href="./theme/css/stork-dark.css">
+<meta name="description" content="この記事は 「情報検索：検索エンジンの実装と評価」（Buttcher本） Advent Calendar 2020 の 25 日目の記事です． この記事では第 8 章を最初から解説 …" />
+</head>
+
+<body class="min-h-screen flex flex-col max-w-7xl lg:max-w-none text-zinc-800 bg-neutral-100 
+    dark:bg-neutral-900 dark:text-zinc-300 container mx-auto justify-center md:px-3 ">
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <nav class="sm:flex sm:justify-between xl:ml-32 pl-4 items-center">
+        <div class="flex pt-4">
+            <h1 class="font-semibold text-2xl"><a href="./">霧でも食ってろ</a></h1>
+            <button id="theme-toggle" type="button" aria-label="Light|Dark"
+                class="text-zinc-700 dark:text-zinc-400 rounded-full focus:outline-none text-sm ml-2 p-1">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="flex flex-wrap lg:mr-24 md:pt-0">
+            <li class="mr-4 pt-6"><a  href="./pages/about-me.html">About Me</a></li>
+            <li class="mr-4 pt-6"><a  href="./pages/ml-dm-ai_jp_papers.html">ML-DM-AI Papers by Researchers in Japan</a></li>
+            <li class="mr-4 pt-6"><a  href="./archives.html">Archive</a></li>
+            <li class="mr-4 pt-6"><a                     href="./categories.html">Categories</a></li>
+            <li class="mr-4 pt-6"><a  href="./tags.html">Tags</a></li>
+            <li class="mr-4 pt-6"><a  href="./search.html">Search</a></li>
+        </ul>
+    </nav>
+    <div class="flex-grow md:max-w-screen-md md:mx-auto md:w-3/4 px-4">
+        <nav class="text-zinc-800 dark:text-zinc-300 mt-12 pb-2 md:mt-16" aria-label="Breadcrumb">
+            <ul class="p-0 inline-flex items-center">
+                <li class="flex items-center">
+                    <a href="./" class="text-zinc-800 dark:text-zinc-300 inline-flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        Home
+                    </a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./categories.html">Categories</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./category/blog.html">blog</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+            </ul>
+        </nav>
+
+<main>
+  <header>
+    <h1 class="font-semibold text-3xl my-2">情報検索：検索エンジンの実装と評価 第 8 章 確率的情報検索</h1>
+    <footer class="flex text-sm text-zinc-800 dark:text-zinc-400">
+      <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
+        <time>12月 26, 2020</time>
+        <div>
+          <span>&nbsp;·&nbsp;{'minutes': 3} min read</span>
+        </div>
+        <div>
+          <span>&nbsp;·&nbsp;knuu</span>
+        </div>
+      </div>
+    </footer>
+  </header>
+  <details class="flex flex-col my-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg">
+    <summary class="text-lg font-bold">Table of contents</summary>
+    <div class="mx-4 px-4 underline">
+      <div id="toc"><ul><li><a class="toc-href" href="#86-relevance-feedback" title="8.6 Relevance Feedback（適合性フィードバック）">8.6 Relevance Feedback（適合性フィードバック）</a></li><li><a class="toc-href" href="#87-field-weights-bm25f-bm25f" title="8.7 Field Weights: BM25F（フィールドの重みを考慮した検索: BM25F）">8.7 Field Weights: BM25F（フィールドの重みを考慮した検索: BM25F）</a><ul><li><a class="toc-href" href="#_1" title="複数フィールド検索に関するその他の話題">複数フィールド検索に関するその他の話題</a></li></ul></li><li><a class="toc-href" href="#_3" title="おわりに">おわりに</a></li></ul></div>
+    </div>
+  </details>
+  <div class="max-w-7xl container mx-auto my-8 text-zinc-800 dark:text-zinc-300  
+              prose lg:max-w-none prose-headings:text-zinc-800 prose-headings:dark:text-zinc-300 
+              prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-semibold 
+              prose-pre:bg-zinc-200 prose-pre:text-zinc-800
+              dark:prose-pre:bg-zinc-800 dark:prose-pre:text-zinc-200
+              prose-blockquote:text-zinc-800
+              dark:prose-blockquote:text-zinc-200
+              prose-a:text-slate-600 prose-a:font-normal
+              dark:prose-a:text-slate-400
+              dark:prose-strong:text-zinc-200 
+              dark:prose-code:text-zinc-200
+              dark:prose-code:bg-zinc-800
+              prose-code:bg-zinc-200
+              prose-code:font-light
+              prose-img:rounded-md
+              sm:text-left md:text-justify
+              ">
+    <p>この記事は <a href="https://adventar.org/calendars/4968">「情報検索：検索エンジンの実装と評価」（Buttcher本） Advent Calendar 2020</a> の 25 日目の記事です．</p>
+<p>この記事では第 8 章を最初から解説する...予定だったのですが，8.1 から 8.5 までの話，つまり確率的ランキング原理から BM25 の導出までについては，既に素晴らしい日本語解説が存在するため，この部分に関してはそちらを御覧ください<sup id="fnref:prob_ir"><a class="footnote-ref" href="#fn:prob_ir">1</a></sup><sup id="fnref:prob_ir2"><a class="footnote-ref" href="#fn:prob_ir2">2</a></sup>．また，導出などはどうでもいい，とにかく BM25 の式の意味を知りたい，という人は解説動画<sup id="fnref:alice1"><a class="footnote-ref" href="#fn:alice1">3</a></sup><sup id="fnref:alice2"><a class="footnote-ref" href="#fn:alice2">4</a></sup>を見るとよいと思います．TF-IDF から BM25 までを非常に平易に説明してくれています．</p>
+<p>この記事では，8.6 と 8.7 について解説をしていきます．</p>
+<h2 id="86-relevance-feedback">8.6 Relevance Feedback（適合性フィードバック）</h2>
+<p>これまで BM25 について説明してきましたが，その途中にもいくつかのスコア関数が出てきました．バイナリ独立モデルもその一つであり，スコア関数は以下の式で表されます．</p>
+<p>$$
+\sum_{t \in q \cap d} w_t = \sum_{t \in q \cap d} \log \frac{p_t(1-\bar{p_t})}{\bar{p_t}(1-p_t)}
+$$</p>
+<p>ただし，各記号は以下の通りです．</p>
+<ul>
+<li>\(q,d\): それぞれクエリと文書に含まれる語の集合</li>
+<li>\(p_t=p(D_t=1|r), \bar{p_t}=p(D_t=1|\bar{r})\): 文書において語 \(t\) が出現する確率<ul>
+<li>\(D_t\): 語 \(t\) が出現するかどうかを表す確率変数</li>
+<li>\(r, \bar{r}\): それぞれ適合，不適合を表す</li>
+</ul>
+</li>
+</ul>
+<p>なぜこのスコア関数を直接ランキングに用いずに，BM25 を導出しようとしていたのでしょうか？この理由として考えられるのは，\(p_t, \bar{p_t}\) などを推定するためには，それぞれのクエリに対して適合文書/不適合文書が必要であるためだと推測できます．つまり，任意のクエリに対してアノテーション（適合性判定）を行う必要があり，現実的ではありません．しかしこれらを正しく推定することができれば，よりよい検索結果を返すことが可能になるかもしれません．</p>
+<p>また，確率的ランキング原理からバイナリ独立モデルを導出する過程では，仮定 Q の存在がありました．この仮定により，クエリに出現しない単語は適合性に影響しないものとして無視されてしまっていました．しかしクエリに出現しなくても適合性に影響を与える語が存在することは容易に想像できます．例えばクエリに含まれる語の同義語は適合性に影響を与えそうです．また別の例としては，ユーザの持つ情報要求をユーザ自身が適切にキーワードクエリとして落とし込めていない場合なども，ユーザの情報要求とは合致するがクエリには存在しないが語が，適合かどうかに影響を与えそうです．</p>
+<div align="center">
+<figure id="retronyms">
+<img class="img-fluid" src="./images/retronyms.png" width="75%"/>
+<figcaption>「レトロニム」という単語を調べたいという情報要求を持っているが名前が思い出せない．このような場合でも「レトロニム」というクエリには存在しないが情報要求に合致する単語を含むページが上位に来てほしい．</figcaption>
+</figure>
+</div>
+<p>適合性フィードバックは上記で述べた 2 つの問題（推定には適合性判定が必要であるという問題，クエリに存在しないが適合性に影響を与える語が存在するという問題）に対処するための手法です．適合性フィードバックは以下の流れで処理を行います，</p>
+<ol>
+<li>ユーザは検索エンジンにクエリを入力する．</li>
+<li>検索エンジンはなんらかのスコア関数でランキングを提示する．</li>
+<li>ユーザは検索結果に対して，適合性判定を行う．つまりランキング上位の文書に対して，適合/不適合を判定する．</li>
+<li>検索エンジンは与えらた適合性判定結果をもとに，適合文書からいくつかの単語をクエリに追加して再度検索を行う．</li>
+</ol>
+<p>もとのクエリに対して，いくつかの単語を追加することで検索結果を改善することは<strong>クエリ拡張</strong>と呼ばれています．</p>
+<p>しかしながら，適合性フィードバックはユーザが検索結果に対して適合性判定を行う必要があり，ユーザの負担となるという問題があります．そこで，最初の検索結果において上位にランク付けされる文書はある程度適合しているはずだという仮定をおき，上位の文書は必ず適合文書であるとみなして適合性フィードバックを行う手法が研究されています．この手法は<strong>疑似適合性フィードバック</strong>と呼ばれています．疑似適合性フィードバックは，教科書の例や実験結果のように性能を向上させる可能性もある一方で，上位の文書には適合文書が多く含まれているという仮定が成立しない場合には性能が落ちてしまう可能性も十分にありうるため注意が必要です．</p>
+<h2 id="87-field-weights-bm25f-bm25f">8.7 Field Weights: BM25F（フィールドの重みを考慮した検索: BM25F）</h2>
+<p>情報検索において，検索対象のアイテム（文書）が複数のフィールドを持つことは多いです．例えば Web ページはタイトルと中身の文書（本文）などのフィールドを持ちます．また，Web 検索においては，他の文書からのアンカーテキストが検索において有効であると言われており．これも 1 つのフィールドとみなすことができます．このような検索は <strong>Multi-field Retrieval</strong>（複数フィールド検索，マルチフィールド検索）と呼ばれており，以下のような検索が例としてあげられます．</p>
+<ul>
+<li>Web 検索: タイトル，中身の文書（本文），URL，アンカーテキスト，クリックされたクエリ <sup id="fnref2:NRM-F"><a class="footnote-ref" href="#fn:NRM-F">5</a></sup></li>
+<li>商品検索: タイトル，説明，カテゴリ，メタデータ，ブランド，大きさなどの数値，過去の検索クエリ <sup id="fnref:SMM"><a class="footnote-ref" href="#fn:SMM">7</a></sup></li>
+<li>レシピ検索: タイトル，説明文，材料，レシピが公開された国 <sup id="fnref:FM"><a class="footnote-ref" href="#fn:FM">8</a></sup></li>
+<li>表検索<ul>
+<li>Web 上の表の場合: ページタイトル，セクションタイトル，表のキャプション，表の列名，表の中身 <sup id="fnref:STR"><a class="footnote-ref" href="#fn:STR">6</a></sup></li>
+</ul>
+</li>
+<li>学術論文: タイトル，概要， 著者，セクション，図表，Venue，年，キーワード，引用先論文，被引用論文</li>
+</ul>
+<p>ここではフィールドはすべてテキストであり，またクエリはキーワードクエリであると仮定して話を進めていきます（このような検索タスクはアドホック（文書）検索と呼ばれており，情報検索において最も基本的な検索タスクです）．</p>
+<p>複数フィールド検索において特徴的なこととして，検索対象のアイテムが持つフィールドはそれぞれ性質が異なるという点があげられます．</p>
+<ul>
+<li>文章の長さ: タイトルは短い一方で中身は長いことが多いなど，フィールドに含まれる文章の長さが異なる可能性がある</li>
+<li>単語の出現頻度: タイトルには抽象的な単語が用いられる一方で，本文では具体的な単語が用いられるなど，同じ単語でもフィールドごとに出現頻度が異なる可能性がある</li>
+</ul>
+<p>ここまで考えてきた BM25 は文章の長さや単語の出現頻度の情報をスコア計算に使う手法であるため，フィールドごとに大きくスコアが変化するはずであることが推測されます．では BM25 においてフィールドごとに異なる情報をどのように組み合わせればよいでしょうか？</p>
+<p>BM25F<sup id="fnref:BM25F"><a class="footnote-ref" href="#fn:BM25F">9</a></sup><sup id="fnref:BM25_2"><a class="footnote-ref" href="#fn:BM25_2">10</a></sup> はフィールドごとの（擬似的な）単語頻度の重み付き和を用いてフィールドごとの情報を統合する検索手法です．BM25 におけるクエリ \(t\) のスコアは以下の式で表されます．</p>
+<p>$$
+\frac{f_{t,d} (k_1 + 1)}{k_1 \left((1-b)+b\frac{l_d}{l_{\mathrm{avg}}}\right) + f_{t,d}} w_t = \frac{f_{t,d}' (k_1 + 1)}{k_1 + f_{t,d}'} w_t
+$$</p>
+<p>ただし，\(f_{t,d}'=\frac{f_{t,d}}{(1-b)+b\frac{l_d}{l_{\mathrm{avg}}}}\) であり，\(w_t\) は任意のロバートソン/スパルク・ジョーンズ重み付け（実用上は IDF が用いられることが多い）です．BM25F はこの \(f_{t,d}'\) をフィールドごとに計算し，その重み付き和を文書全体に対する単語頻度として BM25 のスコアを計算します．式で書くと以下のようになります．</p>
+<p>$$
+f_{t,d}'=\sum_{s \in S} v_s \frac{f_{t,d,s}}{(1-b_s)+b_s\frac{l_{d,s}}{l_{\mathrm{s, avg}}}}
+$$</p>
+<p>ただし，この式に出現する記号は以下の通りです．</p>
+<ul>
+<li>\(S\): 文書 \(d\) が持つフィールドの集合</li>
+<li>\(f_{t,d,s}\): 文書 \(d\) のフィールド \(s\) における単語 \(t\) の出現頻度</li>
+<li>\(l_{d,s}\): 文書 \(d\) におけるフィールド \(s\) の長さ（単語数）</li>
+<li>\(l_{s,\mathrm{avg}}\): 文書集合におけるフィールド \(s\) の長さの平均値</li>
+<li>\(v_s, b_s\): フィールドごとに決めなければならないハイパーパラメータ</li>
+</ul>
+<p>これにより，フィールドごとの単語頻度や文書長を考慮した検索が行えるようになりました．一方で BM25F は決めるべきパラメータ数が多くなってしまっています．BM25 では \(2\) 個だったパラメータ数が BM25F では \(2|S|+1\) 個になっています（\(|S|\) はフィールド数）．そこで，よりシンプルな BM25F として BM25 の \(f_{t,d}, l_d\) のかわりに以下の \(f_{t,d}', l_d'\) を用いる手法も提案されています．</p>
+<p>$$
+f_{t,d}'=\sum_{s \in S} v_s f_{t,d,s}, \ \ \ l_d'=\sum_{s \in S} v_s l_{d,s}
+$$</p>
+<p>フィールドごとに決めるべきパラメータは \(v_s\) のみとなっており，パラメータの個数は \(|S|+2\) 個に減りました．</p>
+<h3 id="_1">複数フィールド検索に関するその他の話題</h3>
+<p>まずパラメータチューニングについてです．BM25 や BM25F はハイパーパラメータを持っていますが，これらはどのように決めればよいでしょうか？これはなんらかアノテーションされたデータを用意し，NDCG などの評価指標を用いてパラメータを選択すればよいです．パラメータ探索アルゴリズムとしては，グリッドサーチの他に，座標降下法が用いられていることが多い印象です（あまり詳しくないので間違っている場合はこっそり教えて下さい...）．</p>
+<p>最後に手法的な発展の話です．近年はアノテーションされたデータが多く手に入るようになったことによって，機械学習的な手法（ランキング学習）が多く研究されている印象です．近年では深層学習を用いた検索アルゴリズムも研究されており，NRM-F<sup id="fnref:NRM-F"><a class="footnote-ref" href="#fn:NRM-F">5</a></sup> もその 1 つです．NRM-F のアーキテクチャは以下の図の通りです（図は Mitra &amp; Craswell<sup id="fnref:intro"><a class="footnote-ref" href="#fn:intro">11</a></sup> の図 7.1 より）．まず，フィールドごとに embedding をしてクエリの embedding とアダマール積をとった後，それらを結合し最終的なスコアを多層パーセプトロンで計算しています．NRM-F ではフィールドごとに embedding さえ計算できればよいため，画像やカテゴリなどテキスト以外でも適用可能です．さらに別の手法として，Attention 機構を用いた手法も提案されていたりします<sup id="fnref:ANSR"><a class="footnote-ref" href="#fn:ANSR">12</a></sup>．</p>
+<div align="center">
+<figure id="nrm-f">
+<img class="img-fluid" src="./images/nrm-f.png" width="100%"/>
+<figcaption>NRM-F のアーキテクチャ．</figcaption>
+</figure>
+</div>
+<h2 id="_3">おわりに</h2>
+<p>いつもなにげなく使っている BM25 も確率的ランキング原理というシンプルな仮定から始まり，様々な模索の上で出てきた式であることがわかり，読んでいて楽しい章でした．一方で BM25F あたりの話を書きながら，本当にこのあたりの話は使われているのだろうかという疑問がわきました．具体的には，複数フィールドをごちゃまぜにしてランキングすることに本当に意味はあるだろうか，という疑問です．個人的にはごちゃまぜにせずにフィールドごとに絞り込んで検索したいのではないかと思う一方で，この考え方は慣れている人向けであり，初心者向けにはキーワードが良いのかなあなどと考えていました．また，最近の Web サービスとかはログからえいやっとランキング学習してしている印象があり，BM25F をいまさら解説する意味もあるのかなあなどと考えていました．もしこのあたりの話（複数フィールド検索の話）に関して，最近のサービスではこうしているよ，みたいな知見がある人がいらっしゃる場合は教えていただけると嬉しいです．</p>
+<p>また，Advent Calendar を企画してくださった <a href="https://twitter.com/sz_dr">@sz_dr</a> さんありがとうございました．こういう機会でもなければブログから遠ざかってしまいがちなので，参加できてよかったと思っています（まあ締切と重なってしまい，最初の日程から別の日にしてしまってすみませんでした...）．もし来年も情報検索・推薦系の Advent Calendar があれば参加したいです．</p>
+<iframe frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=nknuu-22&amp;language=ja_JP&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=4627817614&amp;linkId=51641ccb710eb34c2e60163b94f4b8e4" style="width:120px;height:240px;"></iframe>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+<style>
+mjx-container mjx-utext { font-family: Meiryo !important; }
+mjx-container svg text { font-family: Meiryo !important; }
+</style>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:prob_ir">
+<p>Yoshihiko Suhara: Notes on Probabilistic Information Retrieval -Probability Ranking Principle から BM25 まで-. 2012. http://sleepyheads.jp/docs/prob_ir.pdf&nbsp;<a class="footnote-backref" href="#fnref:prob_ir" title="Jump back to footnote 1 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:prob_ir2">
+<p>ytanaka: 確率的情報検索について. 2019. https://ytanaka.hatenablog.jp/entry/2019/06/24/004452&nbsp;<a class="footnote-backref" href="#fnref:prob_ir2" title="Jump back to footnote 2 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:alice1">
+<p>AIcia Solid Project:【自然言語処理】tf-idf 単語の情報量を加味した類似度分析【Elasticsearch への道①】. 2020.  <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/nsEbfO3U2pY" width="560"></iframe>&nbsp;<a class="footnote-backref" href="#fnref:alice1" title="Jump back to footnote 3 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:alice2">
+<p>AIcia Solid Project:【自然言語処理】BM25 - tf-idfの進化系の実践類似度分析【Elasticsearch への道②】. 2020. <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/_HSOX0oh2ns" width="560"></iframe>&nbsp;<a class="footnote-backref" href="#fnref:alice2" title="Jump back to footnote 4 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:NRM-F">
+<p>Zamani et al.: Neural Ranking Models with Multiple Document Fields. WSDM 2018.&nbsp;<a class="footnote-backref" href="#fnref:NRM-F" title="Jump back to footnote 5 in the text">&larrhk;</a><a class="footnote-backref" href="#fnref2:NRM-F" title="Jump back to footnote 5 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:STR">
+<p>Zhang &amp; Balog: Ad Hoc Table Retrieval using Semantic Similarity. WWW 2018.&nbsp;<a class="footnote-backref" href="#fnref:STR" title="Jump back to footnote 6 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:SMM">
+<p>Choi et al.: Semantic Product Search for Matching Structured Product Catalogs in E-Commerce. Arxiv 2020.&nbsp;<a class="footnote-backref" href="#fnref:SMM" title="Jump back to footnote 7 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:FM">
+<p>@rejasupotaro: 文書のランキングは情報推薦なのか？ 2020. https://qiita.com/rejasupotaro/items/369804fe118270de27ec&nbsp;<a class="footnote-backref" href="#fnref:FM" title="Jump back to footnote 8 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:BM25F">
+<p>Robertson et al.: Simple BM25 Extension to Multiple Weighted Fields. CIKM 2004.&nbsp;<a class="footnote-backref" href="#fnref:BM25F" title="Jump back to footnote 9 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:BM25_2">
+<p>Robertson &amp; Zaragoza: The Probabilistic Relevance Framework: BM25 and Beyond. Foundations and Trends in Information Retrieval. 2009. http://www.mathcs.emory.edu/~eugene/cs572/lectures/foundations_bm25_review.pdf&nbsp;<a class="footnote-backref" href="#fnref:BM25_2" title="Jump back to footnote 10 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:intro">
+<p>Mitra &amp; Craswell: An Introduction to Neural Information Retrieval. https://www.microsoft.com/en-us/research/publication/introduction-neural-information-retrieval/&nbsp;<a class="footnote-backref" href="#fnref:intro" title="Jump back to footnote 11 in the text">&larrhk;</a></p>
+</li>
+<li id="fn:ANSR">
+<p>Balaneshinkordan et al.: Attentive Neural Architecture for Ad-hoc Structured Document Retrieval. CIKM 2018.&nbsp;<a class="footnote-backref" href="#fnref:ANSR" title="Jump back to footnote 12 in the text">&larrhk;</a></p>
+</li>
+</ol>
+</div>
+    <!-- <div class="aspect-w-16 aspect-h-9 mx-auto"></div> CSS placeholder -->
+  </div>
+  <footer class="flex flex-col mt-10 ">
+    <ul class="flex flex-wrap">
+        <li
+          class="bg-zinc-200 hover:bg-zinc-300 dark:hover:bg-zinc-800 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-300 mb-2 mr-2 px-3 py-1.5 rounded-md transition ease-in active:-translate-y-1 active:scale-110 duration-75">
+          <a href="./tag/information_retrieval.html">情報検索</a>
+        </li>
+    </ul>
+    <div class="flex w-full my-2 bg-zinc-200 dark:bg-zinc-700 rounded-lg">
+      <div class="w-1/2 hover:bg-zinc-300 dark:hover:bg-zinc-800 rounded-l-lg">
+        <a class="flex flex-col pr-2" href="./atcoder-scipy.html">
+          <div class="mx-4 py-2 text-left">
+            <p class="text-zinc-600 dark:text-zinc-300 text-sm">« PREV PAGE</p>
+            <p class="text-left py-1 hover:underline">AtCoder で scipy を使って問題を解く</p>
+          </div>
+        </a>
+      </div>
+      <div class="w-1/2 hover:bg-zinc-300 dark:hover:bg-zinc-800 rounded-r-lg ">
+        <a class="flex flex-col" href="./ltr_by_lightgbm.html">
+          <div class="text-right mx-4 py-2">
+            <p class="text-zinc-600 dark:text-zinc-300 text-sm">NEXT PAGE »</p>
+            <p class="text-right py-1 hover:underline">LightGBM でかんたん Learning to Rank</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <div>
+  </div>
+</main>
+
+    </div>
+    <footer class="flex w-full text-xs justify-center mt-10 mb-6 text-zinc-600 dark:text-zinc-400">
+        <div class="px-4">
+            <span>©2024&nbsp;&#8226;&nbsp;</span>Powered by
+            <a class="underline" href="https://getpelican.com/">Pelican</a>&nbsp;&
+            <a class="underline" href="https://github.com/aleylara/Papyrus">Papyrus</a>
+        </div>
+    </footer>
+
+
+    <script>
+        let themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        let themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        let themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function () {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="霧でも食ってろ Blog Posts">
+    <title>第4回 統計・機械学習若手シンポジウム「Academic Writing for Top Conferences」聴講録</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/pygment.css" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./theme/css/stork.css">
+    <link rel="stylesheet" media="screen and (prefers-color-scheme: dark)"
+        href="./theme/css/stork-dark.css">
+<meta name="description" content="概要 2019/11/15(金)・16(土) に名古屋(名工大)で開催された、第 4 回統計・機械学習若手シンポジウムに参加してきました。 URL …" />
+</head>
+
+<body class="min-h-screen flex flex-col max-w-7xl lg:max-w-none text-zinc-800 bg-neutral-100 
+    dark:bg-neutral-900 dark:text-zinc-300 container mx-auto justify-center md:px-3 ">
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <nav class="sm:flex sm:justify-between xl:ml-32 pl-4 items-center">
+        <div class="flex pt-4">
+            <h1 class="font-semibold text-2xl"><a href="./">霧でも食ってろ</a></h1>
+            <button id="theme-toggle" type="button" aria-label="Light|Dark"
+                class="text-zinc-700 dark:text-zinc-400 rounded-full focus:outline-none text-sm ml-2 p-1">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="flex flex-wrap lg:mr-24 md:pt-0">
+            <li class="mr-4 pt-6"><a  href="./pages/about-me.html">About Me</a></li>
+            <li class="mr-4 pt-6"><a  href="./pages/ml-dm-ai_jp_papers.html">ML-DM-AI Papers by Researchers in Japan</a></li>
+            <li class="mr-4 pt-6"><a  href="./archives.html">Archive</a></li>
+            <li class="mr-4 pt-6"><a                     href="./categories.html">Categories</a></li>
+            <li class="mr-4 pt-6"><a  href="./tags.html">Tags</a></li>
+            <li class="mr-4 pt-6"><a  href="./search.html">Search</a></li>
+        </ul>
+    </nav>
+    <div class="flex-grow md:max-w-screen-md md:mx-auto md:w-3/4 px-4">
+        <nav class="text-zinc-800 dark:text-zinc-300 mt-12 pb-2 md:mt-16" aria-label="Breadcrumb">
+            <ul class="p-0 inline-flex items-center">
+                <li class="flex items-center">
+                    <a href="./" class="text-zinc-800 dark:text-zinc-300 inline-flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        Home
+                    </a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./categories.html">Categories</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./category/blog.html">blog</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+            </ul>
+        </nav>
+
+<main>
+  <header>
+    <h1 class="font-semibold text-3xl my-2">第4回 統計・機械学習若手シンポジウム「Academic Writing for Top Conferences」聴講録</h1>
+    <footer class="flex text-sm text-zinc-800 dark:text-zinc-400">
+      <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
+        <time>12月 01, 2019</time>
+        <div>
+          <span>&nbsp;·&nbsp;{'minutes': 1} min read</span>
+        </div>
+        <div>
+          <span>&nbsp;·&nbsp;knuu</span>
+        </div>
+      </div>
+    </footer>
+  </header>
+  <details class="flex flex-col my-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg">
+    <summary class="text-lg font-bold">Table of contents</summary>
+    <div class="mx-4 px-4 underline">
+      <div id="toc"><ul><li><a class="toc-href" href="#_1" title="概要">概要</a></li><li><a class="toc-href" href="#1" title="第1部：講演">第1部：講演</a><ul><li><a class="toc-href" href="#_2" title="鈴木潤先生（東北大学）：国際会議への論文の通し方（一般論）">鈴木潤先生（東北大学）：国際会議への論文の通し方（一般論）</a></li><li><a class="toc-href" href="#pfn" title="林浩平先生（PFN）：国際会議への論文の通し方（機械学習の会議向け）">林浩平先生（PFN）：国際会議への論文の通し方（機械学習の会議向け）</a></li><li><a class="toc-href" href="#aip" title="山田誠先生（京都大学/理研AIP）：運営側からみた機械学習会議のしくみ">山田誠先生（京都大学/理研AIP）：運営側からみた機械学習会議のしくみ</a></li></ul></li><li><a class="toc-href" href="#230_1" title="第2部：パネルディスカッション・質疑応答（30分）">第2部：パネルディスカッション・質疑応答（30分）</a></li></ul></div>
+    </div>
+  </details>
+  <div class="max-w-7xl container mx-auto my-8 text-zinc-800 dark:text-zinc-300  
+              prose lg:max-w-none prose-headings:text-zinc-800 prose-headings:dark:text-zinc-300 
+              prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-semibold 
+              prose-pre:bg-zinc-200 prose-pre:text-zinc-800
+              dark:prose-pre:bg-zinc-800 dark:prose-pre:text-zinc-200
+              prose-blockquote:text-zinc-800
+              dark:prose-blockquote:text-zinc-200
+              prose-a:text-slate-600 prose-a:font-normal
+              dark:prose-a:text-slate-400
+              dark:prose-strong:text-zinc-200 
+              dark:prose-code:text-zinc-200
+              dark:prose-code:bg-zinc-800
+              prose-code:bg-zinc-200
+              prose-code:font-light
+              prose-img:rounded-md
+              sm:text-left md:text-justify
+              ">
+    <h2 id="_1">概要</h2>
+<p>2019/11/15(金)・16(土) に名古屋(名工大)で開催された、第 4 回統計・機械学習若手シンポジウムに参加してきました。</p>
+<ul>
+<li>URL: https://sites.google.com/view/statsml-symposium19/</li>
+</ul>
+<p>その中でも「Academic Writing for Top Conferences」というセッションは個人的に有用そうだと思ったので共有します。
+後半の「第2部：パネルディスカッション・質疑応答」については、Q&amp;A 集が公開されています (<a href="https://drive.google.com/open?id=1xeVisrWKZpGHmVFTe6BHO87eGdBvIGsm">URL</a>)。</p>
+<h2 id="1">第1部：講演</h2>
+<h3 id="_2">鈴木潤先生（東北大学）：国際会議への論文の通し方（一般論）</h3>
+<ul>
+<li>おおよそ以下の発表の縮小版<ul>
+<li>https://www.slideshare.net/JunSuzuki21/2019-0826-yansinvitedtalk/1</li>
+<li>以下は強調してそうだったところ（主観）を列挙。</li>
+</ul>
+</li>
+</ul>
+<p>(採択論文数自体は増えているという話に対して) 採択率 2 割は、25 人中 5 位には有名人しか入りづらいが、250 人中 50 位なら有名人じゃなくてもいけるかも、と考えている。</p>
+<p>若者が得意な領域は NLP だとサーベイ力+プログラミングだが、ML 系だとサーベイ力+数学力？
+アイデアや執筆は経験が必要だし、強い人と一緒にやろう。</p>
+<p>サーベイは読むだけじゃダメ。
+この研究を先に進めるにはどうするか、自分の研究で使うにはどうするかを常に考える。
+疑問と解決策を常に妄想する。自分は常に妄想している。
+分野の研究者が困ってそうなこと、自分が困っていることからでもよい。</p>
+<p>Intro 重要。林先生もうなずいていた。</p>
+<p>英語が不安なら最初（初稿の前という意味）は他の論文からの切り貼りでいい、というくらいの気持ちで OK。
+適当に日本語注釈をつけておいて、あとでちゃんと修正する。
+そのまま投稿すると剽窃でもちろんダメなので、ちゃんと修正はするが、最初はそれでよい。</p>
+<h3 id="pfn">林浩平先生（PFN）：国際会議への論文の通し方（機械学習の会議向け）</h3>
+<p>鈴木先生の資料がいいので、今回は研究を論文として伝える方法についての話をする。</p>
+<p>Q. なぜ論文が通らなかったか？ =&gt; A. 内容の問題 or 伝え方の問題。
+内容の問題は複合的で体系化しづらいので今回は後者にフォーカス</p>
+<ul>
+<li>論文のレベル<ul>
+<li>0: アルファベットで書かれている</li>
+<li>1: 文法的に正しい</li>
+<li>2: 早く・正確に理解できる &lt;- このレベルになることがトップ会議では重要</li>
+<li>3: 読んでいてワクワクする</li>
+</ul>
+</li>
+</ul>
+<p>なぜ論文が通っていないか。
+英語が不得意なことと、徒弟的な訓練が行われていないこと。</p>
+<p>どうすればいいか？基礎と実践が必要。</p>
+<p>基礎=アカデミックライティングの本をちゃんと読む。
+おすすめ: Adrian Wallwork: English for Writing Research Papers 2nd ed.(English for Academic Research), Springer, 2016。
+理研 AIP の前原先生もおすすめしていた。
+日本語訳が出る予定 (https://www.amazon.co.jp/dp/4065120446/)。</p>
+<iframe frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=nknuu-22&amp;language=ja_JP&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=4065120446&amp;linkId=e25142ae984df6dea64cc690a0d6c92b" style="width:120px;height:240px;"></iframe>
+<p>実践=論文を書いて、密なフィードバックを得る。よいメンターを見つけることが重要。
+ここでのよいメンターの定義は、トップ会議に 3 本以上通した経験があって、原稿を直接直してくれる。
+林先生の場合は、大学ではやったことがなくて、NEC のインターン（藤巻さんがメンター）で初めて知った。
+ある論文では、Ver 1 では Intro のほぼすべての文が修正された。Ver 2 でも Intro もほぼ同様。Ver 8 までこのときは修正した。</p>
+<h3 id="aip">山田誠先生（京都大学/理研AIP）：運営側からみた機械学習会議のしくみ</h3>
+<p>（最初の方はメモをとってなかった）</p>
+<p>トップ会議に論文を通すことは重要。
+その例として、トップ会議のベストペーパー以外評価されない=昇進で考慮されない、というすごい世界もある(at 米 Yahoo Research)。</p>
+<p>信号処理業界から ML に移動してきたけど、査読のレベルがヤバい。</p>
+<p>学会運営におけるいろいろな仕事: Program Chairs, Workflow chair (PC のお手伝い), Local Chair, publicity chair (広報), proceeding chairs。
+Workflow chair はやったことがある。</p>
+<ul>
+<li>スコア別の対応<ul>
+<li>すべて negative -&gt; NG</li>
+<li>すべて accept -&gt; OK</li>
+<li>すべてが weak accept -&gt; 1 つの strong accept よりも微妙？</li>
+<li>スコアが割れたとき -&gt; エリアチェアしだい。そこへの働きかけが重要？</li>
+</ul>
+</li>
+</ul>
+<p>rebuttle をちゃんとやることとは重要。エリアチェアが救ってくれることもある。</p>
+<p>諦めないこと、ガチャを回し続けることが大事。</p>
+<ul>
+<li>例 1: IJCAI, CIKM, ECML でダメ -&gt; 応用よりに変更 -&gt; KDD 2017 採択</li>
+<li>例 2: ICML, NIPS, Neural Computation (ジャーナル) に投げていたがダメ -&gt; NIPS にまた投げたら採択</li>
+</ul>
+<p>チャンスレート以上（採択率が 25 % なら 4 本以上！）を投げることも大事。まあこれは中堅向けかも？</p>
+<p>査読者の質問はすべて回答。査読者の質問はコピペしてから答える(<a href="https://marcocuturi.net/">トップ会議に通しまくっている元同僚</a>のコメント)。
+高いスコアを付けてくれる査読者に低いスコアをつけている人と戦ってもらう。
+議論を起こしそうな査読コメントを書くとか。</p>
+<p>身近に通している人がいる場合はその人と一緒に研究する。
+チャンスを掴むための勢いとかが重要で待っていても来ない。山田先生の場合、酔った勢いで杉山先生にメールを投げていなければ今ここにはいなかった。
+企業の研究インターンに行こう（ただし卵が先か鶏が先かという問題はある）。</p>
+<p>身近にいないときはどうするか。
+とりあえず一度投稿してみる（ただし通るだろうというレベルのもの）。
+「落ちたら査読者がダメと言ってきたことを修正 -&gt; 直して再投稿」を通るまでやる。面白くないとか言われたらジャーナルに投げる。</p>
+<h2 id="230_1">第2部：パネルディスカッション・質疑応答（30分）</h2>
+<ul>
+<li>
+<p>S: 鈴木先生、Y: 山田先生、H: 林先生</p>
+</li>
+<li>
+<p>Q. レビューが割れたときどうすればいい？</p>
+<ul>
+<li>S: 感情論じゃなくて、理詰めでいくべき</li>
+<li>Y: meta-review で discussion が起こりそうなことを書く</li>
+<li>H: meta-review へのコメントはどれくらい書くべき？<ul>
+<li>Y,S: 書いておいて損はない</li>
+<li>(7,7,5) だと「全体的に結構いいよね、レビューありがとう」みたいなことを書いて、追加でコメントを書く</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Q. サーベイってどれくらいやる？</p>
+<ul>
+<li>S: トップ会議のタイトルでサーチして列挙。とりあえず「ある」ことを確認。概要を確認して、潰していくことが大事。</li>
+<li>H: 分野を変えるときは一回目の投稿は落ちる覚悟をしておくくらいの勢い。レビューで指摘されたら修正する。</li>
+<li>Y: あんまり最初はやらない。Google Scholar でググって最初の方に出てこなければとりあえずやってみる（やってみると結構差分はでるもの）。最後にちゃんとやって、差分を確認する。これは Deep Learning が主戦場じゃないからかも。</li>
+<li>H: やりすぎないほうがよい。既存のアイデアや枠組みに引っ張られるかも。</li>
+<li>Y: 最初はあんまりやらないかも</li>
+<li>S: ちょっとは調べる必要がある。学生とかだと終わりまでの時間が有限。後戻りが少ないほうが嬉しいので。</li>
+<li>Y: 既存の問題を解く系だと必要だけど、問題を作る系だとあんまりないかも。</li>
+</ul>
+</li>
+<li>
+<p>Q. サーベイの方法ってどうするの？</p>
+<ul>
+<li>S: ななめ読みの方法を確立する。(鈴木先生の場合だと)どういうデータでどういう実験をやっているか、どういう問題設定か、みたいな要点の把握が重要。</li>
+<li>H: 量が増えているのでスケールする方法を考える。組織に入る、コミュニティーを作る。</li>
+<li>Y: Google Scholar で有名論文を引用している論文を探す。そこからたどっていく。</li>
+</ul>
+</li>
+<li>
+<p>Q. 企業とアカデミアのちがいってある？</p>
+<ul>
+<li>Y: 企業だとテーマがあって、そこに基づいてやる。ある程度テーマがあってやりやすい面もある。大学は自分の好き勝手に割とやっている。</li>
+<li>H: 大学の際と変わらず、テーマは割と自由にやっている。ただアカデミアだと先生がいるが、企業だと対等なチーム。</li>
+<li>S: 正直あまり変わらない。自由にやっている。</li>
+</ul>
+</li>
+<li>
+<p>完成度の低い論文を（本会議に）投稿することについて</p>
+<ul>
+<li>H, S, Y: ダメ(満場一致)<ul>
+<li>投稿する側からだとコメントが欲しいのかもしれないが、3 人のレビュアーがいると 3 人ともから「ヤバいのでダメ」みたいなコメントが返ってきて終わる可能性もある</li>
+<li>あとはその微妙な論文を査読した査読者が、査読した当時は誰が書いたかわからなくても、あとから通って著者が判明した際に、その論文の著者に悪印象を持つ可能性だってある</li>
+<li>会議運営の面から見てもキャパ的に厳しくなってきているしダメ</li>
+<li>Workshop にして色々コメントをもらうほうがずっと建設的</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>特別に数学の勉強って学生のときにやった？</p>
+<ul>
+<li>H: やってた。修士のときは線形代数とか集合論とか。輪読が好きで、統計の漸近論の本とかも。</li>
+<li>Y: 元は信号処理でフーリエ変換とか線形代数とか、統計はやっていた。ML の勉強はポスドクで初めてで、今でも苦労している面はある。</li>
+<li>S: 応用よりの話なので少し違うかも。アイデアとか執筆は経験がものが聞くので、若いときに基礎を勉強しておいたほうがよい。</li>
+</ul>
+</li>
+<li>
+<p>違う分野に投稿したいときってどうすればよい？</p>
+<ul>
+<li>Y: 文化があるので、人を頼るべき。セクションごとに人に書いてもらうとか。バイオ系に投稿した際は、分析の部分とかは全然わからないので、専門の共著者にやってもらった。</li>
+</ul>
+</li>
+</ul>
+<details><summary>感想</summary>
+「いい研究をする」という気持ちは当然で、その上でどうやってトップ会議採択されるか、そのためにどうするか、どう書くか、という話でした。
+テーマを選ぶ際はちゃんとサーベイをして、出てきた論文から常に何ができそうかを考える。論文を書く際はできる人と一緒にやってフィードバックを得ることで向上させていく。それを継続することが大事だと理解しました。
+</details>
+    <!-- <div class="aspect-w-16 aspect-h-9 mx-auto"></div> CSS placeholder -->
+  </div>
+  <footer class="flex flex-col mt-10 ">
+    <ul class="flex flex-wrap">
+        <li
+          class="bg-zinc-200 hover:bg-zinc-300 dark:hover:bg-zinc-800 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-300 mb-2 mr-2 px-3 py-1.5 rounded-md transition ease-in active:-translate-y-1 active:scale-110 duration-75">
+          <a href="./tag/conf_notes.html">聴講録</a>
+        </li>
+    </ul>
+    <div class="flex w-full my-2 bg-zinc-200 dark:bg-zinc-700 rounded-lg">
+      <div class="w-1/2 hover:bg-zinc-300 dark:hover:bg-zinc-800 rounded-l-lg">
+        <a class="flex flex-col pr-2" href="./manhattan_mst.html">
+          <div class="mx-4 py-2 text-left">
+            <p class="text-zinc-600 dark:text-zinc-300 text-sm">« PREV PAGE</p>
+            <p class="text-left py-1 hover:underline">Manhattan Minimum Spanning Tree</p>
+          </div>
+        </a>
+      </div>
+      <div class="w-1/2 hover:bg-zinc-300 dark:hover:bg-zinc-800 rounded-r-lg ">
+        <a class="flex flex-col" href="./collecting_jp_ml-dm-ai_papers.html">
+          <div class="text-right mx-4 py-2">
+            <p class="text-zinc-600 dark:text-zinc-300 text-sm">NEXT PAGE »</p>
+            <p class="text-right py-1 hover:underline">機械学習・データマイニング・人工知能分野周りの日本所属の国際会議論文を集めてみる</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <div>
+  </div>
+</main>
+
+    </div>
+    <footer class="flex w-full text-xs justify-center mt-10 mb-6 text-zinc-600 dark:text-zinc-400">
+        <div class="px-4">
+            <span>©2024&nbsp;&#8226;&nbsp;</span>Powered by
+            <a class="underline" href="https://getpelican.com/">Pelican</a>&nbsp;&
+            <a class="underline" href="https://github.com/aleylara/Papyrus">Papyrus</a>
+        </div>
+    </footer>
+
+
+    <script>
+        let themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        let themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        let themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function () {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
