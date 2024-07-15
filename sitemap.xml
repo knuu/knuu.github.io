@@ -5,35 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://knuu.github.io/</loc>
-<lastmod>2024-07-16T04:13:26-00:00</lastmod>
+<lastmod>2024-07-16T04:56:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/search.html</loc>
-<lastmod>2024-07-16T04:13:26-00:00</lastmod>
+<lastmod>2024-07-16T04:56:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/tags.html</loc>
-<lastmod>2024-07-16T04:13:26-00:00</lastmod>
+<lastmod>2024-07-16T04:56:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/categories.html</loc>
-<lastmod>2024-07-16T04:13:26-00:00</lastmod>
+<lastmod>2024-07-16T04:56:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://knuu.github.io/archives.html</loc>
-<lastmod>2024-07-16T04:13:26-00:00</lastmod>
+<lastmod>2024-07-16T04:56:10-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -48,6 +48,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://knuu.github.io/pages/ml-dm-ai_jp_papers.html</loc>
 <lastmod>2020-02-12T00:00:00+09:00</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://knuu.github.io/kdd24-airbnb-map.html</loc>
+<lastmod>2024-07-16T00:00:00+09:00</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -138,7 +145,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://knuu.github.io/category/blog.html</loc>
-<lastmod>2021-02-28T00:00:00+09:19</lastmod>
+<lastmod>2024-07-16T00:00:00+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://knuu.github.io/tag/paper-memo.html</loc>
+<lastmod>2024-07-16T00:00:00+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://knuu.github.io/tag/information_retrieval.html</loc>
+<lastmod>2024-07-16T00:00:00+09:19</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://knuu.github.io/tag/learning_to_rank.html</loc>
+<lastmod>2024-07-16T00:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -146,20 +174,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://knuu.github.io/tag/competitive_programming.html</loc>
 <lastmod>2021-02-28T00:00:00+09:19</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://knuu.github.io/tag/information_retrieval.html</loc>
-<lastmod>2020-12-26T00:00:00+09:19</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://knuu.github.io/tag/learning_to_rank.html</loc>
-<lastmod>2020-04-05T00:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -207,13 +221,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://knuu.github.io/tag/paper-memo.html</loc>
-<lastmod>2017-10-10T00:00:00+09:19</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>https://knuu.github.io/tag/statistics.html</loc>
 <lastmod>2017-06-18T00:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
@@ -229,7 +236,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://knuu.github.io/author/knuu.html</loc>
-<lastmod>2021-02-28T00:00:00+09:19</lastmod>
+<lastmod>2024-07-16T00:00:00+09:19</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

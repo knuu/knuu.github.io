@@ -13,6 +13,11 @@ url = "/pages/ml-dm-ai_jp_papers.html"
 title = "ML-DM-AI Papers by Researchers in Japan"
 
 [[input.files]]
+path = "kdd24-airbnb-map.html"
+url = "/kdd24-airbnb-map.html"
+title = "Learning to Rank for Maps at Airbnb (KDD 2024) を読んだ"
+
+[[input.files]]
 path = "atcoder-scipy.html"
 url = "/atcoder-scipy.html"
 title = "AtCoder で scipy を使って問題を解く"
