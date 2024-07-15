@@ -18,7 +18,7 @@
 <meta name="description" content="問題 Manhattan MST (Libarry Checker) 解法 NOTE: ここで述べる解法は基本的に以下の topcoder の記事を参考に分割統治部分を座標圧縮+セグメント木 …" />
 </head>
 
-<body class="min-h-screen flex flex-col max-w-7xl lg:max-w-none text-zinc-800 bg-neutral-100 
+<body class="min-h-screen flex flex-col max-w-7xl lg:max-w-none text-zinc-800 bg-neutral-100
     dark:bg-neutral-900 dark:text-zinc-300 container mx-auto justify-center md:px-3 ">
     <script>
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
@@ -49,9 +49,7 @@
             <li class="mr-4 pt-6"><a  href="./pages/about-me.html">About Me</a></li>
             <li class="mr-4 pt-6"><a  href="./pages/ml-dm-ai_jp_papers.html">ML-DM-AI Papers by Researchers in Japan</a></li>
             <li class="mr-4 pt-6"><a  href="./archives.html">Archive</a></li>
-            <li class="mr-4 pt-6"><a                     href="./categories.html">Categories</a></li>
             <li class="mr-4 pt-6"><a  href="./tags.html">Tags</a></li>
-            <li class="mr-4 pt-6"><a  href="./search.html">Search</a></li>
         </ul>
     </nav>
     <div class="flex-grow md:max-w-screen-md md:mx-auto md:w-3/4 px-4">
@@ -195,7 +193,7 @@ s.t. y-x &lt;= y_p-x_p
 <span class="p">}</span>
 </code></pre></div>
 <p>上記の点の変換処理の正当性は，各領域での走査線・イベント点の処理が何で，各領域が上記の $i,j,k$ のいつのときに処理されているかを考えればよい．まず，各領域での走査線とイベント点での処理を列挙してみると以下のようになる．</p>
-<table class="table-striped table">
+<table class="table table-striped">
 <thead>
 <tr>
 <th>領域</th>
