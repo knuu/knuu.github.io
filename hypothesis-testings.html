@@ -131,7 +131,7 @@
 <li>『統計学入門』第12章より</li>
 </ul>
 <h2 id="_2">早見表</h2>
-<table class="table table-striped">
+<table class="table-striped table">
 <thead>
 <tr>
 <th style="text-align: center;">何の検定</th>
@@ -261,7 +261,7 @@
 </ul>
 </li>
 </ul>
-<table class="table table-striped">
+<table class="table-striped table">
 <thead>
 <tr>
 <th style="text-align: left;">カテゴリ</th>
@@ -310,7 +310,7 @@
 </ul>
 </li>
 </ul>
-<table class="table table-striped">
+<table class="table-striped table">
 <thead>
 <tr>
 <th style="text-align: left;">カテゴリ</th>
@@ -416,7 +416,7 @@
         "        processEscapes: true," +
         "        preview: 'TeX'," +
         "    }, " +
-        "    'HTML-CSS': { " +
+        "    'CommonHTML': { " +
         "        availableFonts: ['STIX', 'TeX']," +
         "        preferredFont: 'STIX'," +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
@@ -424,8 +424,8 @@
         "    }, " +
         "}); " +
         "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+            "MathJax.Hub.Register.StartupHook('CommonHTML Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['CommonHTML'].FONTDATA.VARIANT;" +
                 "VARIANT['normal'].fonts.unshift('MathJax_default');" +
                 "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
                 "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +

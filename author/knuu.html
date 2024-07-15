@@ -392,7 +392,7 @@
         "        processEscapes: true," +
         "        preview: 'TeX'," +
         "    }, " +
-        "    'HTML-CSS': { " +
+        "    'CommonHTML': { " +
         "        availableFonts: ['STIX', 'TeX']," +
         "        preferredFont: 'STIX'," +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
@@ -400,8 +400,8 @@
         "    }, " +
         "}); " +
         "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+            "MathJax.Hub.Register.StartupHook('CommonHTML Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['CommonHTML'].FONTDATA.VARIANT;" +
                 "VARIANT['normal'].fonts.unshift('MathJax_default');" +
                 "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
                 "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +

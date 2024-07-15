@@ -192,7 +192,7 @@ s.t. y-x &lt;= y_p-x_p
 <span class="p">}</span>
 </code></pre></div>
 <p>上記の点の変換処理の正当性は，各領域での走査線・イベント点の処理が何で，各領域が上記の <span class="math">\(i,j,k\)</span> のいつのときに処理されているかを考えればよい．まず，各領域での走査線とイベント点での処理を列挙してみると以下のようになる．</p>
-<table class="table table-striped">
+<table class="table-striped table">
 <thead>
 <tr>
 <th>領域</th>
@@ -309,7 +309,7 @@ s.t. y-x &lt;= y_p-x_p
         "        processEscapes: true," +
         "        preview: 'TeX'," +
         "    }, " +
-        "    'HTML-CSS': { " +
+        "    'CommonHTML': { " +
         "        availableFonts: ['STIX', 'TeX']," +
         "        preferredFont: 'STIX'," +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
@@ -317,8 +317,8 @@ s.t. y-x &lt;= y_p-x_p
         "    }, " +
         "}); " +
         "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+            "MathJax.Hub.Register.StartupHook('CommonHTML Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['CommonHTML'].FONTDATA.VARIANT;" +
                 "VARIANT['normal'].fonts.unshift('MathJax_default');" +
                 "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
                 "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
