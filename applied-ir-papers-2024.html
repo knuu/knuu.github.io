@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Pelican" />
+    <meta name="description" content="霧でも食ってろ Blog Posts">
+    <title>今年読んだ応用検索論文の紹介</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/pygment.css" />
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./theme/css/stork.css">
+    <link rel="stylesheet" media="screen and (prefers-color-scheme: dark)"
+        href="./theme/css/stork-dark.css">
+<meta name="description" content="この記事は情報検索・検索技術 Advent Calendar 2024 の 22 日目の記事として執筆されました． 概要 本記事では，今年読んだ応用検索 …" />
+</head>
+
+<body class="min-h-screen flex flex-col max-w-7xl lg:max-w-none text-zinc-800 bg-neutral-100
+    dark:bg-neutral-900 dark:text-zinc-300 container mx-auto justify-center md:px-3 ">
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
+    <nav class="sm:flex sm:justify-between xl:ml-32 pl-4 items-center">
+        <div class="flex pt-4">
+            <h1 class="font-semibold text-2xl"><a href="./">霧でも食ってろ</a></h1>
+            <button id="theme-toggle" type="button" aria-label="Light|Dark"
+                class="text-zinc-700 dark:text-zinc-400 rounded-full focus:outline-none text-sm ml-2 p-1">
+                <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                </svg>
+                <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                        fill-rule="evenodd" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        <ul class="flex flex-wrap lg:mr-24 md:pt-0">
+            <li class="mr-4 pt-6"><a  href="./pages/about-me.html">About Me</a></li>
+            <li class="mr-4 pt-6"><a  href="./pages/ml-dm-ai_jp_papers.html">ML-DM-AI Papers by Researchers in Japan</a></li>
+            <li class="mr-4 pt-6"><a  href="./archives.html">Archive</a></li>
+            <li class="mr-4 pt-6"><a  href="./tags.html">Tags</a></li>
+        </ul>
+    </nav>
+    <div class="flex-grow md:max-w-screen-md md:mx-auto md:w-3/4 px-4">
+        <nav class="text-zinc-800 dark:text-zinc-300 mt-12 pb-2 md:mt-16" aria-label="Breadcrumb">
+            <ul class="p-0 inline-flex items-center">
+                <li class="flex items-center">
+                    <a href="./" class="text-zinc-800 dark:text-zinc-300 inline-flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        Home
+                    </a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./categories.html">Categories</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+                <li class="flex items-center">
+                    <a href="./category/blog.html">blog</a>
+                    <svg class="fill-current w-3 h-3 mr-2 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                        <path
+                            d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z" />
+                    </svg>
+                </li>
+            </ul>
+        </nav>
+
+<main>
+  <header>
+    <h1 class="font-semibold text-3xl my-2">今年読んだ応用検索論文の紹介</h1>
+    <footer class="flex text-sm text-zinc-800 dark:text-zinc-400">
+      <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
+        <time>12月 22, 2024</time>
+        <div>
+        </div>
+        <div>
+          <span>&nbsp;·&nbsp;knuu</span>
+        </div>
+      </div>
+    </footer>
+  </header>
+  <details class="flex flex-col my-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg">
+    <summary class="text-lg font-bold">Table of contents</summary>
+    <div class="mx-4 px-4 underline">
+      <div id="toc"><ul><li><a class="toc-href" href="#_1" title="概要">概要</a></li><li><a class="toc-href" href="#facebook" title="Facebook の埋め込みベース検索の話">Facebook の埋め込みベース検索の話</a></li><li><a class="toc-href" href="#airbnb" title="Airbnb の地図検索の話">Airbnb の地図検索の話</a></li><li><a class="toc-href" href="#linkedin" title="LinkedIn の属性集合ベースの検索の話">LinkedIn の属性集合ベースの検索の話</a></li><li><a class="toc-href" href="#spotify" title="Spotify のインスタント検索とクエリサジェストの話">Spotify のインスタント検索とクエリサジェストの話</a></li><li><a class="toc-href" href="#pinterest" title="Pinterest の埋め込みベース検索の話">Pinterest の埋め込みベース検索の話</a></li><li><a class="toc-href" href="#walmart" title="Walmart の埋め込みベース検索の話">Walmart の埋め込みベース検索の話</a></li><li><a class="toc-href" href="#_2" title="おわりに">おわりに</a></li></ul></div>
+    </div>
+  </details>
+  <div class="max-w-7xl container mx-auto my-8 text-zinc-800 dark:text-zinc-300  
+              prose lg:max-w-none prose-headings:text-zinc-800 prose-headings:dark:text-zinc-300 
+              prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-semibold 
+              prose-pre:bg-zinc-200 prose-pre:text-zinc-800
+              dark:prose-pre:bg-zinc-800 dark:prose-pre:text-zinc-200
+              prose-blockquote:text-zinc-800
+              dark:prose-blockquote:text-zinc-200
+              prose-a:text-slate-600 prose-a:font-normal
+              dark:prose-a:text-slate-400
+              dark:prose-strong:text-zinc-200 
+              dark:prose-code:text-zinc-200
+              dark:prose-code:bg-zinc-800
+              prose-code:bg-zinc-200
+              prose-code:font-light
+              prose-img:rounded-md
+              sm:text-left md:text-justify
+              ">
+    <p>この記事は<a href="https://qiita.com/advent-calendar/2024/search">情報検索・検索技術 Advent Calendar 2024</a> の 22 日目の記事として執筆されました．</p>
+<h2 id="_1">概要</h2>
+<p>本記事では，今年読んだ応用検索論文についていくつか紹介をします．応用検索論文というのは本記事の著者が今適当に考えたワードで，主に以下の特徴を持つ傾向にあります．</p>
+<ul>
+<li>企業の実際の検索システムに組み込まれている</li>
+<li>オフライン評価において，公開データだけでなく，企業内の非公開データも用いられている</li>
+<li>オフライン評価だけでなく，A/B テストなどのオンライン評価も実施され，その結果が載っている</li>
+<li>論文が学会の Industry Track に相当する Track で採択されている</li>
+</ul>
+<p>応用検索論文の良い点と微妙な点を主観で挙げるとすると，以下の通りです．</p>
+<ul>
+<li>良い点<ul>
+<li>実際に実システムで適用され，実際に効果が出ている話である<span style="color:gray;"><del>ので上司を説得しやすいかもしれない</del></span></li>
+<li>検索システムにおいて重要なレイテンシの観点に触れられているものも多い（キャッシュの活用など）</li>
+<li>テックブログ的で読みやすいものが多い</li>
+<li>同じ企業の複数の論文を読むことで，その企業の検索システムの発展が垣間見えて面白い</li>
+<li>アーキテクチャが書いてあることもあり，実際に組み込む際の参考になる（かもしれない）</li>
+</ul>
+</li>
+<li>微妙な点<ul>
+<li>新規性が少なく，人によっては得るものが少ないと感じるかもしれない</li>
+<li>形式が <a href="https://ja.wikipedia.org/wiki/IMRAD">IMRAD</a> っぽくない自由な章立てで書かれていることがあり，普通の論文だと思って読むと，つかみどころがないように感じる部分もある</li>
+</ul>
+</li>
+</ul>
+<p>このように，良い点も微妙な点もあるのですが，検索エンジニアとして実際に組み込むとしたらどうするか？などの妄想が捗ることも多いため，最近はよく応用検索論文を読んでいます．本記事では，今年読んだ応用検索論文として，Facebook，Airbnb，LinkedIn，Spotify，Pinterest，Walmart の論文についてそれぞれ紹介します．それぞれの論文で概要と推しポイントをそれぞれ紹介していきますが，かなり短く紹介するため，もし興味が出た論文については，ぜひ詳細を確認してみてください．</p>
+<table class="table table-striped">
+<thead>
+<tr>
+<th>内容</th>
+<th>論文名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Facebook の埋め込みベース検索の話</td>
+<td>(KDD'20) Embedding-based Retrieval in Facebook Search<br/>(KDD'21) Que2Search: Fast and Accurate Query and Document Understanding for Search at Facebook<br/>(WebConf'23a) Que2Engage: Embedding-based Retrieval for Relevant and Engaging Products at Facebook Marketplace<br/>(WebConf'23b) HierCat: Hierarchical Query Categorization from Weakly Supervised Data at Facebook Marketplace</td>
+</tr>
+<tr>
+<td>Airbnb の地図検索の話</td>
+<td>(KDD'24) Learning to Rank for Maps at Airbnb</td>
+</tr>
+<tr>
+<td>LinkedIn の属性集合ベースの検索の話</td>
+<td>(CIKM'24) Learning Links for Adaptable and Explainable Retrieval</td>
+</tr>
+<tr>
+<td>Spotify のインスタント検索とクエリサジェストの話</td>
+<td>(KDD'21) Neural Instant Search for Music and Podcast<br/>(CIKM'23) Graph Learning for Exploratory Query Suggestions in an Instant Search System<br/>(SIGIR'24) Bootstrapping Query Suggestions in&nbsp;Spotify's Instant&nbsp;Search&nbsp;Systems</td>
+</tr>
+<tr>
+<td>Pinterest の埋め込みベース検索の話</td>
+<td>(WebConf'24) OmniSearchSage: Multi-Task Multi-Entity Embeddings for Pinterest Search</td>
+</tr>
+<tr>
+<td>Walmart の埋め込みベース検索の話</td>
+<td>(CIKM'24a) Enhancing Relevance of Embedding-based Retrieval at Walmart<br/>(KDD'22) Semantic Retrieval at Walmart<br/>(CIKM'24b) Relevance Filtering for Embedding-based Retrieval<br/></td>
+</tr>
+</tbody>
+</table>
+<h2 id="facebook">Facebook の埋め込みベース検索の話</h2>
+<p>概要: Facebook 本体の検索において，埋め込みベース検索（いわゆるベクトル検索）を適用した論文（KDD'20）です．</p>
+<p>推しポイント: この論文は，埋め込みベース検索のさきがけとなった論文というイメージ（一番最初の論文ではない）ですが，今まで解説スライドでした内容を知らなかったので，今回改めて読みました．この論文が面白いと感じた点は以下の通りです．</p>
+<ul>
+<li>研究だと，テキストのみを扱うことが多いが，ユーザ情報や位置情報，一般的な検索システムだと考慮しそうな情報をちゃんと考慮している</li>
+<li>負例の工夫という，埋め込みベース検索の王道の改善をやってちゃんと効果を挙げている</li>
+<li>実システムへの適用においても，ただただ適用するだけでなく，効果がありそうなクエリのみに適用するなど，ちゃんと工夫をしている</li>
+</ul>
+<p>後続の Facebook Marketplace において埋め込みベース検索を適用した論文（KDD'21，WebConf'23a）もかなり面白かったです．</p>
+<ul>
+<li>Transformer を用いたモデルである XLM を適用しているが，それだけでは不十分で文字 3-gram も必要だったことを実験で明らかにしており，LLM が全てを解決してくれるわけではないことが分かる</li>
+<li>6.2 節のタイトル <code>There is no silver bullet for retrieval</code> がかっこいい</li>
+<li>relevance と engagement の両方が重要であることが分かる</li>
+</ul>
+<p>また，Facebook Marketplace のクエリ分類において dual encoder を用いる論文（WebConf'23b）も面白かったです．検索を多クラス分類として解く話は extreme classification の文脈で以前よく Amazon が研究していましたが，この論文はその逆で多クラス分類に検索の技術（dual encoder）を使っており，なるほど！となりました．</p>
+<table class="table table-striped">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KDD'20</td>
+<td><a href="https://research.facebook.com/publications/embedding-based-retrieval-in-facebook-search/">Embedding-based Retrieval in Facebook Search</a></td>
+</tr>
+<tr>
+<td>KDD'21</td>
+<td><a href="https://research.facebook.com/publications/que2search-fast-and-accurate-query-and-document-understanding-for-search-at-facebook/">Que2Search: Fast and Accurate Query and Document Understanding for Search at Facebook</a></td>
+</tr>
+<tr>
+<td>WebConf'23a</td>
+<td><a href="https://research.facebook.com/publications/que2engage-embedding-based-retrieval-for-relevant-and-engaging-products-at-facebook-marketplace/">Que2Engage: Embedding-based Retrieval for Relevant and Engaging Products at Facebook Marketplace</a></td>
+</tr>
+<tr>
+<td>WebConf'23b</td>
+<td><a href="https://research.facebook.com/publications/hiercat-hierarchical-query-categorization-from-weakly-supervised-data-at-facebook-marketplace/">HierCat: Hierarchical Query Categorization from Weakly Supervised Data at Facebook Marketplace</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="airbnb">Airbnb の地図検索の話</h2>
+<p>概要: Airbnb の地図検索において，ランキングと UI を繰り返し改善していく論文（KDD'24）です．詳しくは<a href="/kdd24-airbnb-map.html">別の記事</a>で解説しているため，そちらをご覧ください．</p>
+<p>推しポイント: 通常の検索改善においては，主にランキング（並び順）の改善に着目がいくことが多いですが，これは主にリスト表示を仮定したものが多いです．一方で地図表示においては，リスト表示では成り立つ「ユーザは，ランキングの上位から順にアイテム（宿）を見る」という単純な仮定が成り立ちません．そこに着目し，様々な改善を実施していき，着実に効果を出している点が面白かったです．</p>
+<table class="table table-striped">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KDD'24</td>
+<td><a href="https://arxiv.org/abs/2407.00091">Learning to Rank for Maps at Airbnb</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="linkedin">LinkedIn の属性集合ベースの検索の話</h2>
+<p>概要: LinkedIn の検索において，ユーザの属性集合と求人の属性集合の間のリンクを学習し，それを求人検索/推薦の第 1 段階の検索に利用するという論文（CIKM'24）です．これにより，求人クリック数が約 31% 増加するなど，各種指標が改善したそうです．</p>
+<p>推しポイント: この論文が面白いと感じた点として，大規模にルールを学習しているという点です．ベクトル検索とは違って，ルールなので解釈性が比較的高く，かつ加えたいルールの追加や，不要なルールの削除などが比較的容易にしやすいため，運用が比較的やりやすそうな点が良いと思いました．LLM でベクトル検索するのが流行っているこの時代においても，説明性や運用のしやすさが求められるドメインはあるはずなので，このような方法もあることを知っておくとどこかで使えそうな気がします．</p>
+<table class="table table-striped">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CIKM'24</td>
+<td><a href="https://dl.acm.org/doi/10.1145/3627673.3679953">Learning Links for Adaptable and Explainable Retrieval</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="spotify">Spotify のインスタント検索とクエリサジェストの話</h2>
+<p>概要: Spotify におけるインスタント検索において，Transformer ベースのモデルを用いる論文（KDD'21）です．インスタント検索とは，ユーザが入力するたびに検索結果を表示するタイプの検索です．似た機能として，クエリ候補を出すクエリ自動補完がありますが，クエリ自動補完とは違って，インスタント検索ではユーザ入力検索対象のアイテムを直接出します．</p>
+<p>推しポイント: この論文の面白い点として，テキストに対しては Transformer ベースのモデルを使っていますが，それだけでは不十分なので，アイテム埋め込みも使っている点です．インスタント検索における有効な手法として，クエリ自動補完でも使われている Most Popular Completion（MPC）的な手法があります．テキストだけを扱う Transformer ベースの手法では，MPC のような人気度を考慮できないので，それを考慮して別途学習したアイテム埋め込みを用いるというのは，確かに，となりました．</p>
+<p>その他にも Spotify から出ている論文として，探索的検索（exploratory search）を支援するために，多様性を考慮した node2vec ベースのクエリ推薦を行う論文など，クエリ推薦系の論文（CIKM'23，SIGIR'24）が面白かったです．</p>
+<table class="table table-striped">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KDD'21</td>
+<td><a href="https://mounia-lalmas.blog/wp-content/uploads/2021/07/kdd2021.pdf">Neural Instant Search for Music and Podcast</a></td>
+</tr>
+<tr>
+<td>CIKM'23</td>
+<td><a href="https://mounia-lalmas.blog/wp-content/uploads/2023/11/cikmgraphlearning.pdf">Graph Learning for Exploratory Query Suggestions in an Instant Search System</a></td>
+</tr>
+<tr>
+<td>SIGIR'24</td>
+<td><a href="https://dl.acm.org/doi/10.1145/3539618.3591827">Bootstrapping Query Suggestions in&nbsp;Spotify's Instant&nbsp;Search&nbsp;Systems</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="pinterest">Pinterest の埋め込みベース検索の話</h2>
+<p>概要: Pinterest の複数の検索タスクを同時に，同じクエリエンコーダで学習することで，埋め込みベースの検索を複数の検索システムで実現しつつ，機械学習モデルを管理するコストを減らしたという論文です．<a href="https://medium.com/pinterest-engineering/searchsage-learning-search-query-representations-at-pinterest-654f2bb887fc">以前のテックブログ</a>の続編となる論文でもあります．</p>
+<p>推しポイント: <code>3.6 Model Serving</code> が個人的にはかなり面白いと感じました．埋め込みベースの検索においては，文書側は事前にインデックス時に埋め込みを作成できますが，クエリ側は検索時に埋め込みを作成する必要があります．ただ，Pinterest の検索システムにおいては，秒間 30 万回クエリが来るため，毎回埋め込みを作成していては到底間に合いません．そこでキャッシュを活用し，TTL をチューニングすることで，実際にクエリ時に推論するクエリを秒間 500 回にまで下げることに成功しています．Pinterest の QPS の多さ自体も驚きですが，キャッシュなどの工夫次第で，実際に推論が必要なクエリの QPS をここまで下げられることに驚きました．</p>
+<table class="table table-striped">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WebConf'24</td>
+<td><a href="https://dl.acm.org/doi/10.1145/3589335.3648309">OmniSearchSage: Multi-Task Multi-Entity Embeddings for Pinterest Search</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="walmart">Walmart の埋め込みベース検索の話</h2>
+<p>概要: Walmart の埋め込みベースの検索を改善した論文（CIKM'24a）です．Walmart は 2 年前に，埋め込みベース検索を導入した論文を発表していました（KDD'22）が，ログのノイズや，負例の偽陰性，typo の扱いなどに問題がありました．本論文ではこれらの問題を改善する手法をそれぞれ導入し，オンライン実験（A/B テスト）において，適合性（nDCG）やエンゲージメント（売上）を統計的有意に改善しました．</p>
+<p>推しポイント: ログから得られるエンゲージメントベースのラベルと，人力で得る適合性のラベルをうまく連携させているように思えた点です．通常，これら 2 つのラベルは別々に扱うことが多い認識ですが，この論文では，適合性報酬モデル（Relevance Reward Model）と題して，人力の適合性のラベルで学習したモデルでエンゲージメントベースのラベルを修正するなど，ログのラベルと人力のラベルの両方をうまく連携して活用することで，指標を改善している点が面白いと思いました．</p>
+<p>それ以外にも，再現率が重視されがちな埋め込みベース検索に対して，クエリ依存の閾値で足切りをすることで，精度面の改善をする論文（CIKM'24b）も面白かったです．検索勉強会でも <a href="https://speakerdeck.com/szdr/vespawoli-yong-sitatekuibekutorujian-suo?slide=6">Vespa でスコアの足切りをする話</a>があったり，検索拡張生成（RAG）の文脈で，<a href="https://dropbox.tech/machine-learning/bringing-ai-powered-answers-and-summaries-to-file-previews-on-the-web">Dropbox のブログ</a>でも似たような話があったりするなど，実応用でも気になる人が多いトピックなため，気になる人は多い気がします．</p>
+<table class="table table-striped">
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CIKM'24a</td>
+<td><a href="https://arxiv.org/abs/2408.04884">Enhancing Relevance of Embedding-based Retrieval at Walmart</a></td>
+</tr>
+<tr>
+<td>KDD'22</td>
+<td><a href="https://arxiv.org/abs/2412.04637">Semantic Retrieval at Walmart</a></td>
+</tr>
+<tr>
+<td>CIKM'24b</td>
+<td><a href="https://arxiv.org/abs/2408.04887">Relevance Filtering for Embedding-based Retrieval</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">おわりに</h2>
+<p>本記事では，著者が今年読んだ応用検索論文を紹介しました．
+まだまだ読みたいと考えている応用検索論文が積んであるので，引き続き読んでいきたいです．</p>
+<p>また，このテックブログバージョンもどこかで書きたいと思って貯めているので，ご期待ください．</p>
+<p>みなさんもぜひ応用検索論文を読んで紹介しましょう！！！</p>
+    <!-- <div class="aspect-w-16 aspect-h-9 mx-auto"></div> CSS placeholder -->
+  </div>
+  <footer class="flex flex-col mt-10 ">
+    <ul class="flex flex-wrap">
+        <li
+          class="bg-zinc-200 hover:bg-zinc-300 dark:hover:bg-zinc-800 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-300 mb-2 mr-2 px-3 py-1.5 rounded-md transition ease-in active:-translate-y-1 active:scale-110 duration-75">
+          <a href="./tag/information_retrieval.html">情報検索</a>
+        </li>
+        <li
+          class="bg-zinc-200 hover:bg-zinc-300 dark:hover:bg-zinc-800 dark:bg-zinc-700 text-zinc-600 dark:text-zinc-300 mb-2 mr-2 px-3 py-1.5 rounded-md transition ease-in active:-translate-y-1 active:scale-110 duration-75">
+          <a href="./tag/paper-memo.html">論文メモ</a>
+        </li>
+    </ul>
+    <div class="flex w-full my-2 bg-zinc-200 dark:bg-zinc-700 rounded-lg">
+      <div class="w-1/2 rounded-l-lg"></div>
+      <div class="w-1/2 hover:bg-zinc-300 dark:hover:bg-zinc-800 rounded-r-lg ">
+        <a class="flex flex-col" href="./kdd24-airbnb-map.html">
+          <div class="text-right mx-4 py-2">
+            <p class="text-zinc-600 dark:text-zinc-300 text-sm">NEXT PAGE »</p>
+            <p class="text-right py-1 hover:underline">Learning to Rank for Maps at Airbnb (KDD 2024) を読んだ</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <div>
+  </div>
+</main>
+
+    </div>
+    <footer class="flex w-full text-xs justify-center mt-10 mb-6 text-zinc-600 dark:text-zinc-400">
+        <div class="px-4">
+            <span>©2024&nbsp;&#8226;&nbsp;</span>Powered by
+            <a class="underline" href="https://getpelican.com/">Pelican</a>&nbsp;&
+            <a class="underline" href="https://github.com/aleylara/Papyrus">Papyrus</a>
+        </div>
+    </footer>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6YKQBD6JJ7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6YKQBD6JJ7');
+</script>
+
+    <script>
+        let themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        let themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        let themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', function () {
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
