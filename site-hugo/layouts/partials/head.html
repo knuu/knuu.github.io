@@ -21,5 +21,10 @@
   <link rel="stylesheet" type="text/css" href="{{ "theme/css/pygment.css" | relURL }}" />
   <link rel="stylesheet" type="text/css" href="{{ "theme/css/custom.css" | relURL }}" />
   <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}" type="image/x-icon" />
+  {{ with site.GetPage "section" "posts" }}
+    {{ with .OutputFormats.Get "rss" }}
+      {{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
+    {{ end }}
+  {{ end }}
   <link rel="canonical" href="{{ .Permalink }}" />
 </head>

@@ -3,10 +3,20 @@ languageCode = "ja-JP"
 defaultContentLanguage = "ja"
 title = "霧でも食ってろ"
 uglyURLs = true
-disableKinds = ["section", "taxonomy", "RSS", "robotsTXT"]
+disableKinds = ["taxonomy", "robotsTXT"]
 disableAliases = true
 hasCJKLanguage = true
 timeZone = "Asia/Tokyo"
+
+[outputs]
+home = ["html"]
+section = ["rss"]
+taxonomy = ["html"]
+term = ["html"]
+
+[services]
+  [services.rss]
+  limit = 20
 
 [pagination]
 pagerSize = 10
@@ -44,12 +54,14 @@ priority = 0.5
   ordered = false
 
 [params]
-author = "knuu"
 description = "技術系メモや論文紹介"
 subtitle = "knuuのブログ"
 subtext = "技術系メモや論文紹介"
 copyright = "©2024"
 googleAnalytics = "G-6YKQBD6JJ7"
+
+  [params.author]
+  name = "knuu"
 
   [[params.social]]
   name = "Twitter"
