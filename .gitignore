@@ -1,0 +1,4 @@
+# Hugo generated artifacts
+/site-hugo/.hugo_build.lock
+/site-hugo/public/
+/site-hugo/resources/_gen/
