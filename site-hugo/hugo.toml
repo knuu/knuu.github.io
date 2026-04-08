@@ -1,0 +1,62 @@
+baseURL = "https://knuu.github.io/"
+languageCode = "ja-JP"
+defaultContentLanguage = "ja"
+title = "霧でも食ってろ"
+uglyURLs = true
+disableKinds = ["section", "taxonomy", "RSS", "robotsTXT"]
+disableAliases = true
+hasCJKLanguage = true
+timeZone = "Asia/Tokyo"
+
+[pagination]
+pagerSize = 10
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+author = "authors"
+
+[permalinks]
+  [permalinks.page]
+  posts = "/:slug"
+  pages = "/pages/:slug"
+  [permalinks.taxonomy]
+  tags = "/tag/:slug.html"
+  categories = "/category/:slug.html"
+  authors = "/author/:slug.html"
+
+[sitemap]
+changeFreq = "weekly"
+priority = 0.5
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+    unsafe = true
+    [markup.goldmark.extensions.passthrough]
+    enable = true
+      [markup.goldmark.extensions.passthrough.delimiters]
+      block = [["$$", "$$"], ["\\[", "\\]"]]
+      inline = [["$", "$"], ["\\(", "\\)"]]
+  [markup.tableOfContents]
+  startLevel = 1
+  endLevel = 3
+  ordered = false
+
+[params]
+author = "knuu"
+description = "技術系メモや論文紹介"
+subtitle = "knuuのブログ"
+subtext = "技術系メモや論文紹介"
+copyright = "©2024"
+googleAnalytics = "G-6YKQBD6JJ7"
+
+  [[params.social]]
+  name = "Twitter"
+  icon = "fab fa-twitter fa-lg"
+  url = "https://twitter.com/n_knuu6"
+
+  [[params.social]]
+  name = "Github"
+  icon = "fab fa-github fa-lg"
+  url = "https://github.com/knuu"

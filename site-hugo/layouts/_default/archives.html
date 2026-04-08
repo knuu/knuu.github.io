@@ -1,0 +1,37 @@
+{{ define "main" }}
+  {{ $posts := where site.RegularPages "Section" "posts" }}
+  <div class="md:mt-14 text-zinc-800 dark:text-zinc-300 pb-6">
+    <h1 class="font-bold text-4xl my-10 px-1">{{ .Title }}</h1>
+    <ul class="flex-col">
+      {{ range $year := $posts.GroupByDate "2006" }}
+        <li>
+          <div class="my-6 px-2">
+            <h2 class="text-2xl font-semibold">{{ $year.Key }}
+              <sup class="text-sm text-zinc-800 dark:text-zinc-400">{{ len $year.Pages }}</sup>
+            </h2>
+          </div>
+          {{ range $month := $year.Pages.GroupByDate "1月" }}
+            <div class="md:flex p-2">
+              <div class="flex text-xl font-semibold md:w-40">
+                {{ $month.Key }}
+                <sup class="text-sm m-1 text-zinc-800 dark:text-zinc-400">{{ len $month.Pages }}</sup>
+              </div>
+              <div class="flex-1">
+                {{ range $month.Pages }}
+                  <div class="mb-2">
+                    <a href="{{ .RelPermalink }}">
+                      <span class="text-lg">{{ .Title }}</span>
+                      <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
+                        <time>{{ .Date | time.Format "2006-01-02" }}</time>
+                      </div>
+                    </a>
+                  </div>
+                {{ end }}
+              </div>
+            </div>
+          {{ end }}
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

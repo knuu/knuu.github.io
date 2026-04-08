@@ -1,0 +1,27 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="generator" content="Hugo" />
+  {{ $description := site.Params.description }}
+  {{ with .Params.summary }}{{ $description = . }}{{ end }}
+  {{ if and (not .Params.summary) (ne .Kind "home") }}
+    {{ with .Summary }}{{ $description = . | plainify | truncate 160 }}{{ end }}
+  {{ end }}
+  <meta name="description" content="{{ $description }}" />
+  <title>
+    {{- if eq .Kind "home" -}}
+      {{ site.Title }}
+    {{- else -}}
+      {{ .Title }} | {{ site.Title }}
+    {{- end -}}
+  </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab|Ruda" />
+  <link rel="stylesheet" type="text/css" href="{{ "theme/css/main.css" | relURL }}" />
+  <link rel="stylesheet" type="text/css" href="{{ "theme/css/pygment.css" | relURL }}" />
+  <link rel="stylesheet" type="text/css" href="{{ "theme/css/custom.css" | relURL }}" />
+  <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}" type="image/x-icon" />
+  <link rel="stylesheet" href="{{ "theme/css/stork.css" | relURL }}" />
+  <link rel="stylesheet" media="screen and (prefers-color-scheme: dark)" href="{{ "theme/css/stork-dark.css" | relURL }}" />
+  <link rel="canonical" href="{{ .Permalink }}" />
+</head>

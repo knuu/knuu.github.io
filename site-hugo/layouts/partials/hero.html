@@ -1,0 +1,13 @@
+<div class="my-12 md:my-24 text-zinc-800 dark:text-zinc-300">
+  <h1 class="mb-6 text-3xl font-bold">{{ site.Params.subtitle }}</h1>
+  <p class="mb-8 text-zinc-600 dark:text-zinc-400">{{ site.Params.subtext }}</p>
+  <ul class="flex px-2 space-x-4 text-lg">
+    {{ range site.Params.social }}
+      <li>
+        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" title="{{ .name }}" aria-label="{{ .name }}">
+          <i class="{{ .icon }}"></i>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+</div>

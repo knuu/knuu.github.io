@@ -1,0 +1,31 @@
+{{ define "main" }}
+  {{ $isPost := eq .Section "posts" }}
+  {{ if $isPost }}
+    {{ partial "breadcrumbs.html" . }}
+  {{ end }}
+  <main>
+    <header>
+      <h1 class="font-semibold text-3xl my-2">{{ .Title }}</h1>
+      <footer class="flex text-sm text-zinc-800 dark:text-zinc-400">
+        <div class="flex text-xs text-zinc-800 dark:text-zinc-400">
+          {{ with .Date }}<time>{{ . | time.Format "2006-01-02" }}</time>{{ end }}
+          {{ with .Lastmod }}
+            {{ if ne (.Format "2006-01-02T15:04:05Z07:00") ($.Date.Format "2006-01-02T15:04:05Z07:00") }}
+              <div><span>&nbsp;·&nbsp;updated {{ . | time.Format "2006-01-02" }}</span></div>
+            {{ end }}
+          {{ end }}
+        </div>
+      </footer>
+    </header>
+    {{ if and $isPost (gt (len .Fragments.Headings) 0) }}
+      <details class="flex flex-col my-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-lg" open>
+        <summary class="text-lg font-bold">Table of contents</summary>
+        <div class="mx-4 px-4 underline">{{ .TableOfContents }}</div>
+      </details>
+    {{ end }}
+    <div class="max-w-7xl container mx-auto my-8 text-zinc-800 dark:text-zinc-300 prose lg:max-w-none prose-headings:text-zinc-800 prose-headings:dark:text-zinc-300 prose-h1:text-3xl lg:prose-h1:text-3xl prose-headings:font-semibold prose-pre:bg-zinc-200 prose-pre:text-zinc-800 dark:prose-pre:bg-zinc-800 dark:prose-pre:text-zinc-200 prose-blockquote:text-zinc-800 dark:prose-blockquote:text-zinc-200 prose-a:text-slate-600 prose-a:font-normal dark:prose-a:text-slate-400 dark:prose-strong:text-zinc-200 dark:prose-code:text-zinc-200 dark:prose-code:bg-zinc-800 prose-code:bg-zinc-200 prose-code:font-light prose-img:rounded-md sm:text-left md:text-justify">
+      {{ .Content }}
+    </div>
+  </main>
+  {{ partial "mathjax.html" . }}
+{{ end }}

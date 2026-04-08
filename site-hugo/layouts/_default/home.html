@@ -1,0 +1,15 @@
+{{ define "main" }}
+  {{ partial "hero.html" . }}
+  {{ $posts := where site.RegularPages "Section" "posts" }}
+  {{ $paginator := .Paginate $posts }}
+  <div class="py-1">
+    <ul>
+      {{ range $paginator.Pages }}
+        <li class="transition ease-in active:-translate-y-1 active:scale-110 duration-75">
+          {{ partial "post_card.html" . }}
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+  {{ partial "pagination.html" $paginator }}
+{{ end }}

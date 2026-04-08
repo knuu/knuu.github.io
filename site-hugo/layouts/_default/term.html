@@ -1,0 +1,27 @@
+{{ define "main" }}
+  {{ $isAuthor := hasPrefix .RelPermalink "/author/" }}
+  {{ $isTag := hasPrefix .RelPermalink "/tag/" }}
+  {{ $label := .Title }}
+  {{ if $isTag }}
+    {{ with index hugo.Data.tag_labels .Title }}
+      {{ $label = . }}
+    {{ end }}
+  {{ end }}
+  {{ if $isAuthor }}
+    {{ partial "hero.html" . }}
+  {{ else }}
+    {{ partial "breadcrumbs.html" . }}
+    <div class="md:mt-14 text-zinc-800 dark:text-zinc-300 pb-6">
+      <h1 class="font-bold text-4xl my-10 px-1">{{ $label }}</h1>
+    </div>
+  {{ end }}
+  <div class="py-1">
+    <ul>
+      {{ range .Pages.ByDate.Reverse }}
+        <li class="transition ease-in active:-translate-y-1 active:scale-110 duration-75">
+          {{ partial "post_card.html" . }}
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}
