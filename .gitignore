@@ -2,3 +2,4 @@
 /site-hugo/.hugo_build.lock
 /site-hugo/public/
 /site-hugo/resources/_gen/
+/site-hugo/scripts/
