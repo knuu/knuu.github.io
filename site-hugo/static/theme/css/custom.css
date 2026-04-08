@@ -25,6 +25,39 @@
   margin-top: 0.5rem;
 }
 
+.post-card {
+  position: relative;
+}
+
+.post-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.post-card-link {
+  text-decoration: none;
+}
+
+.post-card-link:hover {
+  text-decoration: none;
+}
+
+.post-card-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.post-card-summary,
+.post-card-meta {
+  pointer-events: none;
+}
+
+.post-card-summary a {
+  pointer-events: auto;
+}
+
 .site-nav-menu {
   gap: 0.35rem 0.2rem;
 }
